@@ -7,15 +7,15 @@ public abstract class CharacterCore : MonoBehaviour
     [SerializeField] private CharacterData _characterData;
     public CharacterData CharacterData => _characterData; // getter
 
-    // ·±Å¸ÀÓ Ä³¸¯ÅÍ µ¥ÀÌÅÍ º¯¼ö
-    protected float maxHealth; // ¹öÇÁ µî ÃßÈÄ »ç¿ë¿¡ À¯¿¬ÇÔÀ» À§ÇÏ¿© maxHealthµµ ·±Å¸ÀÓ º¯¼ö·Î °ü¸®
-    protected float currentHealth; // ÇöÀç Ã¼·Â
-    protected float currentPhysicalDefense; // ÇöÀç ¹°¸® ¹æ¾î·Â
-    protected float currentMagicalResitance; // ÇöÀç ¸¶¹ı ÀúÇ×·Â
-    protected float currentAttackDamage; // ÇöÀç °ø°İ·Â
-    protected float currentAttackSpeed; // ÇöÀç °ø°İ ¼Óµµ
-    protected float currentMoveSpeed; // ÇöÀç ÀÌµ¿ ¼Óµµ
-    protected float attackCoolDown; // ÇöÀç °ø°İ ÄğÅ¸ÀÓ = 1f / attackSpeed
+    // ëŸ°íƒ€ì„ ìºë¦­í„° ë°ì´í„° ë³€ìˆ˜
+    protected float maxHealth; // ë²„í”„ ë“± ì¶”í›„ ì‚¬ìš©ì— ìœ ì—°í•¨ì„ ìœ„í•˜ì—¬ maxHealthë„ ëŸ°íƒ€ì„ ë³€ìˆ˜ë¡œ ê´€ë¦¬
+    protected float currentHealth; // í˜„ì¬ ì²´ë ¥
+    protected float currentPhysicalDefense; // í˜„ì¬ ë¬¼ë¦¬ ë°©ì–´ë ¥
+    protected float currentMagicalResitance; // í˜„ì¬ ë§ˆë²• ì €í•­ë ¥
+    protected float currentAttackDamage; // í˜„ì¬ ê³µê²©ë ¥
+    protected float currentAttackSpeed; // í˜„ì¬ ê³µê²© ì†ë„
+    protected float currentMoveSpeed; // í˜„ì¬ ì´ë™ ì†ë„
+    protected float attackCoolDown; // ê³µê²© ì¿¨íƒ€ì„ = 1f / attackSpeed
     
     protected virtual void Awake()
     {

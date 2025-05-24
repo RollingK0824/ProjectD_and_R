@@ -13,16 +13,16 @@ public abstract class CharacterData : ScriptableObject
     public float maxHealth = 100f;
     public float currentHealth = 100f;
 
-    // ÃÖÁ¾ µ¥¹ÌÁö = °ø°İ·Â * (1 - ¹æ¾î·Â °¨¼ÒÀ²)
-    // ¹æ¾î·Â °¨¼ÒÀ² = ¹æ¾î·Â / (¹æ¾î·Â + K)
-    // k´Â »ó¼ö·Î ¹ë·±½Ì Á¶ÀıÀ» ¸ñÀûÀ¸·Î Á¶ÀıÇÒ °ª
-    public float physicalDefense = 10f; // ¹æ¾î·Â 
-    public float magicalResistance = 10f; // ¸¶¹ı ÀúÇ×·Â
+    // ìµœì¢… ë°ë¯¸ì§€ = ê³µê²©ë ¥ * (1 - ë°©ì–´ë ¥ ê°ì†Œìœ¨)
+    // ë°©ì–´ë ¥ ê°ì†Œìœ¨ = ë°©ì–´ë ¥ / (ë°©ì–´ë ¥ + K)
+    // këŠ” ìƒìˆ˜ë¡œ ë°¸ëŸ°ì‹± ì¡°ì ˆì„ ëª©ì ìœ¼ë¡œ ì¡°ì ˆí•  ê°’
+    public float physicalDefense = 10f; // ë°©ì–´ë ¥ 
+    public float magicalResistance = 10f; // ë§ˆë²• ì €í•­ë ¥
 
     public float attackDamage = 10f;
-    public float attackSpeed = 1f; // AttackCooldown = 1f / attackSpeed 1È¸ °ø°İÈÄ attackCooldownÃÊ ÈÄ¿¡ °ø°İ °¡´É
+    public float attackSpeed = 1f; // AttackCooldown = 1f / attackSpeed 1íšŒ ê³µê²©í›„ attackCooldownì´ˆ í›„ì— ê³µê²© ê°€ëŠ¥
     public float moveSpeed = 5f;
 
     [Header("Visuals")]
-    public GameObject characterPrefab; // Ä³¸¯ÅÍÀÇ ¾Ö´Ï¸ŞÀÌÅÍ ÇÁ¸®ÆÕ
+    public GameObject characterPrefab; // ìºë¦­í„°ì˜ ì• ë‹ˆë©”ì´í„° í”„ë¦¬íŒ¹
 }
