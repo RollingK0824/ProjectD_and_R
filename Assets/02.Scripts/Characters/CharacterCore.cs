@@ -1,3 +1,4 @@
+// Assets/02.Scripts/Characters/CharacterCore.cs
 using UnityEngine;
 using System;
 
@@ -40,7 +41,7 @@ public abstract class CharacterCore : MonoBehaviour
         }
         else
         {
-            attackCoolDown = 0.3f;
+            attackCoolDown = 2f;  // 최소 공격 딜레이 2초로 지정
         }
     }
 }
