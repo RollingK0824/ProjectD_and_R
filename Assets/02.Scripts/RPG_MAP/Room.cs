@@ -33,12 +33,35 @@ public class Room : MonoBehaviour
         protected set => _type = value;
     }
 
+    [SerializeField][Header("이동할 수 있는 방")] List<Room> _next = new List<Room>();
+    public List<Room> Next
+    {
+        get => _next;
+        protected set => _next = value;
+    }
+
+    RoomTouchEvent _roomTouchEvent;
+
     public void Init(RoomType type, int height, int width)
     {
         _type = type;
         _xPos = width;
         _yPos = height;
-        _name = type.ToString() + "Room" + "(" + YPos + "," + XPos + ")";
+        _name = type.ToString() + "Room" + "(" + _yPos + "," + _xPos + ")";
+        gameObject.name = _name;
+
+        RoomTouchEventConnect();
+    }
+
+    void RoomTouchEventConnect()
+    {
+        _roomTouchEvent = GetComponent<RoomTouchEvent>();
+        if (_roomTouchEvent == null)
+        {
+            _roomTouchEvent = gameObject.AddComponent<RoomTouchEvent>();
+        }
+
+        _roomTouchEvent.Init(this);
     }
 }
 
