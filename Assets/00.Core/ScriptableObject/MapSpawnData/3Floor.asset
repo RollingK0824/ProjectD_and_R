@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d30f6a8fdce4b49a3ff88a111f7482, type: 3}
+  m_Name: 3Floor
+  m_EditorClassIdentifier: 
+  _Floor: 3
+  _Nomal: 60
+  _Elite: 10
+  _Event: 20
+  _Shop: 0
+  _Reward: 10
