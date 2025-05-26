@@ -34,14 +34,20 @@ public class Room : MonoBehaviour
     }
 
     [SerializeField][Header("이동할 수 있는 방")] List<Room> _next = new List<Room>();
+
+    //테스트용
+    public Color _Color;
     public List<Room> Next
     {
         get => _next;
         protected set => _next = value;
     }
 
-    RoomTouchEvent _roomTouchEvent;
+    public RoomTouchEvent _roomTouchEvent;
 
+    /// <summary>
+    /// 방 정보 초기화
+    /// </summary>
     public void Init(RoomType type, int height, int width)
     {
         _type = type;
@@ -49,7 +55,7 @@ public class Room : MonoBehaviour
         _yPos = height;
         _name = type.ToString() + "Room" + "(" + _yPos + "," + _xPos + ")";
         gameObject.name = _name;
-
+        _Color = gameObject.GetComponent<Renderer>().material.color;
         RoomTouchEventConnect();
     }
 
