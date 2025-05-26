@@ -1,9 +1,40 @@
 // Assets/00.Core/Interfaces/IDamageable.cs
-using UnityEngine;
+using ProjectD_and_R.Enums;
+using System;
 
 public interface IDamageable
 {
-    void TakeDamage(float rawDamage);   // 데미지를 받는 함수
-    void Heal(float amount);    // 체력 회복 함수
-    void Die(); // 사망 함수
+    /// <summary>
+    /// 데미지를 받는 함수
+    /// </summary>
+    /// <param name="rawDamage">데미지</param>
+    /// <param name="damageType">데미지 타입(물리, 마법, 고정)</param>
+    void TakeDamage(float rawDamage, DamageType damageType);
+
+    /// <summary>
+    /// 체력 회복 함수
+    /// </summary>
+    /// <param name="amount">회복 수치</param>
+    void Heal(float amount);
+
+    /// <summary>
+    /// 사망 함수
+    /// </summary>
+    void Die();
+
+    /// <summary>
+    /// 체력이 변경될 시 호출 이벤트
+    /// </summary>
+    event Action<float> OnHealthChanged;
+
+    /// <summary>
+    /// 사망 시 호출 이벤트
+    /// </summary>
+    event Action OnDied;
+
+    /// <summary>
+    /// 초기 스탯 초기화 함수
+    /// </summary>
+    /// <param name="characterCore">캐릭터 코어</param>
+    void Initialize(CharacterCore characterCore);
 }
