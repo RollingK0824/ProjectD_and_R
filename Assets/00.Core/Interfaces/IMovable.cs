@@ -3,15 +3,7 @@ using UnityEngine;
 
 public interface IMovable
 {
-    enum MoveType
-    {
-        None = 0,
-        Ground = 1 << 0,
-        Water = 1 << 1,
-        Air = 1 << 2,
-        Wall = 1 << 3,
-        All = Ground | Water | Air | Wall
-    }
+
     /// <summary>
     /// 특정 위치로 이동 함수
     /// </summary>
@@ -23,9 +15,15 @@ public interface IMovable
     /// </summary>
     void StopMoving();
 
-    bool bIsMoving { get; } // 현재 이동 중인지 여부
-    float CurrentMoveSpeed { get; } // 현재 이동 속도
+    /// <summary>
+    /// 현재 이동 중인지 여부
+    /// </summary>
+    bool bIsMoving { get; }
 
-    MoveType MovableTerrainTypes { get; }   // 이동 가능 지형 타입
+    /// <summary>
+    /// 초기 스탯 초기화 함수
+    /// </summary>
+    /// <param name="characterCore">캐릭터 코어</param>
+    void Initialize(CharacterCore characterCore);
 }
 

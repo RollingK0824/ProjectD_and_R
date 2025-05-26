@@ -23,36 +23,36 @@ public class TouchManager : Singleton<TouchManager>
         }
     }
 
-        /// <summary>
-        /// UI ≈Õƒ° ¿Ã∫•∆Æ
-        /// </summary>
-        void OnUiTouch()
+    /// <summary>
+    /// UI ÌÑ∞Ïπò Ïù¥Î≤§Ìä∏
+    /// </summary>
+    void OnUiTouch()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
         {
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                Debug.Log("UI");
-                return;
-            }
-        }
-
-        void OnObjTouch(ITouchble touch)
-        {    
-            if (touch != null)
-            {
-            touch.OnTouch();
-            }
-            else
-            {
-                Debug.Log("¿Ã∫•∆Æx");
-            }
-        }
-
-        /// <summary>
-        /// ∫Û∞¯∞£ ≈Õƒ° ¿Ã∫•∆Æ
-        /// </summary>
-        void OnEmptySpaceTouch()
-        {
-            Debug.Log("∫Û ∞¯∞£");
+            Debug.Log("UI");
+            return;
         }
     }
+
+    void OnObjTouch(ITouchble touch)
+    {
+        if (touch != null)
+        {
+            touch.OnTouch();
+        }
+        else
+        {
+            Debug.Log("Ïù¥Î≤§Ìä∏x");
+        }
+    }
+
+    /// <summary>
+    /// ÎπàÍ≥µÍ∞Ñ ÌÑ∞Ïπò Ïù¥Î≤§Ìä∏
+    /// </summary>
+    void OnEmptySpaceTouch()
+    {
+        Debug.Log("Îπà Í≥µÍ∞Ñ");
+    }
+}
 
