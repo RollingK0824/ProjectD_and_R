@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class TouchManager : Singleton<TouchManager>
 {
+    [SerializeField] ITouchble Touchble;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -13,7 +14,9 @@ public class TouchManager : Singleton<TouchManager>
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                ITouchble Touchble = hit.collider.GetComponent<ITouchble>();
+                if (Touchble != null && Touchble!= hit.collider.GetComponent<ITouchble>()) Touchble.OnOtherTouch();
+
+                Touchble = hit.collider.GetComponent<ITouchble>();
                 OnObjTouch(Touchble);
             }
             else
@@ -30,10 +33,19 @@ public class TouchManager : Singleton<TouchManager>
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
+
+            //���� Touchble�� ui �ִ��۾� �ʿ� 17���� ����
+
             Debug.Log("UI");
             return;
         }
     }
+
+
+    /// <summary>
+    /// Obj ��ġ �̺�Ʈ
+    /// </summary>
+    /// <param name="touch"></param>
 
     void OnObjTouch(ITouchble touch)
     {
@@ -43,16 +55,24 @@ public class TouchManager : Singleton<TouchManager>
         }
         else
         {
+
             Debug.Log("이벤트x");
         }
     }
 
     /// <summary>
-    /// 빈공간 터치 이벤트
+
+    /// ����� ��ġ �̺�Ʈ
     /// </summary>
     void OnEmptySpaceTouch()
     {
+        if (Touchble != null)
+            Touchble.OnEmptyTouch();
+
+    void OnEmptySpaceTouch()
+    {
         Debug.Log("빈 공간");
+
     }
 }
 

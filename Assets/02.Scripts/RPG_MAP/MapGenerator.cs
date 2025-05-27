@@ -44,7 +44,7 @@ public class MapGenerator : MonoBehaviour
     {
         _MapRenderer.InitializeMap(_Map_Height, _Map_Width, _Real_Map);
         VurtualMapGenerate();
-        _MapRenderer.RenderMap(_Real_Map,_Virtual_Map);
+        _MapRenderer.RenderMap(_Real_Map, _Virtual_Map);
     }
 
     /// <summary>
@@ -66,7 +66,7 @@ public class MapGenerator : MonoBehaviour
                     hasRoom = true;
                     _Virtual_Map[height, width] = true;
 
-                    RoomGenerate(_Real_Map[height,width].GetComponent<Room>(),height + 1, height, width);
+                    RoomGenerate(_Real_Map[height, width].GetComponent<Room>(), height + 1, height, width);
                 }
             }
             if (!hasRoom)
@@ -79,14 +79,15 @@ public class MapGenerator : MonoBehaviour
             hasRoom = false;
         }
 
-       ConnectedRoomsSet();
+        ConnectedRoomsSet();
+        EnsureAllRoomsReachable();
     }
 
     /// <summary>
     /// 방 데이터 생성
     /// </summary>
     /// <returns>확률로 생성된 랜덤 방 데이터</returns>
-    void RoomGenerate(Room room,int floor, int height, int width)
+    void RoomGenerate(Room room, int floor, int height, int width)
     {
         RoomSpawnData data = _RoomSpawnData.FirstOrDefault(d => d._Floor == floor);
 
@@ -173,4 +174,59 @@ public class MapGenerator : MonoBehaviour
                 rooms.Add(room);
         }
     }
+
+    /// <summary>
+    /// 연결된 방 없는지 체크 후 연결
+    /// </summary>
+    void EnsureAllRoomsReachable()
+    {
+        for (int height = 1; height < _Map_Height; height++)
+        {
+            for (int width = 0; width < _Map_Width; width++)
+            {
+                if (!_Virtual_Map[height, width]) continue;
+
+                bool hasEntry = false;
+
+                for (int i = -1; i <= 1; i++)
+                {
+                    int checkW = width + i;
+                    if (checkW >= 0 && checkW < _Map_Width && _Virtual_Map[height - 1, checkW])
+                    {
+                        Room lowerRoom = _Real_Map[height - 1, checkW].GetComponent<Room>();
+                        if (lowerRoom.Next.Contains(_Real_Map[height, width].GetComponent<Room>()))
+                        {
+                            hasEntry = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!hasEntry)
+                {
+                    int minDistance = _Map_Width;
+                    Room closestRoom = null;
+
+                    for (int i = 0; i < _Map_Width; i++)
+                    {
+                        if (_Virtual_Map[height - 1, i])
+                        {
+                            int distance = Mathf.Abs(i - width);
+                            if (distance < minDistance)
+                            {
+                                minDistance = distance;
+                                closestRoom = _Real_Map[height - 1, i].GetComponent<Room>();
+                            }
+                        }
+                    }
+
+                    if (closestRoom != null)
+                    {
+                        closestRoom.Next.Add(_Real_Map[height, width].GetComponent<Room>());
+                    }
+                }
+            }
+        }
+    }
+
 }
