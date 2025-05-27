@@ -16,37 +16,36 @@ public class RoomTouchEvent : MonoBehaviour, ITouchble
     {
         if (room != null)
         {
+            if(_isRoomSelect)
+            {
+                RpgManager.Instance.EnterStage(room);
+                ReturnSelectRoom();
+            }
+
             _isRoomSelect = true;
 
             //기능만 구현 최적화 x
             originalColor = room.gameObject.GetComponent<Renderer>().material.color;
             room.gameObject.GetComponent<Renderer>().material.color = Color.black;
-
-            for (int i = 0; i < room.Next.Count; i++)
-            {
-                room.Next[i].gameObject.GetComponent<Renderer>().material.color = Color.blue;
-            }
         }
     }
 
     public void OnEmptyTouch()
     {
-        TestTouch();
+        Debug.Log("빈공간");
+        ReturnSelectRoom();
     }
 
     public void OnOtherTouch()
     {
-        TestTouch();
+        Debug.Log("다른공간");
+        ReturnSelectRoom();
     }
 
-    public void TestTouch()
+    public void ReturnSelectRoom()
     {
         _isRoomSelect = false;
         room.gameObject.GetComponent<Renderer>().material.color = originalColor;
-        for (int i = 0; i < room.Next.Count; i++)
-        {
-            room.Next[i].gameObject.GetComponent<Renderer>().material.color = room._Color;
-        }
     }
 
     public void Init(Room R)
@@ -54,32 +53,5 @@ public class RoomTouchEvent : MonoBehaviour, ITouchble
         room = R;
     }
 
-    void UpdateRoomVisual(GameObject roomObj, RoomType type)
-    {
-        Renderer renderer = roomObj.GetComponent<Renderer>();
-        if (renderer != null)
-        {
-            switch (type)
-            {
-                case RoomType.Normal:
-                    renderer.material.color = Color.white;
-                    break;
-                case RoomType.Elite:
-                    renderer.material.color = Color.red;
-                    break;
-                case RoomType.Event:
-                    renderer.material.color = Color.yellow;
-                    break;
-                case RoomType.Shop:
-                    renderer.material.color = Color.green;
-                    break;
-                case RoomType.Reward:
-                    renderer.material.color = Color.cyan;
-                    break;
-                default:
-                    renderer.material.color = Color.gray;
-                    break;
-            }
-        }
-    }
+
 }
