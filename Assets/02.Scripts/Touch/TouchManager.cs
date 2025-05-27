@@ -14,7 +14,7 @@ public class TouchManager : Singleton<TouchManager>
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                if (Touchble != null && Touchble!= hit.collider.GetComponent<ITouchble>()) Touchble.OnOtherTouch();
+                if (Touchble != null && Touchble != hit.collider.GetComponent<ITouchble>()) Touchble.OnOtherTouch();
 
                 Touchble = hit.collider.GetComponent<ITouchble>();
                 OnObjTouch(Touchble);
@@ -68,11 +68,6 @@ public class TouchManager : Singleton<TouchManager>
     {
         if (Touchble != null)
             Touchble.OnEmptyTouch();
-
-    void OnEmptySpaceTouch()
-    {
-        Debug.Log("빈 공간");
-
     }
 }
 
