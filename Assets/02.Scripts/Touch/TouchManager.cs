@@ -27,22 +27,26 @@ public class TouchManager : Singleton<TouchManager>
     }
 
     /// <summary>
-    /// UI ÅÍÄ¡ ÀÌº¥Æ®
+    /// UI í„°ì¹˜ ì´ë²¤íŠ¸
     /// </summary>
     void OnUiTouch()
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
-            //ÃßÈÄ Touchble¿¡ ui ³Ö´ÂÀÛ¾÷ ÇÊ¿ä 17¶óÀÎ ÂüÁ¶
+
+            //ï¿½ï¿½ï¿½ï¿½ Touchbleï¿½ï¿½ ui ï¿½Ö´ï¿½ï¿½Û¾ï¿½ ï¿½Ê¿ï¿½ 17ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+
             Debug.Log("UI");
             return;
         }
     }
 
+
     /// <summary>
-    /// Obj ÅÍÄ¡ ÀÌº¥Æ®
+    /// Obj ï¿½ï¿½Ä¡ ï¿½Ìºï¿½Æ®
     /// </summary>
     /// <param name="touch"></param>
+
     void OnObjTouch(ITouchble touch)
     {
         if (touch != null)
@@ -51,17 +55,24 @@ public class TouchManager : Singleton<TouchManager>
         }
         else
         {
-            Debug.Log("ÀÌº¥Æ®x");
+
+            Debug.Log("ì´ë²¤íŠ¸x");
         }
     }
 
     /// <summary>
-    /// ºó°ø°£ ÅÍÄ¡ ÀÌº¥Æ®
+
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ìºï¿½Æ®
     /// </summary>
     void OnEmptySpaceTouch()
     {
         if (Touchble != null)
             Touchble.OnEmptyTouch();
+
+    void OnEmptySpaceTouch()
+    {
+        Debug.Log("ë¹ˆ ê³µê°„");
+
     }
 }
 

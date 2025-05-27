@@ -7,7 +7,7 @@ public class EnemyCharacterData : CharacterData
     [Header("Enemy Specific")]
     public int experienceOnDefeat = 10;
     public int goldOnDefeat = 5;
-    public EnemyType enemyType; // Enum: NORMAL, ELITE, BOSS µî
+    public EnemyType enemyType; // Enum: NORMAL, ELITE, BOSS ë“±
     public float detectionRange = 10f;
 }
 

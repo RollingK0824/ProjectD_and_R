@@ -1,28 +1,85 @@
 // Assets/00.Core/ScriptableObjects/Characters/CharacterData.cs
 using UnityEngine;
+using ProjectD_and_R.Enums;
 
-[CreateAssetMenu(fileName = "NewCharacterData", menuName = "ScriptableObjects/Character/CharacterData")]
 public abstract class CharacterData : ScriptableObject
 {
-    [Header("Basic Info")]
-    public string characterName = "New Character";
-    public Sprite characterIcon;
-    public string description = "";
+    /// <summary>
+    /// ìºë¦­í„° ì´ë¦„
+    /// </summary>
+    public string CharacterName => _characterName;
+    [Header("Basic Info")][SerializeField] private string _characterName = "New Character";
 
-    [Header("Stats")]
-    public float maxHealth = 100f;
-    public float currentHealth = 100f;
+    /// <summary>
+    /// ìºë¦­í„° ì•„ì´ì½˜
+    /// </summary>
+    public Sprite CharacterIcon => _characterIcon;
+    [SerializeField] private Sprite _characterIcon;
 
-    // ÃÖÁ¾ µ¥¹ÌÁö = °ø°İ·Â * (1 - ¹æ¾î·Â °¨¼ÒÀ²)
-    // ¹æ¾î·Â °¨¼ÒÀ² = ¹æ¾î·Â / (¹æ¾î·Â + K)
-    // k´Â »ó¼ö·Î ¹ë·±½Ì Á¶ÀıÀ» ¸ñÀûÀ¸·Î Á¶ÀıÇÒ °ª
-    public float physicalDefense = 10f; // ¹æ¾î·Â 
-    public float magicalResistance = 10f; // ¸¶¹ı ÀúÇ×·Â
+    /// <summary>
+    /// ìºë¦­í„° ì„¤ëª…
+    /// </summary>
+    public string Description => _description;
+    [SerializeField] private string _description = "";
 
-    public float attackDamage = 10f;
-    public float attackSpeed = 1f; // AttackCooldown = 1f / attackSpeed 1È¸ °ø°İÈÄ attackCooldownÃÊ ÈÄ¿¡ °ø°İ °¡´É
-    public float moveSpeed = 5f;
+    /// <summary>
+    /// ìµœëŒ€ ì²´ë ¥
+    /// </summary>
+    public float MaxHealth => _maxHealth;
+    [Header("Stats")][SerializeField] private float _maxHealth = 100f;
 
-    [Header("Visuals")]
-    public GameObject characterPrefab; // Ä³¸¯ÅÍÀÇ ¾Ö´Ï¸ŞÀÌÅÍ ÇÁ¸®ÆÕ
+    /// <summary>
+    /// ë°©ì–´ë ¥(ë¬¼ë¦¬)
+    /// </summary>
+    public float PhysicalDefense => _physicalDefense;
+    [SerializeField] private float _physicalDefense = 10f;
+
+    /// <summary>
+    /// ë§ˆë²• ì €í•­ë ¥
+    /// </summary>
+    public float MagicalResistance => _magicalResistance;
+    [SerializeField] private float _magicalResistance = 10f;
+
+    /// <summary>
+    /// ê³µê²©ë ¥
+    /// </summary>
+    public float AttackDamage => _attackDamage;
+    [SerializeField] private float _attackDamage = 10f;
+
+    /// <summary>
+    /// ê³µê²© ì†ë„
+    /// </summary>
+    public float AttackSpeed => _attackSpeed;
+    [SerializeField] private float _attackSpeed = 0.3f;
+
+    /// <summary>
+    /// ê³µê²© ì‚¬ê±°ë¦¬
+    /// </summary>
+    public float AttackRange => _attackedRange;
+    [SerializeField] private float _attackedRange;
+
+    /// <summary>
+    /// ì´ë™ ì†ë„
+    /// </summary>
+    public float MoveSpeed => _moveSpeed;
+    [SerializeField] private float _moveSpeed = 5f;
+
+    /// <summary>
+    /// ìºë¦­í„° í”„ë¦¬íŒ¹
+    /// </summary>
+    public GameObject CharacterPrefab => _characterPrefab;
+    [Header("Visuals")][SerializeField] private GameObject _characterPrefab;
+
+    /// <summary>
+    /// ì´ë™ ê°€ëŠ¥ ì§€í˜• íƒ€ì…
+    /// </summary>
+    public MoveType MovableTerrainTypes => _movableTerrainTypes;
+    [SerializeField] private MoveType _movableTerrainTypes;
+
+    /// <summary>
+    /// ì§„ì˜ ì •ë³´ None, Player, Enemy
+    /// </summary>
+    public Faction Faction => _faction;
+    [SerializeField] private Faction _faction;
+
 }
