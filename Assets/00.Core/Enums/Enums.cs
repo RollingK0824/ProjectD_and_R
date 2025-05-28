@@ -39,5 +39,15 @@ namespace ProjectD_and_R.Enums
         EndPoint = 5,
     }
 
+    public enum GameState
+    {
+        MainMenu,
+        StageStarting,
+        StageInProgress,
+        StagePaused,
+        StageEnded,
+        GameOver
+    }
+
 
 }
