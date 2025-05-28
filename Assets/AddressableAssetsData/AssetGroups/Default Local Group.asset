@@ -17,6 +17,16 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 647c40ac33e7bf24abd7d3ee7662c7ef
   m_SerializeEntries:
+  - m_GUID: 1d2d1d968608a01438165283d7fc927f
+    m_Address: Assets/03.Prefabs/Characters/TestEnemy.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3edb9393619df4846a305f31f53ad4f2
+    m_Address: Assets/03.Prefabs/Characters/TestPlayer.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51c2d528298150a46ae5c06f905dfb13
     m_Address: Assets/00.Core/ScriptableObject/MapSpawnData/5Floor.asset
     m_ReadOnly: 0
