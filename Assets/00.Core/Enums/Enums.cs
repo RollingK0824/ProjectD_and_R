@@ -29,5 +29,15 @@ namespace ProjectD_and_R.Enums
         Enemy = 2,
     }
 
+    public enum GridCellType
+    {
+        None = 0,
+        Path = 1,
+        Buildable = 2,
+        Obastacle = 3,
+        SpawnPoint = 4,
+        EndPoint = 5,
+    }
+
 
 }
