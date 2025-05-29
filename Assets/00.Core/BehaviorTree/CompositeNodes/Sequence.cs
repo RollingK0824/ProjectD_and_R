@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sequence : Node
+// 시퀀스 노드 - 자식 노드를 순서대로 실행, 모든 노드가 성공해야 성공을 변환(AND연산과 유사)
+public class Sequence : ControlNode
 {
     public Sequence() : base() { }
     public Sequence(List<INode> children) : base(children) { }

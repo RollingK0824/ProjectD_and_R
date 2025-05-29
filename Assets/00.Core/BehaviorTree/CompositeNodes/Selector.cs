@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Selector : Node
+// 셀렉터 노드 - 자식 노드를 순서대로 실행, 하나라도 성공하면 즉시 성공을 반환(OR연산과 유사)
+public class Selector : ControlNode
 {
     public Selector() : base() { }
     public Selector(List<INode> children) : base(children) { }

@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 반전 노드 실패 -> 성공 / 성공 -> 실패
-public class Inverter : Node
+public class Inverter : ControlNode
 {
-    private INode _child;
-
-    public Inverter(INode child)
-    {
-        _child = child;
-    }
+    public Inverter(INode child) : base(child) { }
 
     public override NodeState Evaluate()
     {
-        switch (_child.Evaluate())
+        if(_children.Count == 0 || _children[0]==null)
+        {
+            _nodeState = NodeState.Failure;
+            return _nodeState;
+        }
+
+        switch (_children[0].Evaluate())
         {
             case NodeState.Running:
                 _nodeState = NodeState.Running;
@@ -29,17 +30,5 @@ public class Inverter : Node
                 break;
         }
         return _nodeState;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

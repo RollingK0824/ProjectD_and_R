@@ -2,24 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConditionDecorator : Node
+public class ConditionDecorator : ControlNode
 {
     private INode _conditionNode; // 조건 검사 노드
-    private INode _childNode; // 조건이 충족 시 실행할 자식 노드
-    public ConditionDecorator(INode conditionNode, INode childNode)
+    public ConditionDecorator(INode conditionNode, INode childNode) : base(childNode)
     {
         _conditionNode = conditionNode;
-        _childNode = childNode;
     }
     public override NodeState Evaluate()
     {
+        if (_children.Count == 0 || _children[0] == null)
+        {
+            _nodeState = NodeState.Failure;
+            return _nodeState;
+        }
+
         // 조건 노드 평가
         NodeState conditionState = _conditionNode.Evaluate();
 
         if (conditionState == NodeState.Success)
         {
             // 조건 성공 시 자식 노드 실행하고 결과 반환
-            _nodeState = _childNode.Evaluate();
+            _nodeState = _children[0].Evaluate();
             return _nodeState;
         }  
         else if (conditionState == NodeState.Failure)
