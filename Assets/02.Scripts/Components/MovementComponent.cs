@@ -5,16 +5,16 @@ using ProjectD_and_R.Enums;
 
 public class MovementComponent : MonoBehaviour, IMovable
 {
-    private CharacterCore _characterCore;
+    private ICharacterStatus _status;
 
     public bool bIsMoving { get; private set; } = false;
 
     private UnityEngine.AI.NavMeshAgent _navMeshAgent;
 
-    public void Initialize(CharacterCore characterCore)
+    public void Initialize(ICharacterCore characterCore)
     {
         if (characterCore == null) return;
-        _characterCore = characterCore;
+        _status = characterCore.CharacterStatus;
         _navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         if( _navMeshAgent == null)
         {
@@ -22,10 +22,10 @@ public class MovementComponent : MonoBehaviour, IMovable
             Debug.Log($"MovementComponent requires a NavMeshAgent Component");
 #endif
         }
-        _navMeshAgent.speed = _characterCore.Status.MoveSpeed;
+        _navMeshAgent.speed = _status.MoveSpeed;
         _navMeshAgent.isStopped = true;
 #if UNITY_EDITOR
-        Debug.Log($"MovementComponent Initialized: Speed = {_characterCore.Status.MoveSpeed}, MoveTypes = {_characterCore.Status.MovableTerrainTypes} ");
+        Debug.Log($"MovementComponent Initialized: Speed = {_status.MoveSpeed}, MoveTypes = {_status.MovableTerrainTypes} ");
 #endif
     }
 
@@ -63,17 +63,15 @@ public class MovementComponent : MonoBehaviour, IMovable
         bIsMoving = false;
 #if UNITY_EDITOR
         Debug.Log($"{gameObject.name} stops moving.");
-        /* 테스트 코드 */
-        _characterCore.Attack();
 #endif
     }
 
     public void SetMoveSpeed(float newSpeed)
     {
-        _characterCore.Status.SetMoveSpeed(newSpeed);
+        _status.SetMoveSpeed(newSpeed);
         if(_navMeshAgent != null)
         {
-            _navMeshAgent.speed = _characterCore.Status.MoveSpeed;
+            _navMeshAgent.speed = _status.MoveSpeed;
         }
     }
 }

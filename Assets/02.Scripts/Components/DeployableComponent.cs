@@ -44,7 +44,7 @@ public class DeployableComponent : MonoBehaviour, IDeployable
     }
 
 
-    public void Initialize(CharacterCore characterCore)
+    public void Initialize(ICharacterCore characterCore)
     {
     }
 

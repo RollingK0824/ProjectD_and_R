@@ -27,5 +27,5 @@ public interface ICharacterStatus
     event Action OnStatusChanged;
     event Action<string, float, float> OnSpecificStatusChanged;
 
-    void Initialize(CharacterCore characterCore);
+    void Initialize(ICharacterCore characterCore);
 }

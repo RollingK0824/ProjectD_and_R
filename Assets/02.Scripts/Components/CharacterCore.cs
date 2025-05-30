@@ -4,19 +4,29 @@ using System;
 using ProjectD_and_R.Enums;
 using System.Collections;
 
-public class CharacterCore : MonoBehaviour
+public class CharacterCore : MonoBehaviour, ICharacterCore
 {
     [Header("Character Data")]
     [SerializeField] private CharacterData _characterData;
     public CharacterData Data => _characterData;
 
-    public ICharacterStatus Status => _characterStatus;
 
     private ICharacterStatus _characterStatus;
+    public ICharacterStatus CharacterStatus => _characterStatus;
+
     private IDamageable _damageableComponent;
+    public IDamageable DamageableComponent => _damageableComponent;
+
     private IMovable _movementComponent;
+    public IMovable MovementComponent => _movementComponent;
+
     private IAttacker _attackerComponent;
+    public IAttacker AttackerComponent => _attackerComponent;
+
     private IDeployable _deployableComponent;
+    public IDeployable DeployableComponent => _deployableComponent;
+
+
 
     [Header("Debug Status (Read Only")]
     [SerializeField] private float debug_MaxHealth;
@@ -24,7 +34,7 @@ public class CharacterCore : MonoBehaviour
     [SerializeField] private float debug_PhysicalDefense;
     [SerializeField] private float debug_MagicalResistance;
     [SerializeField] private float debug_AttackDamage;
-    [SerializeField] private float debug_AttackSpeed;   
+    [SerializeField] private float debug_AttackSpeed;
     [SerializeField] private float debug_AttackRange;
     [SerializeField] private float debug_MoveSpeed;
     [SerializeField] private bool debug_IsAlive;
@@ -37,7 +47,7 @@ public class CharacterCore : MonoBehaviour
 
     protected virtual void Awake()
     {
-        if(_characterData == null)
+        if (_characterData == null)
         {
 #if UNITY_EDITOR
             Debug.LogError($"CharacterData is not assigned to {gameObject.name}", this);
@@ -97,7 +107,7 @@ public class CharacterCore : MonoBehaviour
 
     void OnDisable()
     {
-        if (Status != null)
+        if (CharacterStatus != null)
         {
             _characterStatus.OnStatusChanged -= HandleStatusChanged;
             _characterStatus.OnSpecificStatusChanged -= HandleSpecificStatusChanged;
@@ -118,9 +128,9 @@ public class CharacterCore : MonoBehaviour
     private void HandleCharacterUndeployed() { /* ... */ }
     private void HandleSpecificStatusChangedForDebug(string statusName, float oldValue, float newValue)
     {
-        if (Status == null) return;
+        if (CharacterStatus == null) return;
 
-        switch(statusName)
+        switch (statusName)
         {
             case nameof(ICharacterStatus.MaxHealth):
                 debug_MaxHealth = newValue;
@@ -151,11 +161,11 @@ public class CharacterCore : MonoBehaviour
     }
 
     // --- 외부 호출 메서드 ---
-    public void ReceiveDamage(float rawDamage,DamageType damageType)
+    public void ReceiveDamage(float rawDamage, DamageType damageType)
     {
         if (_damageableComponent != null)
         {
-            _damageableComponent.TakeDamage(rawDamage,damageType);
+            _damageableComponent.TakeDamage(rawDamage, damageType);
         }
     }
     public void MoveCharacterTo(Vector3 targetPosition) => _movementComponent?.Move(targetPosition);

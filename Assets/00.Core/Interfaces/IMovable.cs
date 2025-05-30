@@ -24,6 +24,6 @@ public interface IMovable
     /// 초기 스탯 초기화 함수
     /// </summary>
     /// <param name="characterCore">캐릭터 코어</param>
-    void Initialize(CharacterCore characterCore);
+    void Initialize(ICharacterCore characterCore);
 }
 
