@@ -31,6 +31,6 @@ public interface IDeployable
     /// </summary>
     event Action OnUnDeployed;
 
-    void Initialize(CharacterCore characterCore);
+    void Initialize(ICharacterCore characterCore);
 
 }

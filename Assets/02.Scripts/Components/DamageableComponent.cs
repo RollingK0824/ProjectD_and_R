@@ -7,19 +7,19 @@ using UnityEngine;
 
 public class DamageableComponent : MonoBehaviour, IDamageable
 {
-    private CharacterCore _characterCore;
+    private ICharacterStatus _status;
 
     public event Action<float> OnHealthChanged;
     public event Action OnDied;
 
-    public void Initialize(CharacterCore characterCore)
+    public void Initialize(ICharacterCore characterCore)
     {
         if (characterCore == null) return;
-        _characterCore = characterCore;
+        _status = characterCore.CharacterStatus;
 
-        if (_characterCore?.Status != null)
+        if (_status != null)
         {
-            _characterCore.Status.OnSpecificStatusChanged += HandleStatusChange;
+            _status.OnSpecificStatusChanged += HandleStatusChange;
         }
     }
 
@@ -37,20 +37,19 @@ public class DamageableComponent : MonoBehaviour, IDamageable
 
     public void TakeDamage(float rawDamage, DamageType damageType)
     {
-        if (_characterCore == null
-            || _characterCore.Status == null
-            || !_characterCore.Status.IsAlive) return;
+        if (_status == null
+            || !_status.IsAlive) return;
 
         float finalDamage = rawDamage; // 초기화
 
         switch (damageType)
         {
             case DamageType.Pyhsical:
-                float physicalDefense = _characterCore.Status.PhysicalDefense;
+                float physicalDefense = _status.PhysicalDefense;
                 finalDamage = rawDamage * (1 - (physicalDefense / (physicalDefense + 200f)));
                 break;
             case DamageType.Magical:
-                float magicalResistance = _characterCore.Status.MagicalResistance;
+                float magicalResistance = _status.MagicalResistance;
                 finalDamage = rawDamage * (1 - (magicalResistance / (magicalResistance + 200f)));
                 break;
             case DamageType.TrueDamage:
@@ -65,23 +64,22 @@ public class DamageableComponent : MonoBehaviour, IDamageable
 
         finalDamage = Mathf.Max(rawDamage * 0.1f, finalDamage);   // 최소 데미지 = 데미지의 10%
 
-        _characterCore.Status.SetCurrentHealth(_characterCore.Status.CurrentHealth - finalDamage);
+        _status.SetCurrentHealth(_status.CurrentHealth - finalDamage);
 
 
 #if UNITY_EDITOR
-        Debug.Log($"{_characterCore.Data.CharacterName}이{finalDamage}를 입음");
+        Debug.Log($"{this.name}이{finalDamage}를 입음");
 #endif
     }
     public void Heal(float amount)
     {
-        if (_characterCore == null
-            || _characterCore.Status == null
-            || !_characterCore.Status.IsAlive
+        if (_status == null
+            || !_status.IsAlive
             || amount < 0) return;
 
-        _characterCore.Status.SetCurrentHealth(_characterCore.Status.CurrentHealth + amount);
+        _status.SetCurrentHealth(_status.CurrentHealth + amount);
 #if UNITY_EDITOR
-        Debug.Log($"{_characterCore.Data.CharacterName}이 {amount}만큼 체력이 회복됨");
+        Debug.Log($"{this.name}이 {amount}만큼 체력이 회복됨");
 #endif
     }
     public void Die()

@@ -185,7 +185,7 @@ public class CharacterStatus : ICharacterStatus
     }
 
     // 초기화 메서드 (CharacterData로부터 베이스 스탯을 받음)
-    public void Initialize(CharacterCore characterCore)
+    public void Initialize(ICharacterCore characterCore)
     {
         CharacterData baseData = characterCore.Data;
 

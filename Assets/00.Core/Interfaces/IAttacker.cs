@@ -22,5 +22,5 @@ public interface IAttacker
     /// CharacterCore로부터 초기 스탯을 받아 초기화 하는 함수
     /// </summary>
     /// <param name="characterCore">캐릭터 코어</param>
-    void Initialize(CharacterCore characterCore);
+    void Initialize(ICharacterCore characterCore);
 }
