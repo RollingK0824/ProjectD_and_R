@@ -27,66 +27,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 51c2d528298150a46ae5c06f905dfb13
-    m_Address: Assets/00.Core/ScriptableObject/MapSpawnData/5Floor.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoomSpawnData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 54d7d93f140315b45a55aa8c8966550b
-    m_Address: Assets/00.Core/ScriptableObject/MapSpawnData/6Floor.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoomSpawnData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5702d5418c63d79489fb852b0d348157
-    m_Address: Assets/00.Core/ScriptableObject/MapSpawnData/1Floor.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoomSpawnData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5b0eda4c734e837488fe14eb05938724
-    m_Address: Assets/00.Core/ScriptableObject/MapSpawnData/4Floor.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoomSpawnData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7ec1f77d287b4e54ea9cec24ad12d3c8
-    m_Address: Assets/00.Core/ScriptableObject/MapSpawnData/10Floor.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoomSpawnData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 895b2f0038a084e4db83e6cf1c1a7e6a
-    m_Address: Assets/00.Core/ScriptableObject/MapSpawnData/3Floor.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoomSpawnData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 97c93484f2e3d274b9d9e8537950241a
-    m_Address: Assets/00.Core/ScriptableObject/MapSpawnData/2Floor.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoomSpawnData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bd19b3a80108bbc4aa49247035781aa5
-    m_Address: Assets/00.Core/ScriptableObject/MapSpawnData/7Floor.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoomSpawnData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cdbb0a47b893f204c813975270121f47
-    m_Address: Assets/00.Core/ScriptableObject/MapSpawnData/9Floor.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoomSpawnData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fce7cdaa25d6b8a448824d6fe48d5474
-    m_Address: Assets/00.Core/ScriptableObject/MapSpawnData/8Floor.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoomSpawnData
-    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c14d6bce582e76140b027d81158fce26, type: 2}
   m_SchemaSet:

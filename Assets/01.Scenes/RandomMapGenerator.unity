@@ -644,7 +644,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1458620019}
   - component: {fileID: 1458620020}
-  - component: {fileID: 1458620021}
   m_Layer: 0
   m_Name: MapGenerator
   m_TagString: Untagged
@@ -679,27 +678,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8ced774d26d124eb0c9d6d68c6ddbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Map_Width: 5
-  _Map_Height: 10
-  _Floor_Percent: 50
-  _RoomSpawnData: []
---- !u!114 &1458620021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458620018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4715b0aba1bbfea409d953c7365dd0dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _MapParent: {fileID: 1821832782}
-  _RoomPrefabs:
-  - {fileID: 4435953084995747680, guid: fcad342bbd97ac14dba3d839bbdc0893, type: 3}
-  xSize: 12
-  ySize: 12
+  width: 12
+  height: 5
+  roomDensity: 0.531
+  roomPrefab: {fileID: 4435953084995747680, guid: fcad342bbd97ac14dba3d839bbdc0893, type: 3}
 --- !u!1 &1821832781
 GameObject:
   m_ObjectHideFlags: 0

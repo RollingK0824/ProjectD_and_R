@@ -5,228 +5,112 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
-    [SerializeField][Header("¸Ê ³ĞÀÌ")] protected int _Map_Width = 5;
-    [SerializeField][Header("¸Ê ³ôÀÌ")] protected int _Map_Height = 10;
-    [SerializeField][Header("Ãşº° ¹æ »ı¼ºÈ®·ü")] protected int _Floor_Percent = 50;
-    [SerializeField][Header("Ãşº° ¹æ Å¸ÀÔ È®·ü")] RoomSpawnData[] _RoomSpawnData;
+    [Header("ë§µ ë„ˆë¹„")] public int width = 10;
+    [Header("ë§µ ë†’ì´")] public int height = 10;
+    [Range(0.1f, 1f)]
+    [Header("ë°© ìƒì„± ì •ë„")] public float roomDensity = 0.4f;
+    public GameObject roomPrefab;
 
-    bool[,] _Virtual_Map;
-    GameObject[,] _Real_Map;
-    RoomSpawnDataLoder _Loder;
-    MapRenderer _MapRenderer;
+    //ìƒì„±ëœ ë°©ì„ ì €ì¥í•  ë”•ì…”ë„ˆë¦¬
+    Dictionary<Vector2Int, Room> rooms = new();
+
+    //ë„ì°© ë°© ì—¬ë¶€ë¥¼ í™•ì¸í•  í•´ì‰¬ì…‹
+    HashSet<Vector2Int> visited = new();
+
+    //ë°© ìƒì„± ë°©í–¥
+    Vector2Int[] directions = {
+        Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right
+    };
+
+    RoomFactory roomFactory;
 
     void Start()
     {
-        _Virtual_Map = new bool[_Map_Height, _Map_Width];
-        _Real_Map = new GameObject[_Map_Height, _Map_Width];
-
-        _MapRenderer = GetComponent<MapRenderer>();
-        _Loder = gameObject.AddComponent<RoomSpawnDataLoder>();
-        _Loder.LoadRoomSpawnData((loadedData) =>
-        {
-            _RoomSpawnData = loadedData;
-            VirtualMapGenerator();
-        });
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            VirtualMapGenerator();
-        }
+        roomFactory = new RoomFactory(roomPrefab, transform);
+        GenerateMazePrim();
     }
 
     /// <summary>
-    /// 2Â÷¿ø ¹è¿­ »ó¿¡ ·£´ıÇÏ°Ô ¸Ê µ¥ÀÌÅÍ »ı¼º
+    /// PRIMì•Œê³ ë¦¬ì¦˜ ë§µ ìƒì„± í•¨ìˆ˜
     /// </summary>
-    void VirtualMapGenerator()
+    void GenerateMazePrim()
     {
-        _MapRenderer.InitializeMap(_Map_Height, _Map_Width, _Real_Map);
-        VurtualMapGenerate();
-        _MapRenderer.RenderMap(_Real_Map, _Virtual_Map);
-    }
-
-    /// <summary>
-    /// ¸Ê µ¥ÀÌÅÍ »ı¼º
-    /// </summary>
-    void VurtualMapGenerate()
-    {
-        bool hasRoom = false;
-
-        for (int height = 0; height < _Map_Height; height++)
-        {
-            for (int width = 0; width < _Map_Width; width++)
-            {
-                _Virtual_Map[height, width] = false;
-
-                int RandomValue = Random.Range(0, 100);
-                if (RandomValue < _Floor_Percent)
-                {
-                    hasRoom = true;
-                    _Virtual_Map[height, width] = true;
-
-                    RoomGenerate(_Real_Map[height, width].GetComponent<Room>(), height + 1, height, width);
-                }
-            }
-            if (!hasRoom)
-            {
-                int width = Random.Range(0, _Map_Width);
-                _Virtual_Map[height, width] = true;
-
-                RoomGenerate(_Real_Map[height, width].GetComponent<Room>(), height + 1, height, width);
-            }
-            hasRoom = false;
-        }
-
-        ConnectedRoomsSet();
-        EnsureAllRoomsReachable();
-    }
-
-    /// <summary>
-    /// ¹æ µ¥ÀÌÅÍ »ı¼º
-    /// </summary>
-    /// <returns>È®·ü·Î »ı¼ºµÈ ·£´ı ¹æ µ¥ÀÌÅÍ</returns>
-    void RoomGenerate(Room room, int floor, int height, int width)
-    {
-        RoomSpawnData data = _RoomSpawnData.FirstOrDefault(d => d._Floor == floor);
-
-        float[] weights = new float[]
-        {
-        data._Nomal,
-        data._Elite,
-        data._Event,
-        data._Shop,
-        data._Reward
-        };
-
-        float total = weights.Sum();
-        float rand = Random.Range(0, total);
-        float cumulative = 0;
-
-        for (int i = 0; i < weights.Length; i++)
-        {
-            cumulative += weights[i];
-            if (rand < cumulative)
-            {
-                room.Init((RoomType)i, height, width);
-                return;
-            }
-        }
-    }
-
-    /// <summary>
-    /// »ı¼ºµÈ ¹æµéÀÌ ÁøÇàÇÒ ¼ö ÀÖ´Â ¹æÀ» Ã£¾Æ¼­ ÀúÀå
-    /// </summary>
-    void ConnectedRoomsSet()
-    {
-        for (int height = 0; height < _Map_Height - 1; height++)
-        {
-            for (int width = 0; width < _Map_Width; width++)
-            {
-                if (_Virtual_Map[height, width])
-                {
-                    CheckNextFloorRooms(height, width, _Real_Map[height, width].GetComponent<Room>().Next);
-                }
-            }
-        }
-    }
-
-    /// <summary>
-    /// À§Ãş ¹æ Ã¼Å© ÇÔ¼ö
-    /// </summary>
-    void CheckNextFloorRooms(int h, int w, List<Room> rooms)
-    {
-        int nextH = h + 1;
-
-        if (nextH >= _Map_Height) return;
-
         rooms.Clear();
+        visited.Clear();
 
-        for (int i = -1; i <= 1; i++)
+        //ìƒì„±ë  ë°© ê°¯ìˆ˜
+        int maxRooms = Mathf.RoundToInt(width * height * roomDensity);
+
+        roomFactory.Clear();
+        List<(Vector2Int from, Vector2Int to)> frontier = new();
+        Vector2Int start = new(Random.Range(0, width), Random.Range(0, height));
+        visited.Add(start);
+        PlaceRoom(start);
+
+        foreach (Vector2Int dir in directions)
         {
-            int checkW = w + i;
-            if (checkW >= 0 && checkW < _Map_Width && _Virtual_Map[nextH, checkW])
+            Vector2Int next = start + dir;
+            if (IsInBounds(next))
+                frontier.Add((start, next));
+        }
+
+        while (frontier.Count > 0 && visited.Count < maxRooms)
+        {
+            int randIndex = Random.Range(0, frontier.Count);
+            var (from, to) = frontier[randIndex];
+            frontier.RemoveAt(randIndex);
+
+            if (visited.Contains(to)) continue;
+
+            visited.Add(to);
+            PlaceRoom(to);
+            ConnectRooms(from, to);
+
+            foreach (var dir in directions)
             {
-                rooms.Add(_Real_Map[nextH, checkW].GetComponent<Room>());
+                Vector2Int next = to + dir;
+                if (IsInBounds(next) && !visited.Contains(next))
+                    frontier.Add((to, next));
             }
         }
 
-        if (rooms.Count == 0)
-        {
-            int minDistance = _Map_Width;
-            Room room = null;
-
-            for (int i = 0; i < _Map_Width; i++)
-            {
-                if (_Virtual_Map[nextH, i])
-                {
-                    int Distance = Mathf.Abs(i - w);
-                    if (Distance < minDistance)
-                    {
-                        minDistance = Distance;
-                        room = _Real_Map[nextH, i].GetComponent<Room>();
-                    }
-                }
-            }
-
-            if (room != null)
-                rooms.Add(room);
-        }
     }
 
     /// <summary>
-    /// ¿¬°áµÈ ¹æ ¾ø´ÂÁö Ã¼Å© ÈÄ ¿¬°á
+    /// ë§µ ê²½ê³„ ì²´í¬
     /// </summary>
-    void EnsureAllRoomsReachable()
+    bool IsInBounds(Vector2Int pos)
     {
-        for (int height = 1; height < _Map_Height; height++)
-        {
-            for (int width = 0; width < _Map_Width; width++)
-            {
-                if (!_Virtual_Map[height, width]) continue;
-
-                bool hasEntry = false;
-
-                for (int i = -1; i <= 1; i++)
-                {
-                    int checkW = width + i;
-                    if (checkW >= 0 && checkW < _Map_Width && _Virtual_Map[height - 1, checkW])
-                    {
-                        Room lowerRoom = _Real_Map[height - 1, checkW].GetComponent<Room>();
-                        if (lowerRoom.Next.Contains(_Real_Map[height, width].GetComponent<Room>()))
-                        {
-                            hasEntry = true;
-                            break;
-                        }
-                    }
-                }
-
-                if (!hasEntry)
-                {
-                    int minDistance = _Map_Width;
-                    Room closestRoom = null;
-
-                    for (int i = 0; i < _Map_Width; i++)
-                    {
-                        if (_Virtual_Map[height - 1, i])
-                        {
-                            int distance = Mathf.Abs(i - width);
-                            if (distance < minDistance)
-                            {
-                                minDistance = distance;
-                                closestRoom = _Real_Map[height - 1, i].GetComponent<Room>();
-                            }
-                        }
-                    }
-
-                    if (closestRoom != null)
-                    {
-                        closestRoom.Next.Add(_Real_Map[height, width].GetComponent<Room>());
-                    }
-                }
-            }
-        }
+        return pos.x >= 0 && pos.y >= 0 && pos.x < width && pos.y < height;
     }
 
+    /// <summary>
+    /// ë°© í™”ë©´ ìƒì„± 
+    /// </summary>
+
+    void PlaceRoom(Vector2Int pos)
+    {
+        Room room = roomFactory.CreateRoom(pos);
+        rooms[pos] = room;
+    }
+
+
+    /// <summary>
+    /// ì´ë™ ê°€ëŠ¥ ë°© ì—°ê²°
+    /// </summary>
+    void ConnectRooms(Vector2Int from, Vector2Int to)
+    {
+        rooms[from].ConnectedRooms.Add(rooms[to]);
+        rooms[to].ConnectedRooms.Add(rooms[from]);
+        DebugDrawConnection(from, to);
+    }
+
+    void DebugDrawConnection(Vector2Int a, Vector2Int b)
+    {
+#if UNITY_EDITOR
+        Vector3 start = new Vector3(a.x * 2, 0, a.y * 2);
+        Vector3 end = new Vector3(b.x * 2, 0, b.y * 2);
+        Debug.DrawLine(start, end, Color.green, 100f);
+#endif
+    }
 }
