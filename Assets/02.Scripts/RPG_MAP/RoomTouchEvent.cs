@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class RoomTouchEvent : MonoBehaviour, ITouchble
+public class RoomTouchEvent :MonoBehaviour, ITouchble
 {
     Room room;
     [Header("방이 선택됬는지 확인")]public bool _isRoomSelect = false;
@@ -14,6 +14,8 @@ public class RoomTouchEvent : MonoBehaviour, ITouchble
 
     public void OnTouch()
     {
+        _isRoomSelect=true;
+        Debug.Log(gameObject.name);
     }
 
     public void OnEmptyTouch()

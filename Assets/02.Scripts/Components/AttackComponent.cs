@@ -4,7 +4,7 @@ using System.Collections;
 using System;
 using ProjectD_and_R.Enums;
 
-public class AttackComponent : MonoBehaviour, IAttacker
+public class AttackComponent : MonoBehaviour//, IAttacker
 {
     private CharacterCore _characterCore;
 
@@ -20,10 +20,10 @@ public class AttackComponent : MonoBehaviour, IAttacker
         if (characterCore == null) return;
         _characterCore = characterCore;
 
-        _attackCooldownDuration = 1f / _characterCore.Status.AttackSpeed;
+        _attackCooldownDuration = 1f / _characterCore.CharacterStatus.AttackSpeed;
         
 #if UNITY_EDITOR
-        Debug.Log($"AttackComponent Initialized: Damage={_characterCore.Status.AttackDamage}, Cooldown={_attackCooldownDuration:F2}s");
+        Debug.Log($"AttackComponent Initialized: Damage={_characterCore.CharacterStatus.AttackDamage}, Cooldown={_attackCooldownDuration:F2}s");
 #endif
     }
 
@@ -49,7 +49,7 @@ public class AttackComponent : MonoBehaviour, IAttacker
 
     private void PerformDamageApplication()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _characterCore.Status.AttackRange);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _characterCore.CharacterStatus.AttackRange);
         foreach (Collider hitCollider in hitColliders)
         {
             IDamageable damageableTarget = hitCollider.GetComponent<IDamageable>();
@@ -57,13 +57,13 @@ public class AttackComponent : MonoBehaviour, IAttacker
 
             if (damageableTarget != null && targetCore != null && targetCore.gameObject != this.gameObject)
             {
-                if (_characterCore.Status.Faction != targetCore.Data.Faction) // 진영이 다를 때만 공격
+                if (_characterCore.CharacterStatus.Faction != targetCore.Data.Faction) // 진영이 다를 때만 공격
                 {
                     /* 스킬 수행 예정 */
 #if UNITY_EDITOR
                     Debug.Log($"{gameObject.GetComponent<CharacterCore>().Data.CharacterName}:{gameObject.GetInstanceID()}이 {targetCore.Data.CharacterName}:{targetCore.GetInstanceID()}을 공격");
                     /* 테스트 용 코드 */
-                    damageableTarget.TakeDamage(_characterCore.Status.AttackDamage, DamageType.Pyhsical);
+                    damageableTarget.TakeDamage(_characterCore.CharacterStatus.AttackDamage, DamageType.Pyhsical);
 #endif
                 }
             }
