@@ -5,47 +5,63 @@ using UnityEngine.EventSystems;
 
 public class TouchManager : Singleton<TouchManager>
 {
-    [SerializeField] ITouchble Touchble;
+    [SerializeField] ITouchble currentTouchble;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            OnUiTouch();
+            if (IsPointerOverUIObject())
+            {
+                OnUiTouch();
+                return;
+            }
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                if (Touchble != null && Touchble != hit.collider.GetComponent<ITouchble>()) Touchble.OnOtherTouch();
+                ITouchble Touchble = hit.collider.GetComponent<ITouchble>();
+                if (currentTouchble != null && currentTouchble != Touchble)
+                {
+                    currentTouchble.OnOtherTouch();
+                    currentTouchble = Touchble;
+                    return;
+                }
 
-                Touchble = hit.collider.GetComponent<ITouchble>();
-                OnObjTouch(Touchble);
+                currentTouchble = Touchble;
+                OnObjTouch(currentTouchble);
             }
             else
             {
-                OnEmptySpaceTouch();
+                if (currentTouchble != null)
+                {
+                    currentTouchble.OnEmptyTouch();
+                    currentTouchble = null;
+                }
+
             }
         }
     }
 
+    /// <summary>
+    /// ui터치 확인
+    /// </summary>
+    bool IsPointerOverUIObject()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return true;
+        return false;
+    }
     /// <summary>
     /// UI 터치 이벤트
     /// </summary>
     void OnUiTouch()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-
-            //���� Touchble�� ui �ִ��۾� �ʿ� 17���� ����
-
-            Debug.Log("UI");
-            return;
-        }
+        Debug.Log("UI");
     }
 
 
     /// <summary>
-    /// Obj ��ġ �̺�Ʈ
+    /// Obj 터치 이벤트
     /// </summary>
-    /// <param name="touch"></param>
 
     void OnObjTouch(ITouchble touch)
     {
@@ -61,13 +77,12 @@ public class TouchManager : Singleton<TouchManager>
     }
 
     /// <summary>
-
-    /// ����� ��ġ �̺�Ʈ
+    /// 빈공간 터치
     /// </summary>
     void OnEmptySpaceTouch()
     {
-        if (Touchble != null)
-            Touchble.OnEmptyTouch();
+        if (currentTouchble != null)
+            currentTouchble.OnEmptyTouch();
     }
 }
 

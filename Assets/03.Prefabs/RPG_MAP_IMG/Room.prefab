@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9008047496886132871}
   - component: {fileID: 7598899146170121761}
   - component: {fileID: 2774479009399757626}
-  - component: {fileID: 7594008420638059118}
+  - component: {fileID: -8901124434435451255}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,7 +107,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &7594008420638059118
+--- !u!114 &-8901124434435451255
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,8 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88474ead251bb54eb7f7c35049c750f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
-  _xPos: 0
-  _yPos: 0
-  _type: 5
-  _next: []
+  Position: {x: 0, y: 0}
+  ConnectedRooms: []
+  Type: 0

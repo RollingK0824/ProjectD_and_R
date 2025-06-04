@@ -4,7 +4,7 @@ using System.Collections;
 using System;
 using ProjectD_and_R.Enums;
 
-public class AttackComponent : MonoBehaviour, IAttacker
+public class AttackComponent : MonoBehaviour//, IAttacker
 {
     private ICharacterStatus _status;
 
@@ -24,6 +24,7 @@ public class AttackComponent : MonoBehaviour, IAttacker
         
 #if UNITY_EDITOR
         Debug.Log($"AttackComponent Initialized: Damage={_status.AttackDamage}, Cooldown={_attackCooldownDuration:F2}s");
+
 #endif
     }
 
@@ -49,7 +50,9 @@ public class AttackComponent : MonoBehaviour, IAttacker
 
     private void PerformDamageApplication()
     {
+
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, _status.AttackRange);
+
         foreach (Collider hitCollider in hitColliders)
         {
             IDamageable damageableTarget = hitCollider.GetComponent<IDamageable>();
@@ -57,7 +60,9 @@ public class AttackComponent : MonoBehaviour, IAttacker
 
             if (damageableTarget != null && targetCore != null && targetCore.gameObject != this.gameObject)
             {
+
                 if (_status.Faction != targetCore.Data.Faction) // 진영이 다를 때만 공격
+
                 {
                     /* 스킬 수행 예정 */
 #if UNITY_EDITOR

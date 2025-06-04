@@ -482,37 +482,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1040071771
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1040071772}
-  m_Layer: 0
-  m_Name: Line
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1040071772
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1040071771}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1206104973
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +612,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1458620019}
-  - component: {fileID: 1458620020}
   - component: {fileID: 1458620021}
   m_Layer: 0
   m_Name: MapGenerator
@@ -667,22 +635,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1458620020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458620018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab8ced774d26d124eb0c9d6d68c6ddbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Map_Width: 5
-  _Map_Height: 10
-  _Floor_Percent: 50
-  _RoomSpawnData: []
 --- !u!114 &1458620021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,14 +644,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1458620018}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4715b0aba1bbfea409d953c7365dd0dc, type: 3}
+  m_Script: {fileID: 11500000, guid: dfc8f6f62c551b142a49da6599644888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MapParent: {fileID: 1821832782}
-  _RoomPrefabs:
-  - {fileID: 4435953084995747680, guid: fcad342bbd97ac14dba3d839bbdc0893, type: 3}
-  xSize: 12
-  ySize: 12
+  numberOfZones: 9
+  Size: {x: 13, y: 8}
+  roomDensity: 0.4
+  gapBetweenZones: 0
+  connectionsBetweenZones: 1
+  roomPrefab: {fileID: 4435953084995747680, guid: fcad342bbd97ac14dba3d839bbdc0893, type: 3}
+  zoneColors: []
 --- !u!1 &1821832781
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +918,6 @@ SceneRoots:
   - {fileID: 1991704882}
   - {fileID: 1458620019}
   - {fileID: 1821832782}
-  - {fileID: 1040071772}
   - {fileID: 1904299885}
   - {fileID: 1206104976}
   - {fileID: 588882710}

@@ -4,48 +4,35 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class RoomTouchEvent : MonoBehaviour, ITouchble
+public class RoomTouchEvent :MonoBehaviour, ITouchble
 {
     Room room;
-    [Header("¹æÀÌ ¼±ÅÃ‰ç´ÂÁö È®ÀÎ")]public bool _isRoomSelect = false;
+    [Header("ë°©ì´ ì„ íƒë¬ëŠ”ì§€ í™•ì¸")]public bool _isRoomSelect = false;
 
-    //Å×½ºÆ®¿ë
+    //í…ŒìŠ¤íŠ¸ìš©
     public Color originalColor;
 
     public void OnTouch()
     {
-        if (room != null)
-        {
-            if(_isRoomSelect)
-            {
-                RpgManager.Instance.EnterStage(room);
-                ReturnSelectRoom();
-            }
-
-            _isRoomSelect = true;
-
-            //±â´É¸¸ ±¸Çö ÃÖÀûÈ­ x
-            originalColor = room.gameObject.GetComponent<Renderer>().material.color;
-            room.gameObject.GetComponent<Renderer>().material.color = Color.black;
-        }
+        _isRoomSelect=true;
+        Debug.Log(gameObject.name);
     }
 
     public void OnEmptyTouch()
     {
-        Debug.Log("ºó°ø°£");
+        Debug.Log("ë¹ˆê³µê°„");
         ReturnSelectRoom();
     }
 
     public void OnOtherTouch()
     {
-        Debug.Log("´Ù¸¥°ø°£");
+        Debug.Log("ë‹¤ë¥¸ê³µê°„");
         ReturnSelectRoom();
     }
 
     public void ReturnSelectRoom()
     {
         _isRoomSelect = false;
-        room.gameObject.GetComponent<Renderer>().material.color = originalColor;
     }
 
     public void Init(Room R)

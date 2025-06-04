@@ -1,73 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public enum RoomType { Normal, Elite, Event, Shop, Reward, None }
+public enum RoomType { Normal, Elite, Event, Shop, Reward, Boss, Door, None }
+
 public class Room : MonoBehaviour
 {
-    [SerializeField][Header("¿Ã∏ß")] string _name = "";
-    public string Name
+    [Header("Î∞© ÏúÑÏπò")] public Vector2Int Position;
+    [Header("Ïù¥Îèô Í∞ÄÎä•Ìïú Î∞©")] public List<Room> ConnectedRooms = new List<Room>();
+    [Header("Íµ¨Ïó≠ ID")] public int ZoneID = -1;
+    [Header("Î∞© ÌÉÄÏûÖ")] public RoomType Type;
+
+    private void Start()
     {
-        get => _name;
-        protected set => _name = value;
-    }
-
-    [SerializeField][Header("X ¡¬«•")] int _xPos = 0;
-    public int XPos
-    {
-        get => _xPos;
-        protected set => _xPos = value;
-    }
-
-    [SerializeField][Header("Y ¡¬«•")] int _yPos = 0;
-    public int YPos
-    {
-        get => _yPos;
-        protected set => _yPos = value;
-    }
-
-    [SerializeField][Header("πÊ ≈∏¿‘")] RoomType _type = RoomType.None;
-    public RoomType Type
-    {
-        get => _type;
-        protected set => _type = value;
-    }
-
-    [SerializeField][Header("¿Ãµø«“ ºˆ ¿÷¥¬ πÊ")] List<Room> _next = new List<Room>();
-
-    //≈◊Ω∫∆ÆøÎ
-    public Color _Color;
-    public List<Room> Next
-    {
-        get => _next;
-        protected set => _next = value;
-    }
-
-    public RoomTouchEvent _roomTouchEvent;
-
-    /// <summary>
-    /// πÊ ¡§∫∏ √ ±‚»≠
-    /// </summary>
-    public void Init(RoomType type, int height, int width)
-    {
-        _type = type;
-        _xPos = width;
-        _yPos = height;
-        _name = type.ToString() + "Room" + "(" + _yPos + "," + _xPos + ")";
-        gameObject.name = _name;
-        _Color = gameObject.GetComponent<Renderer>().material.color;
-        RoomTouchEventConnect();
-    }
-
-    void RoomTouchEventConnect()
-    {
-        _roomTouchEvent = GetComponent<RoomTouchEvent>();
-        if (_roomTouchEvent == null)
-        {
-            _roomTouchEvent = gameObject.AddComponent<RoomTouchEvent>();
-        }
-
-        _roomTouchEvent.Init(this);
+       gameObject.AddComponent<RoomTouchEvent>();
     }
 }
 
