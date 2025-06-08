@@ -14,8 +14,13 @@ public class RoomTouchEvent :MonoBehaviour, ITouchble
 
     public void OnTouch()
     {
-        _isRoomSelect=true;
-        Debug.Log(gameObject.name);
+        if (!_isRoomSelect)
+            _isRoomSelect = true;
+
+        else
+        {
+            RoomEnterManager.Instance.EnterStage(room);
+        }
     }
 
     public void OnEmptyTouch()

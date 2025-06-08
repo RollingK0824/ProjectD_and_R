@@ -12,9 +12,12 @@ public class Room : MonoBehaviour
     [Header("구역 ID")] public int ZoneID = -1;
     [Header("방 타입")] public RoomType Type;
 
+    RoomTouchEvent roomTouchEvent;
+
     private void Start()
     {
-       gameObject.AddComponent<RoomTouchEvent>();
+        roomTouchEvent = gameObject.AddComponent<RoomTouchEvent>();
+        roomTouchEvent.Init(this);
     }
 }
 

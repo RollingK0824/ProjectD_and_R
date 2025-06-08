@@ -22,10 +22,7 @@ public class TouchManager : Singleton<TouchManager>
                 if (currentTouchble != null && currentTouchble != Touchble)
                 {
                     currentTouchble.OnOtherTouch();
-                    currentTouchble = Touchble;
-                    return;
                 }
-
                 currentTouchble = Touchble;
                 OnObjTouch(currentTouchble);
             }
