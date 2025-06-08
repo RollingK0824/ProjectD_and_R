@@ -2,6 +2,7 @@
   "dependencies": {
     "com.unity.addressables": "2.5.0",
     "com.unity.ai.navigation": "2.0.7",
+    "com.unity.behavior": "1.0.10",
     "com.unity.collab-proxy": "2.8.2",
     "com.unity.feature.development": "1.0.2",
     "com.unity.multiplayer.center": "1.0.0",

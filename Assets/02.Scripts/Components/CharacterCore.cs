@@ -26,6 +26,9 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     private IDeployable _deployableComponent;
     public IDeployable DeployableComponent => _deployableComponent;
 
+    private IEnemyAi _enemyAi;
+    public IEnemyAi EnemyAI => _enemyAi;
+
 
 
     [Header("Debug Status (Read Only")]
@@ -91,13 +94,13 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
             _deployableComponent.OnUnDeployed += HandleCharacterUndeployed;
         }
 
-        StartCoroutine(TestMove());
-    }
+        _enemyAi = GetComponent<IEnemyAi>();
+        if (_enemyAi != null)
+        {
+            _enemyAi.Initialize(this);
+        }
 
-    IEnumerator TestMove()
-    {
-        yield return new WaitForSeconds(1);
-        _movementComponent.Move(testMoveToTarget[0].transform.position);
+
     }
 
     public void Attack()

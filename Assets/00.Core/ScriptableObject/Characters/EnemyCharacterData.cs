@@ -10,5 +10,3 @@ public class EnemyCharacterData : CharacterData
     public EnemyType enemyType; // Enum: NORMAL, ELITE, BOSS 등
     public float detectionRange = 10f;
 }
-
-public enum EnemyType { Normal, Elite, Boss }
