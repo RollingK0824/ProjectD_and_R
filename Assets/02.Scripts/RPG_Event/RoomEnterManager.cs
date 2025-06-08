@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RpgManager : Singleton<RpgManager>
+public class RoomEnterManager : Singleton<RoomEnterManager>
 {
-    //[SerializeField][Header("Å½»ö À¯´Öµé")] protected À¯´Ö[] or List<À¯´Ö> ;
-    //[SerializeField][Header("¸Ê ÀÌµ¿½Ã Ã¼·Â°¨¼Ò ¼öÄ¡")] protected float _Move_ = 10; Á»´õ È¸ÀÇ ÇÊ¿äÇÒµí1 
-
-    [SerializeField][Header("´øÀü UI")] GameObject _RPG_UI_Canvas;
+    [SerializeField][Header("ë˜ì „ UI")] GameObject _RPG_UI_Canvas;
 
     /// <summary>
-    /// ½ºÅ×ÀÌÁö ÀÔÀå
+    /// ìŠ¤í…Œì´ì§€ ì…ì¥
     /// </summary>
-    /// <param name="type">¹æ Å¸ÀÔ</param>
+    /// <param name="type">ë°© íƒ€ì…</param>
     public void EnterStage(Room room)
     {
         RoomType type = room.Type;
@@ -21,6 +18,7 @@ public class RpgManager : Singleton<RpgManager>
         {
             case RoomType.Normal:
             case RoomType.Elite:
+            case RoomType.Boss:
                 EnterBattleStage(type);
                 break;
             case RoomType.Event:
@@ -32,30 +30,44 @@ public class RpgManager : Singleton<RpgManager>
             case RoomType.Reward:
                 EnterRewardStage();
                 break;
+            case RoomType.Door:
+                break;
             default:
-                Debug.Log("¹æ Á¤º¸°¡ ¾ø½À´Ï´Ù.");
+                Debug.Log("ë°© ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.");
                 break;
         }
     }
     /// <summary>
-    /// ÀüÅõ ½ºÅ×ÀÌÁö ÀÔÀå
+    /// ì „íˆ¬ ìŠ¤í…Œì´ì§€ ì…ì¥
     /// </summary>
     void EnterBattleStage(RoomType type)
     {
-        Debug.Log("¹èÆ² ÀÔÀå");
+        switch (type)
+        {
+            case RoomType.Normal:
+                Debug.Log("ì¼ë°˜");
+                break;
+            case RoomType.Elite:
+                Debug.Log("ì •ì˜ˆ");
+                break;
+            case RoomType.Boss:
+                Debug.Log("ë³´ìŠ¤");
+                break;
+        }
+               
     }
 
     void EnterRewardStage()
     {
-        Debug.Log("º¸»ó¹æ ÀÔÀå");
+        Debug.Log("ë³´ìƒë°© ì…ì¥");
     }
     void EnterEventStage()
     {
-        Debug.Log("ÀÌº¥Æ® ÀÔÀå");
+        Debug.Log("ì´ë²¤íŠ¸ ì…ì¥");
     }
     void EnterShopStage()
     {
-        Debug.Log("»óÁ¡ ÀÔÀå");
+        Debug.Log("ìƒì  ì…ì¥");
     }
 
 }
