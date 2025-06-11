@@ -12,10 +12,6 @@ public class DeployableComponent : MonoBehaviour, IDeployable
     public event Action OnDeployed;
     public event Action OnUnDeployed;
 
-    public void Initialize()
-    {
-    }
-    
     public void Deploy(Vector3 position, Quaternion rotation)
     {
         if (bIsDeployed) return;

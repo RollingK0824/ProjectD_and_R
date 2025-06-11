@@ -17,7 +17,6 @@ using Unity.Behavior;
         Goblin,
         Orc,
         Spider,
-
     }
 
 

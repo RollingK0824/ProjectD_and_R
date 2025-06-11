@@ -8,6 +8,9 @@ public class StageData : ScriptableObject
     public string stageName = "New Stage";
     public float stageStartTimeOffset = 0f;
 
+    public List<Vector3> enemySpawnPoints;
+    public List<Vector3> enemyEndPoints;
+
     [Serializable]
     public class EnemySpawnEntry
     {

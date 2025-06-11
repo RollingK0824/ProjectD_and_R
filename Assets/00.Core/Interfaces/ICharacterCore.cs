@@ -10,4 +10,5 @@ public interface ICharacterCore
     IMovable MovementComponent { get; }
     IAttacker AttackerComponent { get; }
     IDeployable DeployableComponent { get; }
+    IEnemyAi EnemyAiComponent { get; }
 }

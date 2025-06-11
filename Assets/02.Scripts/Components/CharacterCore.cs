@@ -26,8 +26,8 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     private IDeployable _deployableComponent;
     public IDeployable DeployableComponent => _deployableComponent;
 
-    private IEnemyAi _enemyAi;
-    public IEnemyAi EnemyAI => _enemyAi;
+    private IEnemyAi _enemyAiComponent;
+    public IEnemyAi EnemyAiComponent => _enemyAiComponent;
 
 
 
@@ -94,10 +94,11 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
             _deployableComponent.OnUnDeployed += HandleCharacterUndeployed;
         }
 
-        _enemyAi = GetComponent<IEnemyAi>();
-        if (_enemyAi != null)
+        _enemyAiComponent = GetComponent<IEnemyAi>();
+        if (_enemyAiComponent != null)
         {
-            _enemyAi.Initialize(this);
+            _enemyAiComponent.Initialize(this);
+            _enemyAiComponent.OnActionRequest += HandleActionRequest;
         }
 
 
@@ -119,12 +120,16 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
             _damageableComponent.OnDied -= HandleCharacterDied;
             _deployableComponent.OnDeployed -= HandleCharacterDeployed;
             _deployableComponent.OnUnDeployed -= HandleCharacterUndeployed;
+            _enemyAiComponent.OnActionRequest -= HandleActionRequest;
         }
     }
 
     // --- 이벤트 핸들러 ---
     private void HandleStatusChanged() { /* ... */ }
-    private void HandleSpecificStatusChanged(string statusName, float oldValue, float newValue) { /* ... */ }
+    private void HandleSpecificStatusChanged(string statusName, float oldValue, float newValue) 
+    {
+        _enemyAiComponent.OnStatusChanged(statusName, oldValue, newValue);
+    }
     private void HandleCharacterDied() { /* ... */ }
     private void HandleAttackHit(IDamageable target) { /* ... */ }
     private void HandleCharacterDeployed() { /* ... */ }
@@ -160,7 +165,57 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
                 debug_MoveSpeed = newValue;
                 break;
         }
+    }
+    private void HandleActionRequest(IActionRequest request)
+    {
+        if (request == null) return;
 
+        switch (request.Type)
+        {
+            case ActionType.Deploy:
+                var deployRequest = request as DeployActionRequest;
+                if (deployRequest != null)
+                {
+                    _deployableComponent?.Deploy(deployRequest.DeployPosition, Quaternion.identity);
+                }
+                break;
+            case ActionType.Move:
+                var moveRequest = request as MoveActionRequest;
+                if (moveRequest != null)
+                {
+                    _movementComponent?.Move(moveRequest.Destination);
+                }
+                break;
+            case ActionType.Attack:
+                var attackRequest = request as AttackActionRequest;
+                if (attackRequest != null)
+                {
+                    _attackerComponent?.TryAttack();
+                }
+                break;
+            case ActionType.UseSkill:
+#if UNITY_EDITOR
+                Debug.Log($"Skill not implemented");
+#endif
+                break;
+            case ActionType.Hit:
+#if UNITY_EDITOR
+                Debug.Log($"HitAction not implemented");
+#endif
+                break;
+            case ActionType.Idle:
+#if UNITY_EDITOR
+                Debug.Log($"IdleAction not implemented");
+#endif
+                break;
+            case ActionType.Die:
+#if UNITY_EDITOR
+                Debug.Log($"DieAction not implemented");
+#endif
+                break;
+            default:
+                break;
+        }
     }
 
     // --- 외부 호출 메서드 ---

@@ -8,7 +8,6 @@ using System.Collections;
 
 public class GameManager : Singleton<GameManager>
 {
-    
     [SerializeField]
     private GameState _currentGameState = GameState.MainMenu;
     public GameState CurrentGameState

@@ -49,5 +49,15 @@ namespace ProjectD_and_R.Enums
         GameOver
     }
 
+    public enum ActionType
+    {
+        Deploy,
+        Move,
+        Attack,
+        UseSkill,
+        Hit,
+        Idle,
+        Die,
+    }
 
 }

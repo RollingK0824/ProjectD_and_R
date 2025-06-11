@@ -153,6 +153,7 @@ public class CharacterStatus : ICharacterStatus
             if (value != _isAlive)
             {
                 _isAlive = value;
+                OnStatusChanged?.Invoke();
             }
 
         }
@@ -167,6 +168,7 @@ public class CharacterStatus : ICharacterStatus
             if (value != _moveType)
             {
                 _moveType = value;
+                OnStatusChanged?.Invoke();
             }
         }
     }

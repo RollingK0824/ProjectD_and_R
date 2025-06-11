@@ -922,7 +922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c0446acab72af4d9df4493e6c1b498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _behaviorTreeAgent: {fileID: 7507007217101595628}
+  _behaviorAgent: {fileID: 0}
 --- !u!114 &7507007217101595628
 MonoBehaviour:
   m_ObjectHideFlags: 0
