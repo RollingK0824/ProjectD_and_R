@@ -16,18 +16,9 @@ public class EnemyAiComponent : MonoBehaviour, IEnemyAi
     {
         _characterCore = character;
 
-        if (_characterCore == null || _behaviorAgent == null)
-        {
-            return;
-        }
-        else
-        {
-#if UNITY_EDITOR
-            //var ExamInput = 1;
-            //_behaviorAgent.SetVariableValue("Example", ExamInput);
-#endif
-        }
+        if (_characterCore == null || _behaviorAgent == null) return;
 
+        /* Do Nothing */
     }
 
     public void OnUpdate()
@@ -36,11 +27,15 @@ public class EnemyAiComponent : MonoBehaviour, IEnemyAi
 
     public void OnStatusChanged(string valueName, float oldValue, float newValue)
     {
+        if(_behaviorAgent == null) return;
+
         _behaviorAgent.SetVariableValue(valueName, newValue);
     }
 
     public void OnStatusChanged<T>(string valueName, T oldValue, T newValue)
     {
+        if (_behaviorAgent == null) return;
+
         _behaviorAgent.SetVariableValue<T>(valueName, newValue);
     }
 
@@ -52,6 +47,8 @@ public class EnemyAiComponent : MonoBehaviour, IEnemyAi
 
     public T GetVariable<T>(string name)
     {
+        if (_behaviorAgent == null) throw new NotImplementedException();
+
         _behaviorAgent.GetVariable<T>(name, out var temp);
         if (temp != null) return temp;
         else throw new NotImplementedException();

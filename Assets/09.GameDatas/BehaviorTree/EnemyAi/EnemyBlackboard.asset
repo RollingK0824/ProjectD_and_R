@@ -17,10 +17,10 @@ MonoBehaviour:
     m_Value1: 10744324119262007211
   m_Variables:
   - rid: 1870413506574550012
-  - rid: 1870413579771707761
+  - rid: 1870413602557002652
   - rid: 1870413579915886875
   - rid: 1870413579915886876
-  m_VersionTimestamp: 638852902502250939
+  m_VersionTimestamp: 638853770054113017
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: 8546200521939271305}
@@ -37,16 +37,6 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 1
         m_Value: 0
-    - rid: 1870413579771707761
-      type: {class: 'TypedVariableModel`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        ID:
-          m_Value0: 9590039797582593192
-          m_Value1: 14483807526959061674
-        Name: EndPoint
-        IsExposed: 1
-        m_IsShared: 1
-        m_Value: {fileID: 0}
     - rid: 1870413579915886875
       type: {class: 'TypedVariableModel`1[[System.Collections.Generic.List`1[[UnityEngine.Vector3, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -67,6 +57,16 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 1
         m_Value: 
+    - rid: 1870413602557002652
+      type: {class: 'TypedVariableModel`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 6455259996623563133
+          m_Value1: 10529681902635847853
+        Name: EndPoint
+        IsExposed: 1
+        m_IsShared: 1
+        m_Value: {x: 0, y: 0, z: 0}
 --- !u!114 &8546200521939271305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,21 +79,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
   m_Name: EnemyBlackboard
   m_EditorClassIdentifier: 
-  VersionTimestamp: 638852902502250939
+  VersionTimestamp: 638853770054113017
   AssetID:
     m_Value0: 15324591267217308114
     m_Value1: 10744324119262007211
   m_Blackboard:
     m_Variables:
     - rid: 1870413506574550014
-    - rid: 1870413579771707762
+    - rid: 1870413602557002653
     - rid: 1870413579915886877
     - rid: 1870413579915886878
   m_SharedBlackboardVariableGuids:
   - m_Value0: 6537492391531535493
     m_Value1: 9520388888969924544
-  - m_Value0: 9590039797582593192
-    m_Value1: 14483807526959061674
+  - m_Value0: 6455259996623563133
+    m_Value1: 10529681902635847853
   - m_Value0: 7945751741991851120
     m_Value1: 1635040343159278395
   - m_Value0: 5836516171092553474
@@ -109,14 +109,6 @@ MonoBehaviour:
           m_Value1: 9520388888969924544
         Name: EnemyTurnState
         m_Value: 0
-    - rid: 1870413579771707762
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 9590039797582593192
-          m_Value1: 14483807526959061674
-        Name: EndPoint
-        m_Value: {fileID: 0}
     - rid: 1870413579915886877
       type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.Vector3, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -133,3 +125,11 @@ MonoBehaviour:
           m_Value1: 14012111469853550754
         Name: TargetTypes
         m_Value: 
+    - rid: 1870413602557002653
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 6455259996623563133
+          m_Value1: 10529681902635847853
+        Name: EndPoint
+        m_Value: {x: 0, y: 0, z: 0}

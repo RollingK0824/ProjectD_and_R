@@ -100,8 +100,6 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
             _enemyAiComponent.Initialize(this);
             _enemyAiComponent.OnActionRequest += HandleActionRequest;
         }
-
-
     }
 
     public void Attack()
@@ -128,6 +126,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     private void HandleStatusChanged() { /* ... */ }
     private void HandleSpecificStatusChanged(string statusName, float oldValue, float newValue) 
     {
+        if (_enemyAiComponent == null) return;
         _enemyAiComponent.OnStatusChanged(statusName, oldValue, newValue);
     }
     private void HandleCharacterDied() { /* ... */ }

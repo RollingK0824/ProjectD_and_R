@@ -18,7 +18,7 @@ public partial class CheckTargetsInRange : Action
     protected override Status OnStart()
     {
         GameObject self = Self.Value;
-        _enemyAiComponent = self.GetComponent<IEnemyAi>();
+        self.TryGetComponent<IEnemyAi>(out _enemyAiComponent);
 
         if (self == null || Targets.Value.Count < 0) return Status.Success;
 
