@@ -12,6 +12,7 @@ public interface ICharacterStatus
     float AttackRange { get; }
     float MoveSpeed { get; }
     bool IsAlive { get; }
+    bool IsDeployed { get; }
 
     MoveType MovableTerrainTypes { get; }
     Faction Faction { get; }
@@ -22,6 +23,7 @@ public interface ICharacterStatus
     public void SetAttackDamage(float value);
     public void SetAttackSpeed(float value);
     public void SetMoveSpeed(float value);
+    public void SetIsDeployed(bool value);
 
 
     event Action OnStatusChanged;

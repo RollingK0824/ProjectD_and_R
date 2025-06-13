@@ -25,14 +25,14 @@ public class EnemyAiComponent : MonoBehaviour, IEnemyAi
     {
     }
 
-    public void OnStatusChanged(string valueName, float oldValue, float newValue)
+    public void StatusChanged(string valueName, float oldValue, float newValue)
     {
         if(_behaviorAgent == null) return;
 
         _behaviorAgent.SetVariableValue(valueName, newValue);
     }
 
-    public void OnStatusChanged<T>(string valueName, T oldValue, T newValue)
+    public void StatusChanged<T>(string valueName, T oldValue, T newValue)
     {
         if (_behaviorAgent == null) return;
 
@@ -41,7 +41,7 @@ public class EnemyAiComponent : MonoBehaviour, IEnemyAi
 
     public void ActionRequest(IActionRequest request)
     {
-        if (OnActionRequest == null || request == null) return;
+        if (request == null) return;
         OnActionRequest?.Invoke(request);
     }
 

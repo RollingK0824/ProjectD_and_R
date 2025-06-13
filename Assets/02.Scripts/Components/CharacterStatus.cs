@@ -159,6 +159,20 @@ public class CharacterStatus : ICharacterStatus
         }
     }
 
+    private bool _isDeployed;
+    public bool IsDeployed
+    {
+        get => _isDeployed;
+        private set
+        {
+            if (value != _isDeployed)
+            {
+                _isDeployed = value;
+                OnStatusChanged?.Invoke();
+            }
+        }
+    }
+
     private MoveType _moveType;
     public MoveType MovableTerrainTypes
     {
@@ -202,6 +216,7 @@ public class CharacterStatus : ICharacterStatus
         MoveSpeed = baseData.MoveSpeed;
 
         IsAlive = CurrentHealth > 0;
+        IsDeployed = false;
 
         OnStatusChanged?.Invoke(); // 초기화 완료 시 전체 변경 이벤트 발생
 #if UNITY_EDITOR
@@ -217,6 +232,7 @@ public class CharacterStatus : ICharacterStatus
     public void SetAttackSpeed(float value) => AttackSpeed = value;
     public void SetAttackRange(float value) => AttackRange = value;
     public void SetMoveSpeed(float value) => MoveSpeed = value;
+    public void SetIsDeployed(bool value) => IsDeployed = value;
     public void SetFaction(Faction faction) => Faction = faction;
     public void SetMoveType(MoveType moveType) => MovableTerrainTypes = moveType;
 }

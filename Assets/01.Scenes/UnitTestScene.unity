@@ -317,37 +317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e57db80051d51459c1a1fbe6d41840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &586680392
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 586680393}
-  m_Layer: 0
-  m_Name: TestEnemySpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &586680393
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586680392}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 99}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &732157327
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +547,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentStageInfo: {fileID: 11400000, guid: a64dc5ac399b98843a0d7fde180bcad2, type: 2}
-  enemySpawnPoint: {fileID: 586680393}
 --- !u!4 &1853658428
 Transform:
   m_ObjectHideFlags: 0
@@ -935,7 +903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2990516148549123622, guid: 3edb9393619df4846a305f31f53ad4f2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5195759515549723435, guid: 3edb9393619df4846a305f31f53ad4f2, type: 3}
       propertyPath: 'testMoveToTarget.Array.data[0]'
@@ -1058,7 +1026,6 @@ SceneRoots:
   - {fileID: 2110766035}
   - {fileID: 117876346}
   - {fileID: 1853658428}
-  - {fileID: 586680393}
   - {fileID: 554798470}
   - {fileID: 5424320663844584624}
   - {fileID: 2070731581}

@@ -30,7 +30,7 @@ public partial class CheckTargetsInRange : Action
 #if UNITY_EDITOR
                 Debug.Log($"타겟이 공격 범위 내이 있음");
 #endif
-                _enemyAiComponent.OnStatusChanged<bool>("IsTargetInRange", false, true);
+                _enemyAiComponent.StatusChanged<bool>("IsTargetInRange", false, true);
             }
         }
 

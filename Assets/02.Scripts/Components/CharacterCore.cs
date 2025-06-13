@@ -46,8 +46,6 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
 
     public event Action OnCharacterDied;
 
-    public GameObject[] testMoveToTarget;
-
     protected virtual void Awake()
     {
         if (_characterData == null)
@@ -58,81 +56,124 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
             return;
         }
 
-        _characterStatus = new CharacterStatus();
+        Initialize();
+    }
 
-        _characterStatus.OnStatusChanged += HandleStatusChanged;
-        _characterStatus.OnSpecificStatusChanged += HandleSpecificStatusChanged;
-        _characterStatus.OnSpecificStatusChanged += HandleSpecificStatusChangedForDebug;
+    void Initialize()
+    {
+        _characterStatus = new CharacterStatus();
+        _damageableComponent = GetComponent<IDamageable>();
+        _movementComponent = GetComponent<IMovable>();
+        _attackerComponent = GetComponent<IAttacker>();
+        _deployableComponent = GetComponent<IDeployable>();
+        _enemyAiComponent = GetComponent<IEnemyAi>();
+
+        RegisterEvents();
 
         _characterStatus.Initialize(this);
 
-        _damageableComponent = GetComponent<IDamageable>();
         if (_damageableComponent != null)
         {
             _damageableComponent.Initialize(this);
-            _damageableComponent.OnDied += HandleCharacterDied;
         }
 
-        _movementComponent = GetComponent<IMovable>();
         if (_movementComponent != null)
         {
             _movementComponent.Initialize(this);
         }
 
-        _attackerComponent = GetComponent<IAttacker>();
         if (_attackerComponent != null)
         {
             _attackerComponent.Initialize(this);
-            _attackerComponent.OnAttackHit += HandleAttackHit;
         }
 
-        _deployableComponent = GetComponent<IDeployable>();
         if (_deployableComponent != null)
         {
             _deployableComponent.Initialize(this);
+        }
+
+        if (_enemyAiComponent != null)
+        {
+            _enemyAiComponent.Initialize(this);
+        }
+    }
+
+    void OnEnable()
+    {
+        RegisterEvents();
+    }
+    void OnDisable()
+    {
+        UnRegisterEvents();
+    }
+
+    // --- 이벤트 핸들러 ---
+    private void RegisterEvents()
+    {
+        if (_characterStatus != null)
+        {
+            _characterStatus.OnStatusChanged += HandleStatusChanged;
+            _characterStatus.OnSpecificStatusChanged += HandleSpecificStatusChanged;
+            _characterStatus.OnSpecificStatusChanged += HandleSpecificStatusChangedForDebug;
+        }
+
+        if (_deployableComponent != null)
+        {
             _deployableComponent.OnDeployed += HandleCharacterDeployed;
             _deployableComponent.OnUnDeployed += HandleCharacterUndeployed;
         }
 
-        _enemyAiComponent = GetComponent<IEnemyAi>();
-        if (_enemyAiComponent != null)
-        {
-            _enemyAiComponent.Initialize(this);
-            _enemyAiComponent.OnActionRequest += HandleActionRequest;
-        }
-    }
+        if (_attackerComponent != null) _attackerComponent.OnAttackHit += HandleAttackHit;
 
-    public void Attack()
-    {
-        _attackerComponent.TryAttack();
-    }
+        if (_damageableComponent != null) _damageableComponent.OnDied += HandleCharacterDied;
 
-    void OnDisable()
+        if (_enemyAiComponent != null) _enemyAiComponent.OnActionRequest += HandleActionRequest;
+
+        if (_movementComponent != null) { /* Do Nothing */ }
+    }
+    private void UnRegisterEvents()
     {
-        if (CharacterStatus != null)
+        if (_characterStatus != null)
         {
             _characterStatus.OnStatusChanged -= HandleStatusChanged;
             _characterStatus.OnSpecificStatusChanged -= HandleSpecificStatusChanged;
             _characterStatus.OnSpecificStatusChanged -= HandleSpecificStatusChangedForDebug;
-            _attackerComponent.OnAttackHit -= HandleAttackHit;
-            _damageableComponent.OnDied -= HandleCharacterDied;
+        }
+
+        if (_deployableComponent != null)
+        {
             _deployableComponent.OnDeployed -= HandleCharacterDeployed;
             _deployableComponent.OnUnDeployed -= HandleCharacterUndeployed;
-            _enemyAiComponent.OnActionRequest -= HandleActionRequest;
         }
-    }
 
-    // --- 이벤트 핸들러 ---
+        if (_attackerComponent != null) _attackerComponent.OnAttackHit -= HandleAttackHit;
+
+        if (_damageableComponent != null) _damageableComponent.OnDied -= HandleCharacterDied;
+
+        if (_enemyAiComponent != null) _enemyAiComponent.OnActionRequest -= HandleActionRequest;
+
+        if (_movementComponent != null) { /* Do Nothing */ }
+    }
     private void HandleStatusChanged() { /* ... */ }
-    private void HandleSpecificStatusChanged(string statusName, float oldValue, float newValue) 
+    private void HandleSpecificStatusChanged(string statusName, float oldValue, float newValue)
     {
         if (_enemyAiComponent == null) return;
-        _enemyAiComponent.OnStatusChanged(statusName, oldValue, newValue);
+        _enemyAiComponent.StatusChanged(statusName, oldValue, newValue);
     }
     private void HandleCharacterDied() { /* ... */ }
     private void HandleAttackHit(IDamageable target) { /* ... */ }
-    private void HandleCharacterDeployed() { /* ... */ }
-    private void HandleCharacterUndeployed() { /* ... */ }
+    private void HandleCharacterDeployed() 
+    { 
+        CharacterStatus.Initialize(this);
+        CharacterStatus.SetIsDeployed(true);
+
+        if(EnemyAiComponent != null)
+        {
+            EnemyAiComponent.StatusChanged<bool>("IsDeployed", true, true);
+            EnemyAiComponent.StatusChanged<bool>("IsAlive", true, true);
+        }
+    }
+    private void HandleCharacterUndeployed() { CharacterStatus.SetIsDeployed(false); }
     private void HandleSpecificStatusChangedForDebug(string statusName, float oldValue, float newValue)
     {
         if (CharacterStatus == null) return;
@@ -226,6 +267,6 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         }
     }
     public void MoveCharacterTo(Vector3 targetPosition) => _movementComponent?.Move(targetPosition);
-    public void PerformAttack() => _attackerComponent?.TryAttack();
+    public void Attack() => _attackerComponent?.TryAttack();
     public void DeployCharacter(Vector3 position, Quaternion rotation) => _deployableComponent?.Deploy(position, rotation);
 }

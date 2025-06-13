@@ -111,7 +111,7 @@ public class StageManager : MonoBehaviour
                 {
                     //Instantiate(wave.enemyType, enemySpawnPoint.position, Quaternion.identity);
                     GameObject enemy = ObjectPoolManager.Instance.Get("Assets/03.Prefabs/Characters/TestEnemy.prefab");
-                    enemy.transform.position = wave.spawnPoint;
+                    enemy.GetComponent<ICharacterCore>().DeployableComponent.Deploy(wave.spawnPoint,Quaternion.identity);
 #if UNITY_EDITOR
                     Debug.Log($"적 스폰: {wave.enemyType}");
 #endif

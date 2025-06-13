@@ -17,11 +17,6 @@ public interface IDeployable
     void Undeploy();
 
     /// <summary>
-    /// 배치 중인지 여부
-    /// </summary>
-    bool bIsDeployed { get; }
-
-    /// <summary>
     /// 유닛 배치 시 호출 이벤트
     /// </summary>
     event Action OnDeployed;

@@ -4,8 +4,8 @@ using UnityEngine;
 public interface IEnemyAi
 {
     void Initialize(ICharacterCore character);
-    void OnStatusChanged(string valueName, float oldValue, float newValue);
-    void OnStatusChanged<T>(string valueName, T oldValue, T newValue);
+    void StatusChanged(string valueName, float oldValue, float newValue);
+    void StatusChanged<T>(string valueName, T oldValue, T newValue);
     T GetVariable<T>(string name);
     void ActionRequest(IActionRequest request);
 

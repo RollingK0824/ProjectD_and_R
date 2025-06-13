@@ -7,20 +7,19 @@ using UnityEngine.UIElements;
 
 public class DeployableComponent : MonoBehaviour, IDeployable
 {
-    public bool bIsDeployed { get; private set; } = false;
+    private ICharacterStatus _characterStatus;
 
     public event Action OnDeployed;
     public event Action OnUnDeployed;
 
     public void Deploy(Vector3 position, Quaternion rotation)
     {
-        if (bIsDeployed) return;
+        if (_characterStatus.IsDeployed) return;
 
         transform.position = position;
         transform.rotation = rotation;
         gameObject.SetActive(true);
 
-        bIsDeployed = true;
 #if UNITY_EDITOR
         Debug.Log($"{gameObject.name}:{gameObject.GetInstanceID()}유닛 {position}배치");
 #endif
@@ -29,10 +28,10 @@ public class DeployableComponent : MonoBehaviour, IDeployable
 
     public void Undeploy()
     {
-        if(!bIsDeployed) return;
+        if(_characterStatus.IsDeployed) return;
 
         gameObject.SetActive(false);
-        bIsDeployed = false;
+        _characterStatus.SetIsDeployed(false);
 #if UNITY_EDITOR
         Debug.Log($"{gameObject.name}:{gameObject.GetInstanceID()}유닛 배치 해제");
 #endif
@@ -42,6 +41,9 @@ public class DeployableComponent : MonoBehaviour, IDeployable
 
     public void Initialize(ICharacterCore characterCore)
     {
+        if(characterCore == null) return;
+
+        _characterStatus = characterCore.CharacterStatus;
     }
 
 }
