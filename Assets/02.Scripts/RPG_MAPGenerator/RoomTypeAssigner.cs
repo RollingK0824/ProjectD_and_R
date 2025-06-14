@@ -101,7 +101,7 @@ public class RoomTypeAssigner
         double probNormal = 0.50; // 일반 
         double probElite = 0.30; // 엘리트
         double probEvent = 0.10; // 이벤트 
-        double probReward = 0.10; // 보상 
+        //double probReward = 0.10; // 보상 
 
         double randomValue = rand.NextDouble();
 
