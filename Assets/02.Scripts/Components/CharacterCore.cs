@@ -10,7 +10,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     [SerializeField] private CharacterData _characterData;
     public CharacterData Data => _characterData;
 
-
+    // ----- 인터페이스 ----- //
     private ICharacterStatus _characterStatus;
     public ICharacterStatus CharacterStatus => _characterStatus;
 
@@ -29,6 +29,8 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     private IEnemyAi _enemyAiComponent;
     public IEnemyAi EnemyAiComponent => _enemyAiComponent;
 
+    private IGridObject _gridObject;
+    public IGridObject GridObject => _gridObject;
 
 
     [Header("Debug Status (Read Only")]
@@ -154,6 +156,8 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
 
         if (_movementComponent != null) { /* Do Nothing */ }
     }
+
+    // --- 이벤트 핸들러 --- //
     private void HandleStatusChanged() { /* ... */ }
     private void HandleSpecificStatusChanged(string statusName, float oldValue, float newValue)
     {
@@ -262,7 +266,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         }
     }
 
-    // --- 외부 호출 메서드 ---
+    // --- 외부 호출 메서드 --- //
     public void ReceiveDamage(float rawDamage, DamageType damageType)
     {
         if (_damageableComponent != null)
