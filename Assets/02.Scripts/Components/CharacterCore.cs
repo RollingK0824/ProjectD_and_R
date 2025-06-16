@@ -210,51 +210,55 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     {
         if (request == null) return;
 
-        switch (request.Type)
+        switch (request)
         {
-            case ActionType.Deploy:
+            case DeployActionRequest:
                 var deployRequest = request as DeployActionRequest;
                 if (deployRequest != null)
                 {
                     _deployableComponent?.Deploy(deployRequest.DeployPosition, Quaternion.identity);
                 }
                 break;
-            case ActionType.Move:
+            case MoveActionRequest:
                 var moveRequest = request as MoveActionRequest;
                 if (moveRequest != null)
                 {
                     _movementComponent?.Move(moveRequest.Destination);
                 }
                 break;
-            case ActionType.Attack:
+            case MoveStopActionRequest:
+                var stopRequest = request as MoveStopActionRequest;
+                if(stopRequest != null)
+                {
+                    _movementComponent?.StopMoving();
+                }
+                break;
+            case AttackActionRequest:
                 var attackRequest = request as AttackActionRequest;
                 if (attackRequest != null)
                 {
                     _attackerComponent?.TryAttack();
                 }
                 break;
-            case ActionType.UseSkill:
+            case UseSkillActionRequest:
 #if UNITY_EDITOR
                 Debug.Log($"Skill not implemented");
 #endif
                 break;
-            case ActionType.Hit:
+            case HitActionRequest:
 #if UNITY_EDITOR
                 Debug.Log($"HitAction not implemented");
 #endif
                 break;
-            case ActionType.Idle:
+            default:
+                break;
 #if UNITY_EDITOR
                 Debug.Log($"IdleAction not implemented");
 #endif
-                break;
-            case ActionType.Die:
+
 #if UNITY_EDITOR
                 Debug.Log($"DieAction not implemented");
 #endif
-                break;
-            default:
-                break;
         }
     }
 

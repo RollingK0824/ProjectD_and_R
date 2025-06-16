@@ -24,6 +24,12 @@ public class MoveActionRequest : IActionRequest
     }
 }
 
+public class MoveStopActionRequest : IActionRequest
+{
+    public ActionType Type => ActionType.Move;
+
+}
+
 // 공격 액션 요청
 public class AttackActionRequest : IActionRequest
 {
@@ -65,5 +71,15 @@ public class HitActionRequest : IActionRequest
     {
         Attacker = attacker;
         Damage = damage;
+    }
+}
+
+public class DieActionRequest : IActionRequest
+{
+    public ActionType Type => ActionType.Die;
+    
+    public DieActionRequest()
+    {
+        /* Do Nothing */
     }
 }
