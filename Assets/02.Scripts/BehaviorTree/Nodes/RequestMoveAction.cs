@@ -13,7 +13,7 @@ using UnityEngine.AI;
     id: "a6e9ec38f5fb6b98b7d793d86e68d47e")]
 public partial class RequestMoveAction : Action
 {
-    [SerializeReference] public BlackboardVariable<Vector3> Target;
+    [SerializeReference] public BlackboardVariable<Vector2Int> Target;
     [SerializeReference] public BlackboardVariable<CharacterCore> Agent;
 
     private IEnemyAi _enemyAiComponent;
@@ -32,7 +32,9 @@ public partial class RequestMoveAction : Action
     {
         if (_enemyAiComponent == null || Agent == null) return Status.Failure;
 
-        _enemyAiComponent.ActionRequest(new MoveActionRequest(Target.Value));
+        Vector3 targetPos = GridManager.Instance.GridToWorldPos(Target.Value);
+
+        _enemyAiComponent.ActionRequest(new MoveActionRequest(targetPos));
 
         return Status.Success;
     }

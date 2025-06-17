@@ -16,6 +16,7 @@ public interface ICharacterStatus
 
     MoveType MovableTerrainTypes { get; }
     Faction Faction { get; }
+    ObjectType ObjectType { get; }
 
     public void SetCurrentHealth(float value);
     public void SetMaxHealth(float value);

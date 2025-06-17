@@ -8,14 +8,14 @@ public class EnemyAiComponent : MonoBehaviour, IEnemyAi
 {
     private ICharacterCore _characterCore;
 
-    [SerializeField] private BehaviorGraphAgent _behaviorAgent;
+    private BehaviorGraphAgent _behaviorAgent;
 
     public event Action<IActionRequest> OnActionRequest;
 
     void IEnemyAi.Initialize(ICharacterCore character)
     {
         _characterCore = character;
-
+        _behaviorAgent = character.BehaviorGraphAgent;
         if (_characterCore == null || _behaviorAgent == null) return;
 
         /* Do Nothing */

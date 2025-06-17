@@ -8,8 +8,8 @@ public class StageData : ScriptableObject
     public string stageName = "New Stage";
     public float stageStartTimeOffset = 0f;
 
-    public List<Vector3> enemySpawnPoints;
-    public List<Vector3> enemyEndPoints;
+    public List<Vector2Int> enemySpawnPoints;
+    public List<Vector2Int> enemyEndPoints;
 
     [Serializable]
     public class EnemySpawnEntry
@@ -17,7 +17,7 @@ public class StageData : ScriptableObject
         public string enemyType; // 추후 Addreseble 타입 혹은 Dictionary에 Enemy Key값으로 활용 예정
         public int count;
         public float spawnDelay;
-        public Vector3 spawnPoint;
+        public Vector2Int spawnPoint;
     }
 
     // --스테이지 종료 조건--

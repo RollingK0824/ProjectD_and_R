@@ -196,6 +196,21 @@ public class CharacterStatus : ICharacterStatus
             if (value != _faction)
             {
                 _faction = value;
+                OnStatusChanged?.Invoke();
+            }
+        }
+    }
+
+    private ObjectType _objectType;
+    public ObjectType ObjectType
+    {
+        get => _objectType;
+        private set
+        {
+            if(value != _objectType)
+            {
+                _objectType = value;
+                OnStatusChanged?.Invoke();
             }
         }
     }
@@ -214,6 +229,10 @@ public class CharacterStatus : ICharacterStatus
         AttackSpeed = baseData.AttackSpeed;
         AttackRange = baseData.AttackRange;
         MoveSpeed = baseData.MoveSpeed;
+
+        MovableTerrainTypes = baseData.MovableTerrainTypes;
+        Faction = baseData.Faction;
+        ObjectType = baseData.ObjectType;
 
         IsAlive = CurrentHealth > 0;
         IsDeployed = false;

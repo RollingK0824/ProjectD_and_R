@@ -15,7 +15,7 @@ public class MovementComponent : MonoBehaviour, IMovable
     {
         if (characterCore == null) return;
         _status = characterCore.CharacterStatus;
-        _navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        _navMeshAgent = characterCore.NavMeshAgent;
         if( _navMeshAgent == null)
         {
 #if UNITY_EDITOR

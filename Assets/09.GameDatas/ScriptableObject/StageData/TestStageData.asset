@@ -15,12 +15,13 @@ MonoBehaviour:
   stageName: TestStageData
   stageStartTimeOffset: 3
   enemySpawnPoints:
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0}
   enemyEndPoints:
-  - {x: 99, y: 0, z: 99}
+  - {x: 100, y: 100}
   stageDuration: 360
   enemyKillCount: 0
   spawnSequence:
   - enemyType: Assets/03.Prefabs/Characters/TestEnemy.prefab
     count: 5
     spawnDelay: 5
+    spawnPoint: {x: 0, y: 0}

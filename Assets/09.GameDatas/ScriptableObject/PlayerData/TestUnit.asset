@@ -25,6 +25,7 @@ MonoBehaviour:
   _characterPrefab: {fileID: 0}
   _movableTerrainTypes: -1
   _faction: 1
+  _objectType: 1
   level: 0
   experience: 0
   tier: 0

@@ -43,6 +43,7 @@ public class AttackActionRequest : IActionRequest
 
     public AttackActionRequest()
     {
+        Target = null;
     }
 }
 

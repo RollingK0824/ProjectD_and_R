@@ -5,10 +5,10 @@ public interface IGridObject
 {
     Vector2Int CurrentGridPos { get; }
     ObjectType ObjectType { get; }
+    GameObject GameObject { get; }
 
     void UpdateGridPosition();
 
-    GameObject GatGameObject();
 
     void Initialize(ICharacterCore characterCore);
 }

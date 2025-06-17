@@ -69,13 +69,13 @@ public class GridManager : Singleton<GridManager>
     public void RegisterObject(IGridObject gridObject, int x, int y)
     {
         if (!IsValidGridPos(x, y)) return;
-        grid[x, y].PlacedObject = gridObject.GatGameObject();
+        grid[x, y].PlacedObject = gridObject.GameObject;
     }
 
     public void RegisterObject(IGridObject gridObject, Vector2Int pos)
     {
         if (!IsValidGridPos(pos.x, pos.y)) return;
-        grid[pos.x, pos.y].PlacedObject = gridObject.GatGameObject();
+        grid[pos.x, pos.y].PlacedObject = gridObject.GameObject;
     }
 
     public void UnRegisterObject(int x, int y)
@@ -94,14 +94,14 @@ public class GridManager : Singleton<GridManager>
     {
         if(!IsValidGridPos(oldX, oldY) || !IsValidGridPos(newX,newY)) return;
         grid[oldX, oldY].PlacedObject = null;
-        grid[newX,newY].PlacedObject = gridObject.GatGameObject();
+        grid[newX,newY].PlacedObject = gridObject.GameObject;
     }
 
     public void MoveObject(IGridObject gridObject, Vector2Int oldPos, Vector2Int newPos)
     {
         if (!IsValidGridPos(oldPos.x, oldPos.y) || !IsValidGridPos(newPos.x, newPos.y)) return;
         grid[oldPos.x, oldPos.y].PlacedObject = null;
-        grid[newPos.y, newPos.y].PlacedObject = gridObject.GatGameObject();
+        grid[newPos.y, newPos.y].PlacedObject = gridObject.GameObject;
     }
 
     /// <summary>

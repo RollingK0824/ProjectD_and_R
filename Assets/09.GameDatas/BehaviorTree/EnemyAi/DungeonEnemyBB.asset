@@ -13,60 +13,16 @@ MonoBehaviour:
   m_Name: DungeonEnemyBB
   m_EditorClassIdentifier: 
   AssetID:
-    m_Value0: 15324591267217308114
-    m_Value1: 10744324119262007211
-  m_Variables:
-  - rid: 1870413506574550012
-  - rid: 1870413602557002652
-  - rid: 1870413690598326386
-  - rid: 1870413579915886876
-  m_VersionTimestamp: 638857121130614692
+    m_Value0: 9542159245066259341
+    m_Value1: 2415442778768310059
+  m_Variables: []
+  m_VersionTimestamp: 638857889838124698
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: 8546200521939271305}
   references:
     version: 2
-    RefIds:
-    - rid: 1870413506574550012
-      type: {class: 'TypedVariableModel`1[[EnemyTurnState, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        ID:
-          m_Value0: 6537492391531535493
-          m_Value1: 9520388888969924544
-        Name: EnemyTurnState
-        IsExposed: 1
-        m_IsShared: 1
-        m_Value: 0
-    - rid: 1870413579915886876
-      type: {class: 'TypedVariableModel`1[[System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        ID:
-          m_Value0: 5836516171092553474
-          m_Value1: 14012111469853550754
-        Name: TargetTypes
-        IsExposed: 1
-        m_IsShared: 1
-        m_Value: 
-    - rid: 1870413602557002652
-      type: {class: 'TypedVariableModel`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        ID:
-          m_Value0: 6455259996623563133
-          m_Value1: 10529681902635847853
-        Name: EndPoint
-        IsExposed: 1
-        m_IsShared: 1
-        m_Value: {x: 0, y: 0, z: 0}
-    - rid: 1870413690598326386
-      type: {class: 'TypedVariableModel`1[[System.Collections.Generic.List`1[[UnityEngine.Vector2, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        ID:
-          m_Value0: 14394549753928517865
-          m_Value1: 1205673856492278633
-        Name: TargetPositions
-        IsExposed: 1
-        m_IsShared: 0
-        m_Value: []
+    RefIds: []
 --- !u!114 &8546200521939271305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,57 +33,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
-  m_Name: EnemyBlackboard
+  m_Name: DungeonEnemyBB
   m_EditorClassIdentifier: 
-  VersionTimestamp: 638857121130614692
+  VersionTimestamp: 638857889838124698
   AssetID:
-    m_Value0: 15324591267217308114
-    m_Value1: 10744324119262007211
+    m_Value0: 9542159245066259341
+    m_Value1: 2415442778768310059
   m_Blackboard:
-    m_Variables:
-    - rid: 1870413506574550014
-    - rid: 1870413602557002653
-    - rid: 1870413690598326387
-    - rid: 1870413579915886878
-  m_SharedBlackboardVariableGuids:
-  - m_Value0: 6537492391531535493
-    m_Value1: 9520388888969924544
-  - m_Value0: 6455259996623563133
-    m_Value1: 10529681902635847853
-  - m_Value0: 5836516171092553474
-    m_Value1: 14012111469853550754
+    m_Variables: []
+  m_SharedBlackboardVariableGuids: []
   references:
     version: 2
-    RefIds:
-    - rid: 1870413506574550014
-      type: {class: 'BlackboardVariable`1[[EnemyTurnState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 6537492391531535493
-          m_Value1: 9520388888969924544
-        Name: EnemyTurnState
-        m_Value: 0
-    - rid: 1870413579915886878
-      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 5836516171092553474
-          m_Value1: 14012111469853550754
-        Name: TargetTypes
-        m_Value: 
-    - rid: 1870413602557002653
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 6455259996623563133
-          m_Value1: 10529681902635847853
-        Name: EndPoint
-        m_Value: {x: 0, y: 0, z: 0}
-    - rid: 1870413690598326387
-      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.Vector2, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 14394549753928517865
-          m_Value1: 1205673856492278633
-        Name: TargetPositions
-        m_Value: []
+    RefIds: []

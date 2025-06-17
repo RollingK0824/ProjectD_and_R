@@ -12,6 +12,13 @@ public interface IDeployable
     void Deploy(Vector3 position, Quaternion rotation);
 
     /// <summary>
+    /// 그리드 기반 유닛 배치 함수
+    /// </summary>
+    /// <param name="gridPos">배치 그리드 좌표</param>
+    /// <param name="rotation">배치 각도</param>
+    void Deploy(Vector2Int gridPos, Quaternion rotation);
+
+    /// <summary>
     /// 배치 해제 함수
     /// </summary>
     void Undeploy();

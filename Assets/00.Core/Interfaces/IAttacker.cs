@@ -1,5 +1,6 @@
 // Assets/00.Core/Interfaces/IAttacker.cs
 using System;
+using UnityEngine;
 
 public interface IAttacker
 {
@@ -7,6 +8,12 @@ public interface IAttacker
     /// 공격 시도 함수
     /// </summary>
     void TryAttack();
+
+    /// <summary>
+    /// 공격 시도 함수
+    /// </summary>
+    /// <param name="target">공격 대상</param>
+    void TryAttack(GameObject target);
 
     /// <summary>
     /// 현재 공격중인지 여부

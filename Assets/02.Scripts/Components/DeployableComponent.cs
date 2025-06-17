@@ -26,6 +26,20 @@ public class DeployableComponent : MonoBehaviour, IDeployable
         OnDeployed?.Invoke();
     }
 
+    public void Deploy(Vector2Int position, Quaternion rotation)
+    {
+        if (_characterStatus.IsDeployed) return;
+
+        transform.position = GridManager.Instance.GridToWorldPos(position);
+        transform.rotation = rotation;
+        gameObject.SetActive(true);
+
+#if UNITY_EDITOR
+        Debug.Log($"{gameObject.name}:{gameObject.GetInstanceID()}유닛 {position}배치");
+#endif
+        OnDeployed?.Invoke();
+    }
+
     public void Undeploy()
     {
         if(_characterStatus.IsDeployed) return;

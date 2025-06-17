@@ -4,11 +4,15 @@ using UnityEngine;
 public class GridObjectComponent : MonoBehaviour, IGridObject
 {
     public Vector2Int CurrentGridPos => _currentGridPos;
-    public ObjectType ObjectType { get; private set; }
-
-    private ICharacterCore _characterCore;
     private Vector2Int _currentGridPos;
     private Vector2Int _lastKnownGridPos;
+
+    public ObjectType ObjectType => _objectType;
+    private ObjectType _objectType;
+
+    private ICharacterCore _characterCore;
+
+    public GameObject GameObject => gameObject;
 
     public void Initialize(ICharacterCore characterCore)
     {
@@ -18,6 +22,7 @@ public class GridObjectComponent : MonoBehaviour, IGridObject
         }
 
         _characterCore = characterCore;
+        _objectType = characterCore.CharacterStatus.ObjectType;
 
         _currentGridPos = GridManager.Instance.WorldToGridPos(transform.position);
         _lastKnownGridPos = _currentGridPos;
@@ -42,10 +47,5 @@ public class GridObjectComponent : MonoBehaviour, IGridObject
             _currentGridPos = newGridPos;
             _lastKnownGridPos= newGridPos;
         }
-    }
-
-    public GameObject GatGameObject()
-    {
-        return this.gameObject;
     }
 }

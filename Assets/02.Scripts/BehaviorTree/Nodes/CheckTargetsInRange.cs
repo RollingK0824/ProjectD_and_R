@@ -7,19 +7,18 @@ using static UnityEngine.GraphicsBuffer;
 using Action = Unity.Behavior.Action;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "CheckTargetsInRange", story: "Checks if the current target is within attack range [self] [targets] [AttackRange]", category: "Action", id: "087d9bdd6efa559c2502759a686da4df")]
+[NodeDescription(name: "CheckTargetsInRange", story: "Checks if the current target is within attack range [self] [Agent] [AttackRange]", category: "Action", id: "087d9bdd6efa559c2502759a686da4df")]
 public partial class CheckTargetsInRange : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Self;
     [SerializeReference] public BlackboardVariable<CharacterCore> Agent;
-    [SerializeReference] public BlackboardVariable<List<Vector3>> Targets;
     [SerializeReference] public BlackboardVariable<float> AttackRange;
 
     private IEnemyAi _enemyAiComponent;
 
     protected override Status OnStart()
     {
-        if (Agent.Value == null || Targets.Value == null)
+        if (Agent.Value == null)
         {
             return Status.Failure;
         }
@@ -29,17 +28,31 @@ public partial class CheckTargetsInRange : Action
 
     protected override Status OnUpdate()
     {
-        foreach (var target in Targets.Value)
+        Vector2Int currentGridPos = GridManager.Instance.WorldToGridPos(Self.Value.transform.position);
+        List<IGridObject> targets = GridManager.Instance.GetObjectsInRadius(currentGridPos, AttackRange);
+
+        IGridObject closestTarget = null;
+        float minDistance = float.MaxValue;
+        foreach (var target in targets)
         {
-            float sqrDist = (Self.Value.transform.position - target).sqrMagnitude;
-            if (sqrDist <= AttackRange * AttackRange)
+            if (target.GameObject == Self.Value) continue;
+
+            if (target.ObjectType == ProjectD_and_R.Enums.ObjectType.Player || target.ObjectType == ProjectD_and_R.Enums.ObjectType.Obstacle)
             {
-#if UNITY_EDITOR
-                Debug.Log($"타겟이 공격 범위 내이 있음");
-#endif
-                _enemyAiComponent.StatusChanged<bool>("IsTargetInRange", false, true);
-                return Status.Success;
+                float distance = Vector2.Distance(currentGridPos, target.CurrentGridPos);
+
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    closestTarget = target;
+                }
             }
+        }
+
+        if (closestTarget != null)
+        {
+            _enemyAiComponent.StatusChanged<GameObject>("Target",null,closestTarget.GameObject);
+            return Status.Success;
         }
 
         return Status.Failure;

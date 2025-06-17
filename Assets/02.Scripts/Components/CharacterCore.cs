@@ -3,6 +3,8 @@ using UnityEngine;
 using System;
 using ProjectD_and_R.Enums;
 using System.Collections;
+using UnityEngine.AI;
+using Unity.Behavior;
 
 public class CharacterCore : MonoBehaviour, ICharacterCore
 {
@@ -32,6 +34,12 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     private IGridObject _gridObject;
     public IGridObject GridObject => _gridObject;
 
+    private NavMeshAgent _navMeshAgent;
+    public NavMeshAgent NavMeshAgent => _navMeshAgent;
+
+    private BehaviorGraphAgent _behaviorGraphAgent;
+    public BehaviorGraphAgent BehaviorGraphAgent => _behaviorGraphAgent;
+
 
     [Header("Debug Status (Read Only")]
     [SerializeField] private float debug_MaxHealth;
@@ -45,8 +53,9 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     [SerializeField] private bool debug_IsAlive;
     [SerializeField] private MoveType debug_MovableTerrainTypes;
     [SerializeField] private Faction debug_Faction;
+    [SerializeField] private ObjectType debug_ObjectType;
 
-    public event Action OnCharacterDied;
+    public event System.Action OnCharacterDied;
 
     protected virtual void Awake()
     {
@@ -64,15 +73,16 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     void Initialize()
     {
         _characterStatus = new CharacterStatus();
-        _damageableComponent = GetComponent<IDamageable>();
-        _movementComponent = GetComponent<IMovable>();
-        _attackerComponent = GetComponent<IAttacker>();
-        _deployableComponent = GetComponent<IDeployable>();
-        _enemyAiComponent = GetComponent<IEnemyAi>();
+        TryGetComponent<IDamageable>(out _damageableComponent);
+        TryGetComponent<IMovable>(out _movementComponent);
+        TryGetComponent<IAttacker>(out _attackerComponent);
+        TryGetComponent<IDeployable>(out _deployableComponent);
+        TryGetComponent<IEnemyAi>(out _enemyAiComponent);
+        TryGetComponent<NavMeshAgent>(out _navMeshAgent);
+        TryGetComponent<BehaviorGraphAgent>(out _behaviorGraphAgent);
 
         RegisterEvents();
 
-        _characterStatus.Initialize(this);
 
         if (_damageableComponent != null)
         {
@@ -98,6 +108,8 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         {
             _enemyAiComponent.Initialize(this);
         }
+        
+        _characterStatus.Initialize(this);
     }
 
     void OnEnable()
@@ -159,6 +171,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
 
     // --- 이벤트 핸들러 --- //
     private void HandleStatusChanged() { /* ... */ }
+    private void HandleStatusChanged<T>(string statusName, T newValue) { }
     private void HandleSpecificStatusChanged(string statusName, float oldValue, float newValue)
     {
         if (_enemyAiComponent == null) return;
@@ -241,7 +254,14 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
                 var attackRequest = request as AttackActionRequest;
                 if (attackRequest != null)
                 {
-                    _attackerComponent?.TryAttack();
+                    if(attackRequest.Target != null)
+                    {
+                        _attackerComponent?.TryAttack(attackRequest.Target);
+                    }
+                    else
+                    {
+                        _attackerComponent?.TryAttack();
+                    }
                 }
                 break;
             case UseSkillActionRequest:
