@@ -254,4 +254,5 @@ public class CharacterStatus : ICharacterStatus
     public void SetIsDeployed(bool value) => IsDeployed = value;
     public void SetFaction(Faction faction) => Faction = faction;
     public void SetMoveType(MoveType moveType) => MovableTerrainTypes = moveType;
+    public void SetObjectType(ObjectType objectType) => ObjectType = objectType;
 }

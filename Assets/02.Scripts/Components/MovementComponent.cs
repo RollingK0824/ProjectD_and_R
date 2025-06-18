@@ -22,7 +22,7 @@ public class MovementComponent : MonoBehaviour, IMovable
             Debug.Log($"MovementComponent requires a NavMeshAgent Component");
 #endif
         }
-        _navMeshAgent.speed = _status.MoveSpeed;
+        SetMoveSpeed(_status.MoveSpeed);
         _navMeshAgent.isStopped = true;
 #if UNITY_EDITOR
         Debug.Log($"MovementComponent Initialized: Speed = {_status.MoveSpeed}, MoveTypes = {_status.MovableTerrainTypes} ");

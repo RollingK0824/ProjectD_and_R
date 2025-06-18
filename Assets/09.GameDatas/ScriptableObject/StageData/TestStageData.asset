@@ -17,7 +17,7 @@ MonoBehaviour:
   enemySpawnPoints:
   - {x: 0, y: 0}
   enemyEndPoints:
-  - {x: 100, y: 100}
+  - {x: 20, y: 20}
   stageDuration: 360
   enemyKillCount: 0
   spawnSequence:

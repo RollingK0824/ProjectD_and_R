@@ -16,8 +16,8 @@ public class UIManager : Singleton<UIManager>
 
         Vector3 pos = GridManager.Instance.GridToWorldPos(new Vector2Int(xPos, yPos));
 
-        player.GetComponent<ICharacterCore>().DeployableComponent.Deploy(pos,Quaternion.identity);
+        ICharacterCore characterCore = player.GetComponent<ICharacterCore>();
 
-
+        characterCore.DeployableComponent.Deploy(pos,Quaternion.identity);
     }
 }

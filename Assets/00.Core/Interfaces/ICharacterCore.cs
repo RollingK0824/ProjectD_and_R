@@ -15,4 +15,5 @@ public interface ICharacterCore
     IDeployable DeployableComponent { get; }
     IEnemyAi EnemyAiComponent { get; }
     BehaviorGraphAgent BehaviorGraphAgent { get; }
+    IGridObject GridObject { get; }
 }

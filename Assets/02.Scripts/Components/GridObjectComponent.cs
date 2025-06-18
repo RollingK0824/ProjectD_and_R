@@ -4,10 +4,12 @@ using UnityEngine;
 public class GridObjectComponent : MonoBehaviour, IGridObject
 {
     public Vector2Int CurrentGridPos => _currentGridPos;
+    [SerializeField]
     private Vector2Int _currentGridPos;
     private Vector2Int _lastKnownGridPos;
 
     public ObjectType ObjectType => _objectType;
+    [SerializeField]
     private ObjectType _objectType;
 
     private ICharacterCore _characterCore;

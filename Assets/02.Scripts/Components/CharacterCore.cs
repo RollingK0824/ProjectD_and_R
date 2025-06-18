@@ -80,9 +80,11 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         TryGetComponent<IEnemyAi>(out _enemyAiComponent);
         TryGetComponent<NavMeshAgent>(out _navMeshAgent);
         TryGetComponent<BehaviorGraphAgent>(out _behaviorGraphAgent);
+        TryGetComponent<IGridObject>(out _gridObject);
 
         RegisterEvents();
 
+        _characterStatus.Initialize(this);
 
         if (_damageableComponent != null)
         {
@@ -104,12 +106,16 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
             _deployableComponent.Initialize(this);
         }
 
+        if(_gridObject != null)
+        {
+            _gridObject.Initialize(this);
+        }
+
         if (_enemyAiComponent != null)
         {
             _enemyAiComponent.Initialize(this);
+            _characterStatus.Initialize(this);
         }
-        
-        _characterStatus.Initialize(this);
     }
 
     void OnEnable()

@@ -9,6 +9,5 @@ public interface IGridObject
 
     void UpdateGridPosition();
 
-
     void Initialize(ICharacterCore characterCore);
 }
