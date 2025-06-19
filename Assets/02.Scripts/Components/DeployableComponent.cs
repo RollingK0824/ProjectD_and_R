@@ -44,12 +44,13 @@ public class DeployableComponent : MonoBehaviour, IDeployable
     {
         if(_characterStatus.IsDeployed) return;
 
+        OnUnDeployed?.Invoke();
+
         gameObject.SetActive(false);
         _characterStatus.SetIsDeployed(false);
 #if UNITY_EDITOR
         Debug.Log($"{gameObject.name}:{gameObject.GetInstanceID()}유닛 배치 해제");
 #endif
-        OnUnDeployed?.Invoke();
     }
 
 

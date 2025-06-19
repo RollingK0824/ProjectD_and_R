@@ -114,13 +114,12 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         if (_enemyAiComponent != null)
         {
             _enemyAiComponent.Initialize(this);
-            _characterStatus.Initialize(this);
         }
     }
 
     void OnEnable()
     {
-        RegisterEvents();
+        Initialize();
     }
     void OnDisable()
     {
@@ -183,7 +182,23 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         if (_enemyAiComponent == null) return;
         _enemyAiComponent.StatusChanged(statusName, oldValue, newValue);
     }
-    private void HandleCharacterDied() { /* ... */ }
+    private void HandleCharacterDied() 
+    {
+        if (_gridObject != null)
+        {
+            Vector2Int currentGridPos = GridManager.Instance.WorldToGridPos(transform.position);
+            GridManager.Instance.UnRegisterObject(currentGridPos);
+        }
+
+        if (EnemyAiComponent != null)
+        {
+            EnemyAiComponent.StatusChanged<bool>("IsAlive", false, false);
+        }
+        
+        // StageManager에 이를 알려야 함
+
+        _deployableComponent.Undeploy();
+    }
     private void HandleAttackHit(IDamageable target) { /* ... */ }
     private void HandleCharacterDeployed() 
     { 

@@ -68,4 +68,17 @@ namespace ProjectD_and_R.Enums
         Die,
     }
 
+    public enum GameEndConditionType
+    {
+        // 클리어 조건
+        AllEnemiesDefeated,
+        TimeLimitReached_Clear,
+        BossDefeated,
+
+        // 게임 오버 조건
+        AllPlayerUnitsDefeated,
+        DefenseTargetDestroyed,
+        TimeLimitReached_GameOver,
+    }
+
 }

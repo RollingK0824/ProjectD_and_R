@@ -4,12 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using ProjectD_and_R.Enums;
+using Unity.Behavior;
 
 public class StageManager : MonoBehaviour
 {
     [SerializeField]
     private StageData _currentStageInfo;
     private Coroutine _spawnCoroutine;
+
+    [SerializeField] private BehaviorGraphAgent _agent;
 
     private void OnEnable()
     {

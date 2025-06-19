@@ -33,7 +33,7 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
         ObjectPoolManager.Instance.Initialize(this.gameObject.transform);
-        ObjectPoolManager.Instance.PreloadPrefab("Assets/03.Prefabs/Characters/TestEnemy.prefab", 5);
+        ObjectPoolManager.Instance.PreloadPrefab("Assets/03.Prefabs/Characters/TestEnemy.prefab", 1);
         StartCoroutine(Test_GameStart());
     }
 

@@ -4,7 +4,7 @@ using System.Collections;
 using System;
 using ProjectD_and_R.Enums;
 
-public class AttackComponent : MonoBehaviour//, IAttacker
+public class AttackComponent : MonoBehaviour, IAttacker
 {
     private ICharacterStatus _status;
 
@@ -41,7 +41,7 @@ public class AttackComponent : MonoBehaviour//, IAttacker
     {
         if (Time.time >= _nextAttackTime && !IsAttacking)
         {
-            PerformDamageApplication();
+            PerformDamageApplication(target);
             _nextAttackTime = Time.time + _attackCooldownDuration;
         }
     }
@@ -71,6 +71,7 @@ public class AttackComponent : MonoBehaviour//, IAttacker
 
                 if (_status.Faction != targetCore.Data.Faction) // 진영이 다를 때만 공격
                 {
+                    //targetCore.ReceiveDamage(_status.AttackDamage, DamageType.Pyhsical);
                     damageableTarget.TakeDamage(_status.AttackDamage, DamageType.Pyhsical);
                     /* 스킬 수행 예정 */
 #if UNITY_EDITOR

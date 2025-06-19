@@ -20,7 +20,6 @@ GameObject:
   - component: {fileID: 669560926831801006}
   - component: {fileID: 1761715596216478146}
   - component: {fileID: 7834820254168059833}
-  - component: {fileID: 4520853653199913949}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -193,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac9e6bbc9be4574da5315cdd3d0dde2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterData: {fileID: 11400000, guid: 5069950b414c05c42902d83fc6386e0d, type: 2}
+  _characterData: {fileID: 11400000, guid: d542b887eea5da54293403f6e0649643, type: 2}
   debug_MaxHealth: 0
   debug_CurrentHealth: 0
   debug_PhysicalDefense: 0
@@ -205,6 +204,7 @@ MonoBehaviour:
   debug_IsAlive: 0
   debug_MovableTerrainTypes: 0
   debug_Faction: 0
+  debug_ObjectType: 0
 --- !u!114 &4194455804691901279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,17 +251,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1ccfa0f9b4b5274fb8f07783f4d0a2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4520853653199913949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1075052970309349508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f555708b55a459a4ba25208bbd8f1f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
