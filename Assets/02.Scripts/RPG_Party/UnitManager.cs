@@ -10,20 +10,24 @@ public class UnitManager : Singleton<UnitManager>
     [Header("유닛 데이터")]
     public List<UnitData> allUnitDatas;
     public Task InitializationTask { get; private set; }
-    UnitDataLoder unitDataLoder = new UnitDataLoder();
+    UnitDataLoder unitDataLoder;
 
-    protected override void Awake()
+    protected override async void Awake()
     {
-        base.Awake(); 
+        base.Awake();
+
         InitializationTask = InitializeAsync();
     }
 
-    async Task InitializeAsync()
+    private async Task InitializeAsync()
     {
+        unitDataLoder = new UnitDataLoder();
         await unitDataLoder.LoadAllUnitsByLabel();
 
         allUnitDatas = unitDataLoder.unitDatas;
+
     }
+
 
     public UnitData GetUnitDataByID(int unitID)
     {

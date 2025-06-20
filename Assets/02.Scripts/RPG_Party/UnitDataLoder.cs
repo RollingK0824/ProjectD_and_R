@@ -11,7 +11,6 @@ public class UnitDataLoder
     AsyncOperationHandle<IList<UnitData>> loadHandle;
     public List<UnitData> unitDatas = new List<UnitData>();
 
-
     public async Task LoadAllUnitsByLabel()
     {
         loadHandle = Addressables.LoadAssetsAsync<UnitData>(label, null);

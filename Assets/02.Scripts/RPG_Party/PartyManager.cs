@@ -28,7 +28,6 @@ public class PartyManager : Singleton<PartyManager>
     {
         List<UnitData> unitDatas = UnitManager.Instance.allUnitDatas;
 
-        Debug.Log(unitDatas.Count);
         foreach (UnitData data in unitDatas)
         {
             if (!data.Lock)

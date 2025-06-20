@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public enum RoomType { Normal, Elite, Event, Shop, Reward, Boss, Door, None }
 
 public class Room : MonoBehaviour
 {
