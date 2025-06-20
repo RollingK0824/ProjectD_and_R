@@ -18,7 +18,7 @@ MonoBehaviour:
   _maxHealth: 100
   _physicalDefense: 10
   _magicalResistance: 10
-  _attackDamage: 10
+  _attackDamage: 80
   _attackSpeed: 0.3
   _attackedRange: 2
   _moveSpeed: 5

@@ -14,14 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageName: TestStageData
   stageStartTimeOffset: 3
-  enemySpawnPoints:
-  - {x: 0, y: 0}
-  enemyEndPoints:
-  - {x: 20, y: 20}
-  stageDuration: 360
-  enemyKillCount: 0
+  endPoint: {x: 20, y: 20}
   spawnSequence:
   - enemyType: Assets/03.Prefabs/Characters/TestEnemy.prefab
     count: 1
     spawnDelay: 3
     spawnPoint: {x: 0, y: 0}
+    endPoint: {x: 0, y: 0}
+  stageConditionData: []

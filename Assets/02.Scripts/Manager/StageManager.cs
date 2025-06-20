@@ -98,7 +98,7 @@ public class StageManager : MonoBehaviour
     private IEnumerator SpawnEnemiesRoutine(StageData stageInfo)
     {
 #if UNITY_EDITOR
-        BlackboardManager.Instance.Agnet.SetVariableValue("EndPoint", stageInfo.enemyEndPoints[0]);
+        BlackboardManager.Instance.Agnet.SetVariableValue("EndPoint", stageInfo.endPoint);
         Debug.Log($"테스트 코드 에너미 endPoint 설정");
 #endif
         yield return new WaitForSeconds(stageInfo.stageStartTimeOffset);
