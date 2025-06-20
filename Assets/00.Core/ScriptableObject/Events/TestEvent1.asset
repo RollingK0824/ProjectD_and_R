@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af3406315eb05a4987342107a71e94b, type: 3}
+  m_Name: TestEvent1
+  m_EditorClassIdentifier: 
+  Event_ID: 0
+  Event_Name: "\uAC1C?\uBC1C\uC790"
+  Event_Description: "\uC544\uBB34\uB798\uB3C4 \uCF54\uB4DC \uC624\uB958\uC778\uAC83
+    \uAC19\uB2E4. \uAC1C\uBC1C\uC790 \uC774\uBCA4\uD2B8 \uBC1C\uC0DD!"
+  weight: 1
+  rewardData:
+    Gold: 12
+    itemRewards:
+    - {fileID: 11400000, guid: cd68b984333363a43a31f683b022a3b7, type: 2}

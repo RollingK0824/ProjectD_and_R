@@ -6,6 +6,16 @@ public class RoomEnterManager : Singleton<RoomEnterManager>
 {
     [SerializeField][Header("던전 UI")] GameObject _RPG_UI_Canvas;
 
+    EventDataLoder eventData;
+
+    protected override async void Awake()
+    {
+        base.Awake();
+
+        eventData = new EventDataLoder();
+        await eventData.LoadAllEventsByLabel();
+    }
+
     /// <summary>
     /// 스테이지 입장
     /// </summary>
@@ -31,6 +41,7 @@ public class RoomEnterManager : Singleton<RoomEnterManager>
                 EnterRewardStage();
                 break;
             case RoomType.Door:
+                EnterDoor();
                 break;
             default:
                 Debug.Log("방 정보가 없습니다.");
@@ -54,7 +65,7 @@ public class RoomEnterManager : Singleton<RoomEnterManager>
                 Debug.Log("보스");
                 break;
         }
-               
+
     }
 
     void EnterRewardStage()
@@ -64,10 +75,14 @@ public class RoomEnterManager : Singleton<RoomEnterManager>
     void EnterEventStage()
     {
         Debug.Log("이벤트 입장");
+        eventData.ExecuteEvent(eventData.GetRandomWeightedEvent());
     }
     void EnterShopStage()
     {
         Debug.Log("상점 입장");
     }
-
+    void EnterDoor()
+    {
+        Debug.Log("문 입장");
+    }
 }

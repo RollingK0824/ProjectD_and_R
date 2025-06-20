@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: EventDataGroup
+  m_EditorClassIdentifier: 
+  m_GroupName: EventDataGroup
+  m_GUID: 71f346bfab6f6224888db5a8d1ec1470
+  m_SerializeEntries:
+  - m_GUID: 308c01e01093cb84f9ba1307d87e999b
+    m_Address: Assets/00.Core/ScriptableObject/Events/TestEvent2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - EventData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 505302abde08ea4428d2acaa017ceea8
+    m_Address: Assets/00.Core/ScriptableObject/Events/TestEvent1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - EventData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3527f4181fa5fc409fe2b35664b22ee
+    m_Address: Assets/00.Core/ScriptableObject/Events/TestEvent3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - EventData
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c14d6bce582e76140b027d81158fce26, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 857a3b063f4d27049b652b6d644f8f03, type: 2}
+    - {fileID: 11400000, guid: f97d6e39b5d5b7e4085645b60e51eace, type: 2}
