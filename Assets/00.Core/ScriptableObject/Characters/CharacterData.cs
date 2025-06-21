@@ -10,6 +10,9 @@ public abstract class CharacterData : ScriptableObject
     public string CharacterName => _characterName;
     [Header("Basic Info")][SerializeField] private string _characterName = "New Character";
 
+    public CharacterTypeData CharacterType => _characterTypeData;
+    [SerializeField] private CharacterTypeData _characterTypeData;
+
     /// <summary>
     /// 캐릭터 아이콘
     /// </summary>
