@@ -153,8 +153,23 @@ public class CharacterStatus : ICharacterStatus
             if (value != _isAlive)
             {
                 _isAlive = value;
+                OnStatusChanged?.Invoke();
             }
 
+        }
+    }
+
+    private bool _isDeployed;
+    public bool IsDeployed
+    {
+        get => _isDeployed;
+        private set
+        {
+            if (value != _isDeployed)
+            {
+                _isDeployed = value;
+                OnStatusChanged?.Invoke();
+            }
         }
     }
 
@@ -167,6 +182,7 @@ public class CharacterStatus : ICharacterStatus
             if (value != _moveType)
             {
                 _moveType = value;
+                OnStatusChanged?.Invoke();
             }
         }
     }
@@ -180,6 +196,21 @@ public class CharacterStatus : ICharacterStatus
             if (value != _faction)
             {
                 _faction = value;
+                OnStatusChanged?.Invoke();
+            }
+        }
+    }
+
+    private ObjectType _objectType;
+    public ObjectType ObjectType
+    {
+        get => _objectType;
+        private set
+        {
+            if(value != _objectType)
+            {
+                _objectType = value;
+                OnStatusChanged?.Invoke();
             }
         }
     }
@@ -199,7 +230,12 @@ public class CharacterStatus : ICharacterStatus
         AttackRange = baseData.AttackRange;
         MoveSpeed = baseData.MoveSpeed;
 
+        MovableTerrainTypes = baseData.MovableTerrainTypes;
+        Faction = baseData.Faction;
+        ObjectType = baseData.ObjectType;
+
         IsAlive = CurrentHealth > 0;
+        IsDeployed = false;
 
         OnStatusChanged?.Invoke(); // 초기화 완료 시 전체 변경 이벤트 발생
 #if UNITY_EDITOR
@@ -215,6 +251,8 @@ public class CharacterStatus : ICharacterStatus
     public void SetAttackSpeed(float value) => AttackSpeed = value;
     public void SetAttackRange(float value) => AttackRange = value;
     public void SetMoveSpeed(float value) => MoveSpeed = value;
+    public void SetIsDeployed(bool value) => IsDeployed = value;
     public void SetFaction(Faction faction) => Faction = faction;
     public void SetMoveType(MoveType moveType) => MovableTerrainTypes = moveType;
+    public void SetObjectType(ObjectType objectType) => ObjectType = objectType;
 }

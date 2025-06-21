@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using ProjectD_and_R.Enums;
+using Unity.Behavior;
 
 public class StageManager : MonoBehaviour
 {
@@ -11,8 +12,7 @@ public class StageManager : MonoBehaviour
     private StageData _currentStageInfo;
     private Coroutine _spawnCoroutine;
 
-    [Header("참조")]
-    public Transform enemySpawnPoint; // 적이 스폰될 위치
+    [SerializeField] private BehaviorGraphAgent _agent;
 
     private void OnEnable()
     {
@@ -97,6 +97,12 @@ public class StageManager : MonoBehaviour
     // 적 스폰 코루틴
     private IEnumerator SpawnEnemiesRoutine(StageData stageInfo)
     {
+#if UNITY_EDITOR
+        BlackboardManager.Instance.Agnet.SetVariableValue("EndPoint", stageInfo.endPoint);
+        Debug.Log($"테스트 코드 에너미 endPoint 설정");
+#endif
+        yield return new WaitForSeconds(stageInfo.stageStartTimeOffset);
+
         foreach (var wave in stageInfo.spawnSequence)
         {
 #if UNITY_EDITOR
@@ -104,11 +110,11 @@ public class StageManager : MonoBehaviour
 #endif
             for (int i = 0; i < wave.count; i++)
             {
-                if (wave.enemyType != null && enemySpawnPoint != null)
+                if (wave.enemyType != null && wave.spawnPoint != null)
                 {
                     //Instantiate(wave.enemyType, enemySpawnPoint.position, Quaternion.identity);
                     GameObject enemy = ObjectPoolManager.Instance.Get("Assets/03.Prefabs/Characters/TestEnemy.prefab");
-                    enemy.transform.position = enemySpawnPoint.position;
+                    enemy.GetComponent<ICharacterCore>().DeployableComponent.Deploy(wave.spawnPoint,Quaternion.identity);
 #if UNITY_EDITOR
                     Debug.Log($"적 스폰: {wave.enemyType}");
 #endif

@@ -15,14 +15,14 @@ public class MovementComponent : MonoBehaviour, IMovable
     {
         if (characterCore == null) return;
         _status = characterCore.CharacterStatus;
-        _navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        _navMeshAgent = characterCore.NavMeshAgent;
         if( _navMeshAgent == null)
         {
 #if UNITY_EDITOR
             Debug.Log($"MovementComponent requires a NavMeshAgent Component");
 #endif
         }
-        _navMeshAgent.speed = _status.MoveSpeed;
+        SetMoveSpeed(_status.MoveSpeed);
         _navMeshAgent.isStopped = true;
 #if UNITY_EDITOR
         Debug.Log($"MovementComponent Initialized: Speed = {_status.MoveSpeed}, MoveTypes = {_status.MovableTerrainTypes} ");

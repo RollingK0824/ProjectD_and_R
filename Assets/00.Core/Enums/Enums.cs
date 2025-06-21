@@ -39,6 +39,14 @@ namespace ProjectD_and_R.Enums
         EndPoint = 5,
     }
 
+    public enum ObjectType
+    {
+        None = 0,
+        Player = 1,
+        Enemy = 2,
+        Obstacle = 3,
+    }
+
     public enum GameState
     {
         MainMenu,
@@ -49,5 +57,28 @@ namespace ProjectD_and_R.Enums
         GameOver
     }
 
+    public enum ActionType
+    {
+        Deploy,
+        Move,
+        Attack,
+        UseSkill,
+        Hit,
+        Idle,
+        Die,
+    }
+
+    public enum GameEndConditionType
+    {
+        // 클리어 조건
+        AllEnemiesDefeated,
+        TimeLimitReached_Clear,
+        BossDefeated,
+
+        // 게임 오버 조건
+        AllPlayerUnitsDefeated,
+        DefenseTargetDestroyed,
+        TimeLimitReached_GameOver,
+    }
 
 }

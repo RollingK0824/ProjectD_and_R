@@ -82,4 +82,10 @@ public abstract class CharacterData : ScriptableObject
     public Faction Faction => _faction;
     [SerializeField] private Faction _faction;
 
+    /// <summary>
+    /// GridPlace 정보
+    /// </summary>
+    public ObjectType ObjectType => _objectType;
+    [SerializeField] private ObjectType _objectType;
+
 }

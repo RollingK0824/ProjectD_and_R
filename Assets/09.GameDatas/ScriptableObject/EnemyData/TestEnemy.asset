@@ -18,13 +18,14 @@ MonoBehaviour:
   _maxHealth: 100
   _physicalDefense: 10
   _magicalResistance: 10
-  _attackDamage: 10
+  _attackDamage: 80
   _attackSpeed: 0.3
-  _attackedRange: 0
+  _attackedRange: 2
   _moveSpeed: 5
   _characterPrefab: {fileID: 0}
   _movableTerrainTypes: -1
   _faction: 2
+  _objectType: 2
   experienceOnDefeat: 10
   goldOnDefeat: 5
   enemyType: 0
