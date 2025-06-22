@@ -22,10 +22,5 @@ public enum ShopGrade {Nomal,Rare,Special,Legendary }
 /// <summary>
 /// 현재 턴 상태
 /// </summary>
-//public enum TurnState { Rpg, Defance}
-
-/// <summary>
-/// 현재 게임 상태
-/// </summary>
-//public enum GameState { Run, Pause}
+public enum TurnState { Rpg, Defance}
 

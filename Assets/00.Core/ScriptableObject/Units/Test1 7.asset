@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 7
   Name: 7
-  Lock: 0
+  Lock: 1
+  Unit: {fileID: 0}
