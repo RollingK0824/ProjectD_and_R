@@ -101,7 +101,7 @@ public class GridManager : Singleton<GridManager>
     {
         if (!IsValidGridPos(oldPos.x, oldPos.y) || !IsValidGridPos(newPos.x, newPos.y)) return;
         grid[oldPos.x, oldPos.y].PlacedObject = null;
-        grid[newPos.y, newPos.y].PlacedObject = gridObject.GameObject;
+        grid[newPos.x, newPos.y].PlacedObject = gridObject.GameObject;
     }
 
     /// <summary>

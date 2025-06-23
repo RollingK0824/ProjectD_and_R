@@ -21,4 +21,4 @@ MonoBehaviour:
     spawnDelay: 3
     spawnPoint: {x: 0, y: 0}
     endPoint: {x: 0, y: 0}
-  stageConditionData: []
+  stageConditionData: {fileID: 11400000, guid: dd977b860fc03ba45857bb45aa13fead, type: 2}

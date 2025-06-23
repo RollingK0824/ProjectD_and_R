@@ -3,8 +3,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using ProjectD_and_R.Enums;
 using Unity.Behavior;
+using ProjectD_and_R.Enums;
 
 public class StageManager : MonoBehaviour
 {
@@ -91,7 +91,20 @@ public class StageManager : MonoBehaviour
 #if UNITY_EDITOR
         Debug.Log($"StageManager: '{stageInfo.stageName}' 스테이지 시작");
 #endif
+        BBInitialize(stageInfo.stageConditionData);
         _spawnCoroutine = StartCoroutine(SpawnEnemiesRoutine(stageInfo));
+    }
+
+    private void BBInitialize(StageConditionData conditionData)
+    {
+        foreach(var condition in conditionData.conditions)
+        {
+            _agent.BlackboardReference.AddVariable(nameof(condition.type),0);
+            _agent.GetVariable(nameof(condition.type), out BlackboardVariable variable);
+#if UNITY_EDITOR
+            Debug.Log($"Stage ConditionData Variable Add Success Value : {variable.ObjectValue}");
+#endif
+        }
     }
 
     // 적 스폰 코루틴
@@ -135,5 +148,26 @@ public class StageManager : MonoBehaviour
 #endif
         // TODO: 모든 적이 죽었는지 확인하는 로직 등 추가 필요
         // 스테이지 완료 시 GameManager.Instance.EndStage() 호출
+    }
+
+    public void HandleCharacterDeath(ObjectType objectType)
+    {
+        switch (objectType)
+        {
+            case ObjectType.None:
+                break;
+            case ObjectType.Player:
+                break;
+            case ObjectType.Enemy:
+                break;
+            case ObjectType.Boss:
+                break;
+            case ObjectType.Obstacle:
+                break;
+            case ObjectType.DefenseTarget:
+                break;
+            default:
+                break;
+        }
     }
 }
