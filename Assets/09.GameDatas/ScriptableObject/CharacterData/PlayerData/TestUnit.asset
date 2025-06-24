@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TestUnit
   m_EditorClassIdentifier: 
   _characterName: TestPlayer
+  _characterTypeData: {fileID: 0}
   _characterIcon: {fileID: 0}
   _description: "\uD14C\uC2A4\uD2B8\uB97C \uC704\uD55C \uC720\uB2DB"
   _maxHealth: 100
@@ -20,7 +21,7 @@ MonoBehaviour:
   _magicalResistance: 10
   _attackDamage: 10
   _attackSpeed: 2
-  _attackedRange: 5
+  _attackedRange: 10
   _moveSpeed: 10
   _characterPrefab: {fileID: 0}
   _movableTerrainTypes: -1

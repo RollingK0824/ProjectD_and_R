@@ -39,7 +39,7 @@ public class GameManager : Singleton<GameManager>
 
     IEnumerator Test_GameStart()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         StartGame(null);
     }
 

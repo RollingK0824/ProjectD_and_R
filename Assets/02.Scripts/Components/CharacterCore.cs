@@ -194,9 +194,9 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         {
             EnemyAiComponent.StatusChanged<bool>("IsAlive", false, false);
         }
-        
-        // StageManager에 이를 알려야 함
 
+        // StageManager에 이를 알려야 함
+        StageManager.Instance.HandleCharacterDeath(CharacterStatus.ObjectType);
         _deployableComponent.Undeploy();
     }
     private void HandleAttackHit(IDamageable target) { /* ... */ }
