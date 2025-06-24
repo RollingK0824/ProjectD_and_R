@@ -196,7 +196,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         }
 
         // StageManager에 이를 알려야 함
-
+        StageManager.Instance.HandleCharacterDeath(CharacterStatus.ObjectType);
         _deployableComponent.Undeploy();
     }
     private void HandleAttackHit(IDamageable target) { /* ... */ }

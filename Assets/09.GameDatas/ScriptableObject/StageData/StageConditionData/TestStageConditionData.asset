@@ -19,7 +19,7 @@ MonoBehaviour:
     objectReference: []
     isClearCondition: 1
   - type: 3
-    intValue: 0
+    intValue: 5
     floatValue: 0
     objectReference: []
     isClearCondition: 0

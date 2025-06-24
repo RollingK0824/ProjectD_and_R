@@ -17,7 +17,7 @@ MonoBehaviour:
   endPoint: {x: 20, y: 20}
   spawnSequence:
   - enemyType: Assets/03.Prefabs/Characters/TestEnemy.prefab
-    count: 1
+    count: 5
     spawnDelay: 3
     spawnPoint: {x: 0, y: 0}
     endPoint: {x: 0, y: 0}
