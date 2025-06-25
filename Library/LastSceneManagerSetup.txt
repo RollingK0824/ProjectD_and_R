@@ -1,1 +1,5 @@
-sceneSetups: []
+sceneSetups:
+- path: Assets/01.Scenes/DefenceTset_02.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
