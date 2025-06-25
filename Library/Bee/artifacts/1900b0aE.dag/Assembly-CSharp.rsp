@@ -415,6 +415,8 @@
 "Assets/00.Core/ScriptableObject/Characters/CharacterData.cs"
 "Assets/00.Core/ScriptableObject/Characters/EnemyCharacterData.cs"
 "Assets/00.Core/ScriptableObject/Characters/PlayerCharacterData.cs"
+"Assets/04.Art/Structures&Objects/DBK/Scripts/DBK_ColorThemeSelect.cs"
+"Assets/04.Art/Structures&Objects/Reversed Interactive/The Portal Collection/Scripts/SimpleCameraControllerPortals.cs"
 -langversion:9.0
 /deterministic
 /optimize+

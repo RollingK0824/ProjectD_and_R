@@ -61,13 +61,20 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.1.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\04.Art\Structures&amp;Objects\Reversed Interactive\The Portal Collection\Scripts\SimpleCameraControllerPortals.cs" />
     <Compile Include="Assets\00.Core\ScriptableObject\Characters\PlayerCharacterData.cs" />
     <Compile Include="Assets\00.Core\ScriptableObject\Characters\CharacterData.cs" />
+    <Compile Include="Assets\04.Art\Structures&amp;Objects\DBK\Scripts\DBK_ColorThemeSelect.cs" />
     <Compile Include="Assets\00.Core\ScriptableObject\Characters\EnemyCharacterData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\04.Art\Characters\Warrior free set\License.txt" />
+    <None Include="Assets\04.Art\Structures&amp;Objects\DBK\Shaders\DBK_Rebar.shader" />
+    <None Include="Assets\04.Art\Materials\Assets MOOD WARE\_MW Skybox\Documentation\Documentation City Street Skyboxes Vol. 1.txt" />
+    <None Include="Assets\04.Art\Structures&amp;Objects\DBK\Shaders\DBK_ConcreteRubble.shader" />
+    <None Include="Assets\04.Art\Structures&amp;Objects\DBK\Shaders\DBK_Concrete.shader" />
     <None Include="Assets\04.Art\Characters\Warrior free set\Contact.txt" />
+    <None Include="Assets\04.Art\Structures&amp;Objects\DBK\HDRP &amp; URP\readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
