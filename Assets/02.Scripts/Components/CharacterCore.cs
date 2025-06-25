@@ -40,6 +40,10 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     private BehaviorGraphAgent _behaviorGraphAgent;
     public BehaviorGraphAgent BehaviorGraphAgent => _behaviorGraphAgent;
 
+    private ProjectD_and_R.Enums.TurnState _turnState;
+    public ProjectD_and_R.Enums.TurnState TurnState => _turnState;
+
+    public GameObject GameObject => gameObject;
 
     [Header("Debug Status (Read Only")]
     [SerializeField] private float debug_MaxHealth;
@@ -54,6 +58,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     [SerializeField] private MoveType debug_MovableTerrainTypes;
     [SerializeField] private Faction debug_Faction;
     [SerializeField] private ObjectType debug_ObjectType;
+    [SerializeField] private ProjectD_and_R.Enums.TurnState debug_TurnState;
 
     protected virtual void Awake()
     {
@@ -82,7 +87,10 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
 
         RegisterEvents();
 
-        _characterStatus.Initialize(this);
+        if (_characterStatus != null)
+        {
+            _characterStatus.Initialize(this);
+        }
 
         if (_damageableComponent != null)
         {
@@ -104,7 +112,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
             _deployableComponent.Initialize(this);
         }
 
-        if(_gridObject != null)
+        if (_gridObject != null)
         {
             _gridObject.Initialize(this);
         }
@@ -180,7 +188,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         if (_enemyAiComponent == null) return;
         _enemyAiComponent.StatusChanged(statusName, oldValue, newValue);
     }
-    private void HandleCharacterDied() 
+    private void HandleCharacterDied()
     {
         if (_gridObject != null)
         {
@@ -198,12 +206,12 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         _deployableComponent.Undeploy();
     }
     private void HandleAttackHit(IDamageable target) { /* ... */ }
-    private void HandleCharacterDeployed() 
-    { 
+    private void HandleCharacterDeployed()
+    {
         CharacterStatus.Initialize(this);
         CharacterStatus.SetIsDeployed(true);
 
-        if(EnemyAiComponent != null)
+        if (EnemyAiComponent != null)
         {
             EnemyAiComponent.StatusChanged<bool>("IsDeployed", true, true);
             EnemyAiComponent.StatusChanged<bool>("IsAlive", true, true);
@@ -264,7 +272,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
                 break;
             case MoveStopActionRequest:
                 var stopRequest = request as MoveStopActionRequest;
-                if(stopRequest != null)
+                if (stopRequest != null)
                 {
                     _movementComponent?.StopMoving();
                 }
@@ -273,7 +281,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
                 var attackRequest = request as AttackActionRequest;
                 if (attackRequest != null)
                 {
-                    if(attackRequest.Target != null)
+                    if (attackRequest.Target != null)
                     {
                         _attackerComponent?.TryAttack(attackRequest.Target);
                     }
@@ -316,4 +324,8 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     public void MoveCharacterTo(Vector3 targetPosition) => _movementComponent?.Move(targetPosition);
     public void Attack() => _attackerComponent?.TryAttack();
     public void DeployCharacter(Vector3 position, Quaternion rotation) => _deployableComponent?.Deploy(position, rotation);
+    public void SetTurnState(ProjectD_and_R.Enums.TurnState turnState)
+    {
+        if (_turnState != turnState) _turnState = turnState;
+    }
 }

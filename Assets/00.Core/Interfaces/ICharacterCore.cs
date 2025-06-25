@@ -16,4 +16,6 @@ public interface ICharacterCore
     IEnemyAi EnemyAiComponent { get; }
     BehaviorGraphAgent BehaviorGraphAgent { get; }
     IGridObject GridObject { get; }
+    ProjectD_and_R.Enums.TurnState TurnState { get; }
+    GameObject GameObject { get; }
 }

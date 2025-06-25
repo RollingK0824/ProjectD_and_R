@@ -15,14 +15,25 @@ MonoBehaviour:
   AssetID:
     m_Value0: 9542159245066259341
     m_Value1: 2415442778768310059
-  m_Variables: []
-  m_VersionTimestamp: 638857889838124698
+  m_Variables:
+  - rid: 1870413901661209310
+  m_VersionTimestamp: 638865180112382275
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: 8546200521939271305}
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1870413901661209310
+      type: {class: 'TypedVariableModel`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 10817730415452382821
+          m_Value1: 5528376451868987395
+        Name: All_Player_Units
+        IsExposed: 1
+        m_IsShared: 1
+        m_Value: []
 --- !u!114 &8546200521939271305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,13 +46,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
   m_Name: DungeonEnemyBB
   m_EditorClassIdentifier: 
-  VersionTimestamp: 638857889838124698
+  VersionTimestamp: 638865180112382275
   AssetID:
     m_Value0: 9542159245066259341
     m_Value1: 2415442778768310059
   m_Blackboard:
-    m_Variables: []
-  m_SharedBlackboardVariableGuids: []
+    m_Variables:
+    - rid: 1870413901661209311
+  m_SharedBlackboardVariableGuids:
+  - m_Value0: 10817730415452382821
+    m_Value1: 5528376451868987395
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1870413901661209311
+      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 10817730415452382821
+          m_Value1: 5528376451868987395
+        Name: All_Player_Units
+        m_Value: []
