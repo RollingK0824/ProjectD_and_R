@@ -62,7 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\04.Art\Structures&amp;Objects\DBK\Editor\DBK_ColorThemeSelectEditor.cs" />
+    <Compile Include="Assets\04.Art\Structures&amp;Objects\Prototype Collection\Assets\Editor\Preferences.cs" />
     <Compile Include="Assets\04.Art\Structures&amp;Objects\DBK\Editor\DBK_MeshCombine.cs" />
+    <Compile Include="Assets\04.Art\Structures&amp;Objects\Prototype Collection\Assets\Editor\StartScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

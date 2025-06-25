@@ -68,6 +68,7 @@
     <Compile Include="Assets\00.Core\ScriptableObject\Characters\EnemyCharacterData.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\04.Art\Structures&amp;Objects\Prototype Collection\Readme.txt" />
     <None Include="Assets\04.Art\Characters\Warrior free set\License.txt" />
     <None Include="Assets\04.Art\Structures&amp;Objects\DBK\Shaders\DBK_Rebar.shader" />
     <None Include="Assets\04.Art\Materials\Assets MOOD WARE\_MW Skybox\Documentation\Documentation City Street Skyboxes Vol. 1.txt" />
