@@ -28,17 +28,6 @@ namespace ProjectD_and_R.Enums
         Player = 1,
         Enemy = 2,
     }
-
-    public enum GridCellType
-    {
-        None = 0,
-        Path = 1,
-        Buildable = 2,
-        Obastacle = 3,
-        SpawnPoint = 4,
-        EndPoint = 5,
-    }
-
     public enum ObjectType
     {
         None,
@@ -49,14 +38,14 @@ namespace ProjectD_and_R.Enums
         DefenseTarget,
     }
 
-    public enum GameState
+    public enum GridCellType
     {
-        MainMenu,
-        StageStarting,
-        StageInProgress,
-        StagePaused,
-        StageEnded,
-        GameOver
+        None = 0,
+        Path = 1,
+        Buildable = 2,
+        Obastacle = 3,
+        SpawnPoint = 4,
+        EndPoint = 5,
     }
 
     public enum ActionType
@@ -81,6 +70,23 @@ namespace ProjectD_and_R.Enums
         AllPlayerUnitsDefeated,
         DefenseTargetDestroyed,
         TimeLimitReached_GameOver,
+    }
+
+    public enum GameState
+    {
+        MainMenu,
+        StageStarting,
+        StageInProgress,
+        StagePaused,
+        StageEnded,
+        GameOver
+    }
+
+    public enum TurnState
+    {
+        None,
+        DefenseTurn,
+        DungeonTurn,
     }
 
 }

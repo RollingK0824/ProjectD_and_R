@@ -55,8 +55,6 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     [SerializeField] private Faction debug_Faction;
     [SerializeField] private ObjectType debug_ObjectType;
 
-    public event System.Action OnCharacterDied;
-
     protected virtual void Awake()
     {
         if (_characterData == null)

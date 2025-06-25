@@ -26,8 +26,29 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    [SerializeField]
+    private ProjectD_and_R.Enums.TurnState _currentTurnState = ProjectD_and_R.Enums.TurnState.None;
+    public ProjectD_and_R.Enums.TurnState CurrentTurnState
+    {
+        get { return _currentTurnState; }
+        private set
+        {
+            if (_currentTurnState != value)
+            {
+                _currentTurnState = value;
+                OnTurnStateChanged?.Invoke(_currentTurnState);
+#if UNITY_EDITOR
+                Debug.Log($"턴 상태 변경 : {_currentTurnState}");
+#endif
+            }
+        }
+    }
+
     // 게임 상태 변경 이벤트
     public event Action<GameState> OnGameStateChanged;
+
+    // 턴 상태 변경 이벤트
+    public event Action<ProjectD_and_R.Enums.TurnState> OnTurnStateChanged;
 
     protected override void Awake()
     {
