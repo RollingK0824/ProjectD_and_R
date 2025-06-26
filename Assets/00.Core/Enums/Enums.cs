@@ -59,6 +59,19 @@ namespace ProjectD_and_R.Enums
         Die,
     }
 
+    public enum SkillEffectType
+    {
+        None,
+        Damage,
+        Heal,
+        Buff,
+        Debuff,
+        Stun,
+        Shield,
+        Summon,
+        Teleport,
+    }
+
     public enum GameEndConditionType
     {
         // 클리어 조건

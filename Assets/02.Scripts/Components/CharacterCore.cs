@@ -34,6 +34,9 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     private IGridObject _gridObject;
     public IGridObject GridObject => _gridObject;
 
+    private ISkillComponent _skillComponent;
+    public ISkillComponent SkillComponent => _skillComponent;
+
     private NavMeshAgent _navMeshAgent;
     public NavMeshAgent NavMeshAgent => _navMeshAgent;
 
