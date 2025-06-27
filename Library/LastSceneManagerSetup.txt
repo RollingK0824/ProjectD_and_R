@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/01.Scenes/Citizen/Citizen_01.unity
+- path: Assets/01.Scenes/Time_02 1.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -1,18 +1,18 @@
 {
   "context": {
-    "projectPath": "C:/Users/yobar/ProjectD_and_R/Packages",
+    "projectPath": "G:/ProjectD_and_R/Packages",
     "unityVersion": "6000.1.5f1"
   },
   "inputs": [
-    "C:\\Users\\yobar\\ProjectD_and_R\\Packages\\manifest.json",
-    "C:\\Users\\yobar\\ProjectD_and_R\\Packages\\packages-lock.json",
+    "G:\\ProjectD_and_R\\Packages\\manifest.json",
+    "G:\\ProjectD_and_R\\Packages\\packages-lock.json",
     "C:\\Program Files\\Unity\\Hub\\Editor\\6000.1.5f1\\Editor\\Data\\Resources\\PackageManager\\BuiltInPackages\\BuiltInPackagesCombined.sha1"
   ],
   "outputs": {
     "com.unity.2d.sprite@1.0.0": {
       "name": "com.unity.2d.sprite",
       "displayName": "2D Sprite",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.2d.sprite@89675b12583c",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.2d.sprite@89675b12583c",
       "fingerprint": "89675b12583c5bccb07703be92affb51aa2f81b1",
       "editorCompatibility": "2019.2.0a1",
       "version": "1.0.0",
@@ -22,7 +22,7 @@
     "com.unity.2d.tilemap@1.0.0": {
       "name": "com.unity.2d.tilemap",
       "displayName": "2D Tilemap Editor",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.2d.tilemap@544ba40c382d",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.2d.tilemap@544ba40c382d",
       "fingerprint": "544ba40c382dcfdd48a2afad0b6338628f219991",
       "editorCompatibility": "2019.2.0a1",
       "version": "1.0.0",
@@ -32,7 +32,7 @@
     "com.unity.ads@4.4.2": {
       "name": "com.unity.ads",
       "displayName": "Advertisement Legacy",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.ads@a7b997f68a1d",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.ads@a7b997f68a1d",
       "fingerprint": "a7b997f68a1d40387ca4d33fc75578709c140a37",
       "editorCompatibility": "2018.4.18f1",
       "version": "4.4.2",
@@ -42,7 +42,7 @@
     "com.unity.ai.navigation@2.0.7": {
       "name": "com.unity.ai.navigation",
       "displayName": "AI Navigation",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.ai.navigation@39ae74efb85f",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.ai.navigation@39ae74efb85f",
       "fingerprint": "39ae74efb85f9b44dc389774fc59c2ce4a8aa3b6",
       "editorCompatibility": "6000.0.0a1",
       "version": "2.0.7",
@@ -52,7 +52,7 @@
     "com.unity.analytics@3.8.1": {
       "name": "com.unity.analytics",
       "displayName": "Analytics Library",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.analytics@6cc66d58ac08",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.analytics@6cc66d58ac08",
       "fingerprint": "6cc66d58ac08950316d3b86a26c92187aca1ddb0",
       "editorCompatibility": "2019.3.0a1",
       "version": "3.8.1",
@@ -62,7 +62,7 @@
     "com.unity.collab-proxy@2.8.2": {
       "name": "com.unity.collab-proxy",
       "displayName": "Version Control",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.collab-proxy@c854d1f7d97f",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.collab-proxy@c854d1f7d97f",
       "fingerprint": "c854d1f7d97fbe1905f3e3591ded6fe77d96e654",
       "editorCompatibility": "2021.3.0f1",
       "version": "2.8.2",
@@ -72,7 +72,7 @@
     "com.unity.ide.rider@3.0.36": {
       "name": "com.unity.ide.rider",
       "displayName": "JetBrains Rider Editor",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.ide.rider@4d374c7eb6db",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.ide.rider@4d374c7eb6db",
       "fingerprint": "4d374c7eb6db6907c7e6925e3086c3c73f926e13",
       "editorCompatibility": "2019.4.6f1",
       "version": "3.0.36",
@@ -82,7 +82,7 @@
     "com.unity.ide.visualstudio@2.0.23": {
       "name": "com.unity.ide.visualstudio",
       "displayName": "Visual Studio Editor",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.ide.visualstudio@198cdf337d13",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.ide.visualstudio@198cdf337d13",
       "fingerprint": "198cdf337d13c83ca953581515630d66b779e92b",
       "editorCompatibility": "2019.4.25f1",
       "version": "2.0.23",
@@ -92,7 +92,7 @@
     "com.unity.multiplayer.center@1.0.0": {
       "name": "com.unity.multiplayer.center",
       "displayName": "Multiplayer Center",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.multiplayer.center@f3fb577b3546",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.multiplayer.center@f3fb577b3546",
       "fingerprint": "f3fb577b3546594b97b8cc34307cd621f60f1c73",
       "editorCompatibility": "6000.0.0a1",
       "version": "1.0.0",
@@ -102,7 +102,7 @@
     "com.unity.purchasing@4.12.2": {
       "name": "com.unity.purchasing",
       "displayName": "In App Purchasing",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.purchasing@649c6c7b3b1b",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.purchasing@649c6c7b3b1b",
       "fingerprint": "649c6c7b3b1b6277839041f4987c0a1e66176678",
       "editorCompatibility": "2020.3.0a1",
       "version": "4.12.2",
@@ -112,7 +112,7 @@
     "com.unity.test-framework@1.5.1": {
       "name": "com.unity.test-framework",
       "displayName": "Test Framework",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.test-framework@e9eb633386e7",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.test-framework@e9eb633386e7",
       "fingerprint": "e9eb633386e74717a4978296e116538a4051e958",
       "editorCompatibility": "2022.3.0a1",
       "version": "1.5.1",
@@ -122,7 +122,7 @@
     "com.unity.timeline@1.8.7": {
       "name": "com.unity.timeline",
       "displayName": "Timeline",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.timeline@c58b4ee65782",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.timeline@c58b4ee65782",
       "fingerprint": "c58b4ee65782ad38338e29f7ee67787cb6998f04",
       "editorCompatibility": "2019.3.0a1",
       "version": "1.8.7",
@@ -132,7 +132,7 @@
     "com.unity.ugui@2.0.0": {
       "name": "com.unity.ugui",
       "displayName": "Unity UI",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.ugui@7bf98f579204",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.ugui@7bf98f579204",
       "fingerprint": "7bf98f5792045bbe386289663543b78c45edafe7",
       "editorCompatibility": "2019.2.0a1",
       "version": "2.0.0",
@@ -142,7 +142,7 @@
     "com.unity.xr.legacyinputhelpers@2.1.12": {
       "name": "com.unity.xr.legacyinputhelpers",
       "displayName": "XR Legacy Input Helpers",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.xr.legacyinputhelpers@b7579e86f3b4",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.xr.legacyinputhelpers@b7579e86f3b4",
       "fingerprint": "b7579e86f3b456c909fda6b875fba7ab1eeb1322",
       "editorCompatibility": "2019.4.0a1",
       "version": "2.1.12",
@@ -424,7 +424,7 @@
     "com.unity.ext.nunit@2.0.5": {
       "name": "com.unity.ext.nunit",
       "displayName": "Custom NUnit",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.ext.nunit@031a54704bff",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.ext.nunit@031a54704bff",
       "fingerprint": "031a54704bffe39e6a0324909f8eaa4565bdebf2",
       "editorCompatibility": "2019.4.0a1",
       "version": "2.0.5",
@@ -434,7 +434,7 @@
     "com.unity.services.core@1.14.0": {
       "name": "com.unity.services.core",
       "displayName": "Services Core",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.services.core@9e81a5e38245",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.services.core@9e81a5e38245",
       "fingerprint": "9e81a5e382457b799480b311ce51187be99abbbf",
       "editorCompatibility": "2021.3.0a1",
       "version": "1.14.0",
@@ -444,7 +444,7 @@
     "com.unity.services.analytics@6.0.2": {
       "name": "com.unity.services.analytics",
       "displayName": "Analytics",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.services.analytics@6629cba2f5e7",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.services.analytics@6629cba2f5e7",
       "fingerprint": "6629cba2f5e7ff255833c417c8610bd06c505241",
       "editorCompatibility": "2021.3.0a1",
       "version": "6.0.2",
@@ -454,7 +454,7 @@
     "com.unity.nuget.newtonsoft-json@3.2.1": {
       "name": "com.unity.nuget.newtonsoft-json",
       "displayName": "Newtonsoft Json",
-      "resolvedPath": "C:\\Users\\yobar\\ProjectD_and_R\\Library\\PackageCache\\com.unity.nuget.newtonsoft-json@74deb55db2a0",
+      "resolvedPath": "G:\\ProjectD_and_R\\Library\\PackageCache\\com.unity.nuget.newtonsoft-json@74deb55db2a0",
       "fingerprint": "74deb55db2a0c29ddfda576608bcb86abbd13ee6",
       "editorCompatibility": "2018.4.0a1",
       "version": "3.2.1",
