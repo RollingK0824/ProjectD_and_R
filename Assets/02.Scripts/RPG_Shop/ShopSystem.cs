@@ -1,21 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopSystem : MonoBehaviour
+[System.Serializable]
+public class ShopSystem
 {
-    ItemDataLoder ItemDataLoder;
-
-    public List<ItemData> All_Item;
-
     [Header("등급")] public ShopGrade grade = ShopGrade.Nomal;
     [Header("감가율")][Range(0, 100)] public float depreciation = 30;
-    private async void Start()
-    {
-        ItemDataLoder = new ItemDataLoder();
-        await ItemDataLoder.LoadAllItemsByLabel();
-
-        All_Item = ItemDataLoder.ItemDatas;
-    }
 
     /// <summary>
     /// 아이템 구매
@@ -26,7 +16,7 @@ public class ShopSystem : MonoBehaviour
 
         if (inventory.Gold < item.Price) return;
 
-        inventory.SpendGold(item.Price);;
+        inventory.SpendGold(item.Price); ;
         inventory.AddItem(item);
     }
 

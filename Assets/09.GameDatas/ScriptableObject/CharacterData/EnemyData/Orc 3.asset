@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4f81c33811c704f829ffbd77d36ef7, type: 3}
+  m_Name: Orc 3
+  m_EditorClassIdentifier: 
+  _characterName: Orc
+  _characterTypeData: {fileID: 0}
+  _characterIcon: {fileID: 0}
+  _description: "\uC624\uD06C3"
+  _maxHealth: 150
+  _physicalDefense: 10
+  _magicalResistance: 10
+  _attackDamage: 100
+  _attackSpeed: 0.1
+  _attackedRange: 2
+  _moveSpeed: 1
+  _characterPrefab: {fileID: 1075052970309349508, guid: 1d2d1d968608a01438165283d7fc927f, type: 3}
+  _movableTerrainTypes: -1
+  _faction: 2
+  _objectType: 2
+  id: 0
+  Name: 
+  Lock: 0
+  experienceOnDefeat: 10
+  goldOnDefeat: 5
+  Race: 2
+  detectionRange: 10
