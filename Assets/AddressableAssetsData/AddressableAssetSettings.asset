@@ -15,7 +15,9 @@ MonoBehaviour:
   m_DefaultGroup: 647c40ac33e7bf24abd7d3ee7662c7ef
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+
+    Hash: cf909538a281dbc652559150bb8b2498
+
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -59,6 +61,7 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: 4f8a26868c6dedf4a9a9058a7b76c1c2, type: 2}
   - {fileID: 11400000, guid: 4375b5f2edc131e428973376e0f4be5c, type: 2}
   - {fileID: 11400000, guid: aa6db8725f026114599a805c3cbe0a62, type: 2}
   - {fileID: 11400000, guid: cc56299631cef1d49858ca53feb564aa, type: 2}
@@ -107,6 +110,7 @@ MonoBehaviour:
     - UnitData
     - EventData
     - ItemData
+    - RoomEnemySpawnData
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 351386ad0062c8647abde53aa0054616, type: 2}

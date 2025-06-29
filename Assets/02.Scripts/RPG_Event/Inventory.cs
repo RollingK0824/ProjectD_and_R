@@ -4,15 +4,13 @@ using UnityEngine;
 [System.Serializable]
 public class Inventory
 {
-
-    [Header("골드")][SerializeField] int _Gold = 0;
+    int _Gold = 0;
     public int Gold
     {
         get { return _Gold; }
         set { _Gold = value; }
     }
 
-    [Header("아이템 인벤토리")]
     private Dictionary<ItemData, int> _InventoryItems = new Dictionary<ItemData, int>();
     public Dictionary<ItemData, int> InventoryItems
     {
@@ -47,7 +45,8 @@ public class Inventory
     /// <summary>
     /// 인벤토리에 아이템을 추가
     /// </summary>
-    public void AddItem(ItemData itemData)
+    public
+        void AddItem(ItemData itemData)
     {
         if (itemData == null)
             return;
@@ -82,7 +81,7 @@ public class Inventory
     /// 
     public bool GetItemQuantity(ItemData itemData)
     {
-        if (itemData == null) 
+        if (itemData == null)
             return false;
 
         return _InventoryItems.ContainsKey(itemData);
