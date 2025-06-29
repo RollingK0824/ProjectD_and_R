@@ -42,7 +42,6 @@ public class GameManager : Singleton<GameManager>
         //StartCoroutine(Test_GameStart());
     }
 
-
     // 특정 스테이지 시작 요청
     public void StartGame(StageData stageToLoad)
     {

@@ -28,12 +28,20 @@ public class AttackComponent : MonoBehaviour, IAttacker
 #endif
     }
 
+    // --- 임시 로직 --- //
+    private void Update()
+    {
+        if(_status.Faction == Faction.Player)
+        {
+            TryAttack();
+        }
+    }
+
     public void TryAttack()
     {
         if (Time.time >= _nextAttackTime && !IsAttacking)
         {
-            PerformDamageApplication();
-            _nextAttackTime = Time.time + _attackCooldownDuration;
+            StartCoroutine(AttackRoutine());
         }
     }
 
@@ -41,19 +49,31 @@ public class AttackComponent : MonoBehaviour, IAttacker
     {
         if (Time.time >= _nextAttackTime && !IsAttacking)
         {
-            PerformDamageApplication(target);
-            _nextAttackTime = Time.time + _attackCooldownDuration;
+            StartCoroutine(AttackRoutine(target));
         }
     }
 
-    // 공격에 딜레이를 줄 때 사용하는 함수
+    // 공격에 선딜레이를 줄 때 사용하는 함수
     private IEnumerator AttackRoutine()
     {
         IsAttacking = true;
         Debug.Log($"{gameObject.name} performing attack!");
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f); // 공격 선딜레이
 
+        _nextAttackTime = Time.time + _attackCooldownDuration;
         PerformDamageApplication();
+        IsAttacking = false;
+    }
+
+    // 공격에 선딜레이를 줄 때 사용하는 함수
+    private IEnumerator AttackRoutine(GameObject target)
+    {
+        IsAttacking = true;
+        Debug.Log($"{gameObject.name} performing attack!");
+        yield return new WaitForSeconds(0.15f); // 공격 선딜레이
+
+        _nextAttackTime = Time.time + _attackCooldownDuration;
+        PerformDamageApplication(target);
         IsAttacking = false;
     }
 

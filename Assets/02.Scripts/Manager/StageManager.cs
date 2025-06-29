@@ -3,16 +3,20 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using ProjectD_and_R.Enums;
 using Unity.Behavior;
+using ProjectD_and_R.Enums;
 
-public class StageManager : MonoBehaviour
+public class StageManager : Singleton<StageManager>
 {
     [SerializeField]
     private StageData _currentStageInfo;
     private Coroutine _spawnCoroutine;
 
     [SerializeField] private BehaviorGraphAgent _agent;
+
+    // --- Stage Condition Test Infomation --- //
+    public BlackboardVariable<int> currentEnemyKillCount;
+    public BlackboardVariable<int> currentPlayerDeathCount;
 
     private void OnEnable()
     {
@@ -91,7 +95,40 @@ public class StageManager : MonoBehaviour
 #if UNITY_EDITOR
         Debug.Log($"StageManager: '{stageInfo.stageName}' 스테이지 시작");
 #endif
+        BBInitialize(stageInfo.stageConditionData);
         _spawnCoroutine = StartCoroutine(SpawnEnemiesRoutine(stageInfo));
+    }
+
+    public void StageClear()
+    {
+#if UNITY_EDITOR
+        Debug.Log($"StageClear");
+#endif
+    }
+
+    public void StageFailed()
+    {
+#if UNITY_EDITOR
+        Debug.Log($"StageFailed");
+#endif
+    }
+
+    private void BBInitialize(StageConditionData conditionData)
+    {
+#if UNITY_EDITOR    // --- 테스트 코드 --- //
+        _agent.GetVariable<int>("PlayerDeathCount", out currentPlayerDeathCount);
+        _agent.GetVariable<int>("EnemyKillCount", out currentEnemyKillCount);
+#endif
+        foreach (var condition in conditionData.conditions)
+        {
+            if(condition.type == GameEndConditionType.AllEnemiesDefeated)
+            {
+                _agent.SetVariableValue("MaxEnemyCount", condition.intValue);
+            }
+            // 플레이어의 경우 배치된 파티원이 몇마리인지 파악 후 이를 반영
+#if UNITY_EDITOR
+#endif
+        }
     }
 
     // 적 스폰 코루틴
@@ -135,5 +172,36 @@ public class StageManager : MonoBehaviour
 #endif
         // TODO: 모든 적이 죽었는지 확인하는 로직 등 추가 필요
         // 스테이지 완료 시 GameManager.Instance.EndStage() 호출
+    }
+
+    public void HandleCharacterDeath(ObjectType objectType)
+    {
+        switch (objectType)
+        {
+            case ObjectType.None:
+                break;
+            case ObjectType.Player:
+                _agent.GetVariable<int>("PlayerDeathCount", out currentPlayerDeathCount);
+                _agent.SetVariableValue("PlayerDeathCount", currentPlayerDeathCount.Value + 1);
+#if UNITY_EDITOR
+                Debug.Log($"Player Death Count : {currentPlayerDeathCount+1}");
+#endif
+                break;
+            case ObjectType.Enemy:
+                _agent.GetVariable<int>("EnemyKillCount", out currentEnemyKillCount);
+                _agent.SetVariableValue("EnemyKillCount", currentEnemyKillCount.Value + 1);
+#if UNITY_EDITOR
+                Debug.Log($"Enemy Kill Count : {currentEnemyKillCount + 1}");
+#endif
+                break;
+            case ObjectType.Boss:
+                break;
+            case ObjectType.Obstacle:
+                break;
+            case ObjectType.DefenseTarget:
+                break;
+            default:
+                break;
+        }
     }
 }

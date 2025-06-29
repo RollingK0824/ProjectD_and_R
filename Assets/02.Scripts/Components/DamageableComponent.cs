@@ -9,7 +9,6 @@ public class DamageableComponent : MonoBehaviour, IDamageable
 {
     private ICharacterStatus _status;
 
-    public event Action<float> OnHealthChanged;
     public event Action OnDied;
 
     public void Initialize(ICharacterCore characterCore)
@@ -27,7 +26,6 @@ public class DamageableComponent : MonoBehaviour, IDamageable
     {
         if (statusName == nameof(ICharacterStatus.CurrentHealth))
         {
-            OnHealthChanged?.Invoke(newValue);
             if (newValue <= 0 && oldValue > 0)
             {
                 OnDied?.Invoke();

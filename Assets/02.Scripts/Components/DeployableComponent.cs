@@ -42,7 +42,7 @@ public class DeployableComponent : MonoBehaviour, IDeployable
 
     public void Undeploy()
     {
-        if(_characterStatus.IsDeployed) return;
+        if(!_characterStatus.IsDeployed) return;
 
         OnUnDeployed?.Invoke();
 

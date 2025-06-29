@@ -23,11 +23,6 @@ public interface IDamageable
     void Die();
 
     /// <summary>
-    /// 체력이 변경될 시 호출 이벤트
-    /// </summary>
-    event Action<float> OnHealthChanged;
-
-    /// <summary>
     /// 사망 시 호출 이벤트
     /// </summary>
     event Action OnDied;

@@ -22,5 +22,5 @@ public class StageData : ScriptableObject
     public List<EnemySpawnEntry> spawnSequence;
 
     // --스테이지 종료 조건--
-    public List<StageConditionData> stageConditionData;
+    public StageConditionData stageConditionData;
 }

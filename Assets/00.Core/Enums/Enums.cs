@@ -41,10 +41,12 @@ namespace ProjectD_and_R.Enums
 
     public enum ObjectType
     {
-        None = 0,
-        Player = 1,
-        Enemy = 2,
-        Obstacle = 3,
+        None,
+        Player,
+        Enemy,
+        Boss,
+        Obstacle,
+        DefenseTarget,
     }
 
     public enum GameState

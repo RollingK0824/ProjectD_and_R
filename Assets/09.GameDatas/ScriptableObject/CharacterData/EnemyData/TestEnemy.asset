@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: TestEnemy
   m_EditorClassIdentifier: 
   _characterName: TestEnemy
+  _characterTypeData: {fileID: 0}
   _characterIcon: {fileID: 0}
   _description: "Test\uB97C \uC704\uD55C Enemy"
   _maxHealth: 100
   _physicalDefense: 10
   _magicalResistance: 10
-  _attackDamage: 80
+  _attackDamage: 70
   _attackSpeed: 0.3
   _attackedRange: 2
   _moveSpeed: 5
