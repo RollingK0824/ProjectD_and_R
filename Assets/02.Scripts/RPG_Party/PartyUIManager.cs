@@ -35,7 +35,7 @@ public class PartyUIManager : MonoBehaviour
         foreach (Transform child in currentPartyPanel) Destroy(child.gameObject);
         foreach (Transform child in unlockedUnitsPanel) Destroy(child.gameObject);
 
-        List<UnitData> party = PartyManager.Instance.currentParty;
+        List<EnemyCharacterData> party = PartyManager.Instance.currentParty;
         foreach (var unit in party)
         {
             GameObject slotGO = Instantiate(unitSlotPrefab, currentPartyPanel);
@@ -45,7 +45,7 @@ public class PartyUIManager : MonoBehaviour
             slotUI.Setup(unit, OnSlotClicked);
         }
 
-        List<UnitData> unlocked = PartyManager.Instance.GetUnlockedUnits();
+        List<EnemyCharacterData> unlocked = PartyManager.Instance.GetUnlockedUnits();
         foreach (var unit in unlocked)
         {
             if (party.Contains(unit)) continue;

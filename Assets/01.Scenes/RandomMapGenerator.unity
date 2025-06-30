@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 1206104976}
   - component: {fileID: 1206104975}
   - component: {fileID: 1206104974}
-  - component: {fileID: 1206104977}
   - component: {fileID: 1206104978}
   m_Layer: 0
   m_Name: Main Camera
@@ -213,18 +212,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
---- !u!114 &1206104977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206104973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc94cf24ee4322e41a5ee4e11636dabf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1206104978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,73 +227,6 @@ MonoBehaviour:
   moveSpeed: 10
   zoomSpeed: 20
   rotationSpeed: 3
---- !u!1 &1458620018
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1458620019}
-  - component: {fileID: 1458620021}
-  - component: {fileID: 1458620022}
-  m_Layer: 0
-  m_Name: MapGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1458620019
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458620018}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1458620021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458620018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfc8f6f62c551b142a49da6599644888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfZones: 9
-  Size: {x: 5, y: 5}
-  roomDensity: 0.32
-  gapBetweenZones: 0
-  connectionsBetweenZones: 1
-  roomPrefab: {fileID: 4435953084995747680, guid: fcad342bbd97ac14dba3d839bbdc0893, type: 3}
-  MapParent: {fileID: 1821832781}
-  zoneColors: []
---- !u!114 &1458620022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458620018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51933f2590cc9384687b055ce981c434, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory:
-    _Gold: 0
 --- !u!1 &1821832781
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +492,6 @@ SceneRoots:
   - {fileID: 2076872288}
   - {fileID: 1826605583}
   - {fileID: 1991704882}
-  - {fileID: 1458620019}
   - {fileID: 1821832782}
   - {fileID: 1904299885}
   - {fileID: 1206104976}

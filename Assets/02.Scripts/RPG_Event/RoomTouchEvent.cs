@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class RoomTouchEvent :MonoBehaviour, ITouchble
+public class RoomTouchEvent : MonoBehaviour, ITouchble
 {
     Room room;
-    [Header("방이 선택됬는지 확인")]public bool _isRoomSelect = false;
+    [Header("방이 선택됬는지 확인")] public bool _isRoomSelect = false;
 
     //테스트용
     public Color originalColor;
@@ -19,7 +15,7 @@ public class RoomTouchEvent :MonoBehaviour, ITouchble
 
         else
         {
-            RoomEnterManager.Instance.EnterStage(room);
+            RpgManager.Instance.RoomEnterSystem.EnterStage(room);
         }
     }
 

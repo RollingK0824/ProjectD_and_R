@@ -18,8 +18,11 @@ public class RoomFactory
     /// </summary>
     public void ClearAllRooms()
     {
-        foreach (Transform child in parent)
-            GameObject.Destroy(child.gameObject);
+        if(parent != null)
+        {
+            foreach (Transform child in parent)
+                GameObject.Destroy(child.gameObject);
+        }
     }
 
     /// <summary>

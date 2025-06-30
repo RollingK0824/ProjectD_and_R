@@ -10,6 +10,7 @@ public class Room : MonoBehaviour
     [Header("이동 가능한 방")] public List<Room> ConnectedRooms = new List<Room>();
     [Header("구역 ID")] public int ZoneID = -1;
     [Header("방 타입")] public RoomType Type;
+    [Header("방 진입 여부")] public bool visite = false;
 
     RoomTouchEvent roomTouchEvent;
 
@@ -18,5 +19,6 @@ public class Room : MonoBehaviour
         roomTouchEvent = gameObject.AddComponent<RoomTouchEvent>();
         roomTouchEvent.Init(this);
     }
+
 }
 

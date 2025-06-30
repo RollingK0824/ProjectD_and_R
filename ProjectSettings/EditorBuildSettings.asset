@@ -4,7 +4,31 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/01.Scenes/Title.unity
+    guid: ce54c7242eb2f2842b5004ddfbca4085
+  - enabled: 1
+    path: Assets/01.Scenes/DungeonBattle.unity
+    guid: 2dcf5ee2cd42c2d4d91c18de8cd53772
+  - enabled: 1
+    path: Assets/01.Scenes/DungeonCrawling.unity
+    guid: 7897f2c3308483c4a8204fbcba131e38
+  - enabled: 1
+    path: Assets/01.Scenes/RandomMapGenerator.unity
+    guid: ece8779dedf33e645b68527f6ed792ef
+  - enabled: 1
+    path: Assets/01.Scenes/RpgOtherQuarters.unity
+    guid: ccd291c9b0974cc4aa4175e21fdda897
+  - enabled: 1
+    path: Assets/01.Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/01.Scenes/UnitTestScene.unity
+    guid: b256eb1b123d73847b33ea03d9a90f1f
+  - enabled: 1
+    path: Assets/01.Scenes/Loding.unity
+    guid: 0e15378e0fbf6e64f9c9963c8cee65b3
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: a1fe6b1f8d9d2b14ba8abce05b0ac31e, type: 2}
     com.unity.dt.app-ui: {fileID: 11400000, guid: 99f9c9493070a9d4c979a8fec7c5a8d3, type: 2}

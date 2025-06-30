@@ -13,17 +13,127 @@ MonoBehaviour:
   m_Name: Default Local Group
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
-  m_GUID: 647c40ac33e7bf24abd7d3ee7662c7ef
+  m_GUID: c0d59dc206934d1488cfa96a083df8f2
   m_SerializeEntries:
-  - m_GUID: 1d2d1d968608a01438165283d7fc927f
-    m_Address: Assets/03.Prefabs/Characters/TestEnemy.prefab
+  - m_GUID: 00a6aca6ed44a194fb95e25b92ceed52
+    m_Address: Assets/00.Core/ScriptableObject/RoomEnemySpawnData/Case4.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - RoomEnemySpawnData
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3edb9393619df4846a305f31f53ad4f2
-    m_Address: Assets/03.Prefabs/Characters/TestPlayer.prefab
+  - m_GUID: 0982978073c74844cb5f66e051b5456c
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Goblin
+      1.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c98d54ce15304d4abd7a8313ce154a9
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Goblin
+      2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1fdf86c253fcf3944a21fbeaddeea09e
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Orc 3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 308c01e01093cb84f9ba1307d87e999b
+    m_Address: Assets/00.Core/ScriptableObject/Events/TestEvent2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - EventData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34896abc06546d04fb5006951caf7c41
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Spider
+      1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 426297ff1ac5bf44591cb6a2bfd816fc
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Orc 1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4322311deb4dc57428209bd22629aadb
+    m_Address: Assets/00.Core/ScriptableObject/RoomEnemySpawnData/Case3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - RoomEnemySpawnData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 505302abde08ea4428d2acaa017ceea8
+    m_Address: Assets/00.Core/ScriptableObject/Events/TestEvent1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - EventData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ca2f3124786b624d8398f4071d52ac8
+    m_Address: Assets/00.Core/ScriptableObject/Items/TestItem2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ItemData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 657d0268f929676499941e9c4b92c3a3
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Spider
+      2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b81996105aae844698f0ea345c1e3ba
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Spider
+      3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4057d207769dbd4dae22f561dacb7dd
+    m_Address: Assets/00.Core/ScriptableObject/RoomEnemySpawnData/Case1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - RoomEnemySpawnData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5c2d2a871659024f86a01e85d1515d7
+    m_Address: Assets/00.Core/ScriptableObject/RoomEnemySpawnData/Case2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - RoomEnemySpawnData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afd415b6d028ab94e978335c8efc72f0
+    m_Address: Assets/00.Core/ScriptableObject/Items/TestItem3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ItemData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd68b984333363a43a31f683b022a3b7
+    m_Address: Assets/00.Core/ScriptableObject/Items/TestItem1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ItemData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0691658edd2a77469bf1b805526d6df
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Orc 2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3527f4181fa5fc409fe2b35664b22ee
+    m_Address: Assets/00.Core/ScriptableObject/Events/TestEvent3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - EventData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f569d7cbafc2d0249bd9bd7cc1ed54c4
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Goblin
+      3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c14d6bce582e76140b027d81158fce26, type: 2}
