@@ -61,6 +61,7 @@ public class BattleEnter
             container.transform.GetChild(i).gameObject.SetActive(false);
         }
 
+        RpgManager.Instance.UseTrun(1);
         GameManager.Instance.GoToScene("RandomMapGenerator");
     }
 }

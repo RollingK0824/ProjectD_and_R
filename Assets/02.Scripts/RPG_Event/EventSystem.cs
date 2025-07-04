@@ -71,11 +71,6 @@ public class EventEnter
                     Debug.Log("획득");
                     Debug.Log($"아이템 : {itemReward.Item_Name}");
                     Debug.Log($"설명 : {itemReward.Item_Description}");
-                    Debug.Log($"공격력 : {itemReward.Attack}");
-                    Debug.Log($"방어력 : {itemReward.Defense}");
-                    Debug.Log($"공격속도 : {itemReward.AttackSpeed}");
-                    Debug.Log($"체력 : {itemReward.Health}");
-                    Debug.Log($"이동속도 : {itemReward.Speed}");
                 }
             }
         }

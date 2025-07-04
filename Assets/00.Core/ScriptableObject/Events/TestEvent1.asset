@@ -20,4 +20,4 @@ MonoBehaviour:
   rewardData:
     Gold: 12
     itemRewards:
-    - {fileID: 11400000, guid: cd68b984333363a43a31f683b022a3b7, type: 2}
+    - {fileID: 11400000, guid: 27be1e3e238a4324ba72575b36221ccc, type: 2}

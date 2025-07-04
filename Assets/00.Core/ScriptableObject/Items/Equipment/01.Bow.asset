@@ -9,16 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57812bb7c339c004fa9650b6b0766de5, type: 3}
-  m_Name: TestItem3
+  m_Script: {fileID: 11500000, guid: f5f233ddb82bcab498e2e60d2a04d4c8, type: 3}
+  m_Name: 01.Bow
   m_EditorClassIdentifier: 
-  Item_ID: 2
-  Item_Name: "\uD3C9\uBC94\uD55C\uAC1C\uBC1C\uC790\uC758\uAC80"
+  Item_ID: 1
+  Item_Name: "\uD14C\uC2A4\uD2B8\uD65C"
   Type: 1
-  Grade: 6
+  Grade: 3
   Price: 999
-  Item_Description: "\uD3C9\uBC94\uD55C \uAC1C\uBC1C\uC790 \uD55C\uBA85\uC758 \uBB34\uAE30\uC778\uAC83
-    \uAC19\uB2E4."
+  Item_Description: "\uD14C\uC2A4\uD2B8\uC6A9 \uD65C"
   Attack: 999
   Defense: 999
   AttackSpeed: 999

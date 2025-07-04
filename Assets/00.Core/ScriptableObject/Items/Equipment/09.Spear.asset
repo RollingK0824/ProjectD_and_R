@@ -9,16 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57812bb7c339c004fa9650b6b0766de5, type: 3}
-  m_Name: TestItem2
+  m_Script: {fileID: 11500000, guid: f5f233ddb82bcab498e2e60d2a04d4c8, type: 3}
+  m_Name: 09.Spear
   m_EditorClassIdentifier: 
-  Item_ID: 1
-  Item_Name: "\uAE30\uD68D\uC790\uC758\uCFE0\uB85C\uBBF8\uD3F4\uB4DC4"
+  Item_ID: 9
+  Item_Name: "\uD14C\uC2A4\uD2B8\uCC3D"
   Type: 1
-  Grade: 6
+  Grade: 1
   Price: 999
-  Item_Description: "\uAE30\uD68D\uC790\uC758 \uCFE0\uB85C\uBBF8 \uBC14\uD0D5\uD654\uBA74
-    \uD3F4\uB4DC4 \uC783\uC5B4\uBC84\uB9B0 \uAC83 \uAC19\uB2E4.."
+  Item_Description: "\uD14C\uC2A4\uD2B8\uC6A9 \uAC80"
   Attack: 999
   Defense: 999
   AttackSpeed: 999

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69dc1e54849b33b4baf9ff7c3fdd2fe3, type: 3}
+  m_Name: 04.BluePotion
+  m_EditorClassIdentifier: 
+  Item_ID: 4
+  Item_Name: "\uB9C8\uB098\uD3EC\uC158"
+  Grade: 0
+  Price: 10
+  Item_Description: "\uB9C8\uB098\uB97C \uD68C\uBCF5\uC2DC\uCF1C\uC900"
+  HealAmount: 0

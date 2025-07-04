@@ -72,12 +72,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - EventData
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5ca2f3124786b624d8398f4071d52ac8
-    m_Address: Assets/00.Core/ScriptableObject/Items/TestItem2.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 657d0268f929676499941e9c4b92c3a3
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Spider
       2.asset
@@ -103,18 +97,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - RoomEnemySpawnData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: afd415b6d028ab94e978335c8efc72f0
-    m_Address: Assets/00.Core/ScriptableObject/Items/TestItem3.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cd68b984333363a43a31f683b022a3b7
-    m_Address: Assets/00.Core/ScriptableObject/Items/TestItem1.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d0691658edd2a77469bf1b805526d6df
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Orc 2.asset
