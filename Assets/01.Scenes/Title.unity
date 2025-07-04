@@ -442,6 +442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51933f2590cc9384687b055ce981c434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Max_Turn: 1
+  LeftTurn: 0
   roomPrefab: {fileID: 4435953084995747680, guid: fcad342bbd97ac14dba3d839bbdc0893, type: 3}
   MapParent: Map
   numberOfZones: 7
@@ -454,9 +456,6 @@ MonoBehaviour:
     _RPG_UI_Canvas: {fileID: 0}
     battleEnter:
       EnemyType: 1
-  ShopSystem:
-    grade: 0
-    depreciation: 30
   Database:
     events: []
     Items: []

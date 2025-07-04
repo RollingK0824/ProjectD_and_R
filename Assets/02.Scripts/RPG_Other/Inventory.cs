@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -85,5 +86,13 @@ public class Inventory
             return false;
 
         return _InventoryItems.ContainsKey(itemData);
+    }
+
+    /// <summary>
+    /// 지정된 타입의 아이템들만 필터링하여 반환
+    /// </summary>
+    public IEnumerable<KeyValuePair<ItemData, int>> GetItemsByType(ItemType type)
+    {
+        return _InventoryItems.Where(pair => pair.Key.Type == type);
     }
 }

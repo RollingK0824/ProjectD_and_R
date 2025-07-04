@@ -23,6 +23,8 @@ public class SceneArriveEvent
                 MapBlueprint newBlueprint = zoneLayoutSystem.GenerateNewMap(RpgManager.Instance.roomPrefab, parent);
                 RpgManager.Instance.mapBlueprint = newBlueprint; 
             }
+
+            if (RpgManager.Instance.CheckEndOfRPG()) RpgManager.Instance.EndRPG();
         }
     }
 }
