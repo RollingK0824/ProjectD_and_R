@@ -80,19 +80,7 @@ public class StageManager : Singleton<StageManager>
 
     private void OnTurnStateChanged(ProjectD_and_R.Enums.TurnState newState)
     {
-        switch (newState)
-        {
-            case ProjectD_and_R.Enums.TurnState.None:
-                break;
-            case ProjectD_and_R.Enums.TurnState.DefenseTurn:
-                _currentTurnState = ProjectD_and_R.Enums.TurnState.DefenseTurn;
-                break;
-            case ProjectD_and_R.Enums.TurnState.DungeonTurn:
-                _currentTurnState = ProjectD_and_R.Enums.TurnState.DungeonTurn;
-                break;
-            default:
-                break;
-        }
+        _currentTurnState = newState;
     }
 
     // 외부에서 스테이지 정보를 설정할 수 있도록 (GameManager가 호출)
@@ -116,9 +104,15 @@ public class StageManager : Singleton<StageManager>
         Debug.Log($"StageManager: '{stageInfo.stageName}' 스테이지 시작");
 #endif
         BBInitialize(stageInfo.stageConditionData);
+
         if(_currentTurnState == ProjectD_and_R.Enums.TurnState.DefenseTurn)
         {
             _spawnCoroutine = StartCoroutine(SpawnEnemiesRoutine(stageInfo));
+        }
+        else if(_currentTurnState == ProjectD_and_R.Enums.TurnState.DungeonTurn)
+        {
+            BlackboardManager.Instance.Agnet.SetVariableValue("EnemyTurnState",ProjectD_and_R.Enums.TurnState.DungeonTurn);
+            TurnBattleManager.Instance.StartNewRound();
         }
     }
 

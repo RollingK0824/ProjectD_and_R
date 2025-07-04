@@ -57,6 +57,7 @@ namespace ProjectD_and_R.Enums
         Hit,
         Idle,
         Die,
+        Finished,
     }
 
     public enum SkillEffectType

@@ -5,6 +5,8 @@ using ProjectD_and_R.Enums;
 using System.Collections;
 using UnityEngine.AI;
 using Unity.Behavior;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 
 public class CharacterCore : MonoBehaviour, ICharacterCore
 {
@@ -45,6 +47,9 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
 
     private ProjectD_and_R.Enums.TurnState _turnState;
     public ProjectD_and_R.Enums.TurnState TurnState => _turnState;
+
+    private ITurnComponent _turnComponent;
+    public ITurnComponent TurnComponent => _turnComponent;
 
     public GameObject GameObject => gameObject;
 
@@ -87,6 +92,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         TryGetComponent<NavMeshAgent>(out _navMeshAgent);
         TryGetComponent<BehaviorGraphAgent>(out _behaviorGraphAgent);
         TryGetComponent<IGridObject>(out _gridObject);
+        TryGetComponent<ITurnComponent>(out _turnComponent);
 
         RegisterEvents();
 
@@ -123,6 +129,11 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         if (_enemyAiComponent != null)
         {
             _enemyAiComponent.Initialize(this);
+        }
+
+        if (_turnComponent != null)
+        {
+            _turnComponent.Initialize(this);
         }
     }
 
@@ -304,15 +315,17 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
                 Debug.Log($"HitAction not implemented");
 #endif
                 break;
+            case FinishedActionRequset:
+                var finishedRequest = request as FinishedActionRequset;
+                if(finishedRequest != null)
+                {
+                    _turnComponent?.NotifyActionFinished();
+                }
+#if UNITY_EDITOR
+#endif
+                break;
             default:
                 break;
-#if UNITY_EDITOR
-                Debug.Log($"IdleAction not implemented");
-#endif
-
-#if UNITY_EDITOR
-                Debug.Log($"DieAction not implemented");
-#endif
         }
     }
 

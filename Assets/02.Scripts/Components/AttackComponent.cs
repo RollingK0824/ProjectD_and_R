@@ -31,9 +31,13 @@ public class AttackComponent : MonoBehaviour, IAttacker
     // --- 임시 로직 --- //
     private void Update()
     {
-        if(_status.Faction == Faction.Player)
+        if(GameManager.Instance.CurrentTurnState == ProjectD_and_R.Enums.TurnState.DefenseTurn)
         {
-            TryAttack();
+            if (_status.Faction == Faction.Player)
+            {
+                if (Time.time >= _nextAttackTime && !IsAttacking)
+                    StartCoroutine(AttackRoutine());
+            }
         }
     }
 

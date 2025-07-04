@@ -18,5 +18,6 @@ public interface ICharacterCore
     IGridObject GridObject { get; }
     ISkillComponent SkillComponent { get; }
     ProjectD_and_R.Enums.TurnState TurnState { get; }
+    ITurnComponent TurnComponent { get; }
     GameObject GameObject { get; }
 }

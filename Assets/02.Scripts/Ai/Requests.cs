@@ -84,3 +84,13 @@ public class DieActionRequest : IActionRequest
         /* Do Nothing */
     }
 }
+
+public class FinishedActionRequset : IActionRequest
+{
+    public ActionType Type => ActionType.Finished;
+
+    public FinishedActionRequset()
+    {
+        /* Do Nothing */
+    }
+}
