@@ -14,31 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: RoomEnemySpawnDataGroup
   m_GUID: 1070acc6f56b1ef4e9e2dbc240bee34b
-  m_SerializeEntries:
-  - m_GUID: 00a6aca6ed44a194fb95e25b92ceed52
-    m_Address: Assets/00.Core/ScriptableObject/RoomEnemySpawnData/Case4.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoomEnemySpawnData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4322311deb4dc57428209bd22629aadb
-    m_Address: Assets/00.Core/ScriptableObject/RoomEnemySpawnData/Case3.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoomEnemySpawnData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a4057d207769dbd4dae22f561dacb7dd
-    m_Address: Assets/00.Core/ScriptableObject/RoomEnemySpawnData/Case1.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoomEnemySpawnData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a5c2d2a871659024f86a01e85d1515d7
-    m_Address: Assets/00.Core/ScriptableObject/RoomEnemySpawnData/Case2.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoomEnemySpawnData
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c14d6bce582e76140b027d81158fce26, type: 2}
   m_SchemaSet:

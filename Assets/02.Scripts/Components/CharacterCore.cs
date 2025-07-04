@@ -5,6 +5,8 @@ using ProjectD_and_R.Enums;
 using System.Collections;
 using UnityEngine.AI;
 using Unity.Behavior;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 
 public class CharacterCore : MonoBehaviour, ICharacterCore
 {
@@ -34,12 +36,22 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     private IGridObject _gridObject;
     public IGridObject GridObject => _gridObject;
 
+    private ISkillComponent _skillComponent;
+    public ISkillComponent SkillComponent => _skillComponent;
+
     private NavMeshAgent _navMeshAgent;
     public NavMeshAgent NavMeshAgent => _navMeshAgent;
 
     private BehaviorGraphAgent _behaviorGraphAgent;
     public BehaviorGraphAgent BehaviorGraphAgent => _behaviorGraphAgent;
 
+    private ProjectD_and_R.Enums.TurnState _turnState;
+    public ProjectD_and_R.Enums.TurnState TurnState => _turnState;
+
+    private ITurnComponent _turnComponent;
+    public ITurnComponent TurnComponent => _turnComponent;
+
+    public GameObject GameObject => gameObject;
 
     [Header("Debug Status (Read Only")]
     [SerializeField] private float debug_MaxHealth;
@@ -54,8 +66,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     [SerializeField] private MoveType debug_MovableTerrainTypes;
     [SerializeField] private Faction debug_Faction;
     [SerializeField] private ObjectType debug_ObjectType;
-
-    public event System.Action OnCharacterDied;
+    [SerializeField] private ProjectD_and_R.Enums.TurnState debug_TurnState;
 
     protected virtual void Awake()
     {
@@ -81,10 +92,14 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         TryGetComponent<NavMeshAgent>(out _navMeshAgent);
         TryGetComponent<BehaviorGraphAgent>(out _behaviorGraphAgent);
         TryGetComponent<IGridObject>(out _gridObject);
+        TryGetComponent<ITurnComponent>(out _turnComponent);
 
         RegisterEvents();
 
-        _characterStatus.Initialize(this);
+        if (_characterStatus != null)
+        {
+            _characterStatus.Initialize(this);
+        }
 
         if (_damageableComponent != null)
         {
@@ -106,7 +121,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
             _deployableComponent.Initialize(this);
         }
 
-        if(_gridObject != null)
+        if (_gridObject != null)
         {
             _gridObject.Initialize(this);
         }
@@ -114,6 +129,11 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         if (_enemyAiComponent != null)
         {
             _enemyAiComponent.Initialize(this);
+        }
+
+        if (_turnComponent != null)
+        {
+            _turnComponent.Initialize(this);
         }
     }
 
@@ -182,7 +202,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         if (_enemyAiComponent == null) return;
         _enemyAiComponent.StatusChanged(statusName, oldValue, newValue);
     }
-    private void HandleCharacterDied() 
+    private void HandleCharacterDied()
     {
         if (_gridObject != null)
         {
@@ -200,12 +220,12 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         _deployableComponent.Undeploy();
     }
     private void HandleAttackHit(IDamageable target) { /* ... */ }
-    private void HandleCharacterDeployed() 
-    { 
+    private void HandleCharacterDeployed()
+    {
         CharacterStatus.Initialize(this);
         CharacterStatus.SetIsDeployed(true);
 
-        if(EnemyAiComponent != null)
+        if (EnemyAiComponent != null)
         {
             EnemyAiComponent.StatusChanged<bool>("IsDeployed", true, true);
             EnemyAiComponent.StatusChanged<bool>("IsAlive", true, true);
@@ -266,7 +286,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
                 break;
             case MoveStopActionRequest:
                 var stopRequest = request as MoveStopActionRequest;
-                if(stopRequest != null)
+                if (stopRequest != null)
                 {
                     _movementComponent?.StopMoving();
                 }
@@ -275,7 +295,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
                 var attackRequest = request as AttackActionRequest;
                 if (attackRequest != null)
                 {
-                    if(attackRequest.Target != null)
+                    if (attackRequest.Target != null)
                     {
                         _attackerComponent?.TryAttack(attackRequest.Target);
                     }
@@ -295,15 +315,17 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
                 Debug.Log($"HitAction not implemented");
 #endif
                 break;
+            case FinishedActionRequset:
+                var finishedRequest = request as FinishedActionRequset;
+                if(finishedRequest != null)
+                {
+                    _turnComponent?.NotifyActionFinished();
+                }
+#if UNITY_EDITOR
+#endif
+                break;
             default:
                 break;
-#if UNITY_EDITOR
-                Debug.Log($"IdleAction not implemented");
-#endif
-
-#if UNITY_EDITOR
-                Debug.Log($"DieAction not implemented");
-#endif
         }
     }
 
@@ -318,4 +340,8 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     public void MoveCharacterTo(Vector3 targetPosition) => _movementComponent?.Move(targetPosition);
     public void Attack() => _attackerComponent?.TryAttack();
     public void DeployCharacter(Vector3 position, Quaternion rotation) => _deployableComponent?.Deploy(position, rotation);
+    public void SetTurnState(ProjectD_and_R.Enums.TurnState turnState)
+    {
+        if (_turnState != turnState) _turnState = turnState;
+    }
 }

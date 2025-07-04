@@ -69,6 +69,7 @@ public class DamageableComponent : MonoBehaviour, IDamageable
         Debug.Log($"{this.name}이{finalDamage}를 입음");
 #endif
     }
+
     public void Heal(float amount)
     {
         if (_status == null
@@ -80,6 +81,7 @@ public class DamageableComponent : MonoBehaviour, IDamageable
         Debug.Log($"{this.name}이 {amount}만큼 체력이 회복됨");
 #endif
     }
+
     public void Die()
     {
         /* 사망 처리 */

@@ -28,6 +28,15 @@ namespace ProjectD_and_R.Enums
         Player = 1,
         Enemy = 2,
     }
+    public enum ObjectType
+    {
+        None,
+        Player,
+        Enemy,
+        Boss,
+        Obstacle,
+        DefenseTarget,
+    }
 
     public enum GridCellType
     {
@@ -39,26 +48,6 @@ namespace ProjectD_and_R.Enums
         EndPoint = 5,
     }
 
-    public enum ObjectType
-    {
-        None,
-        Player,
-        Enemy,
-        Boss,
-        Obstacle,
-        DefenseTarget,
-    }
-
-    public enum GameState
-    {
-        MainMenu,
-        StageStarting,
-        StageInProgress,
-        StagePaused,
-        StageEnded,
-        GameOver
-    }
-
     public enum ActionType
     {
         Deploy,
@@ -68,6 +57,20 @@ namespace ProjectD_and_R.Enums
         Hit,
         Idle,
         Die,
+        Finished,
+    }
+
+    public enum SkillEffectType
+    {
+        None,
+        Damage,
+        Heal,
+        Buff,
+        Debuff,
+        Stun,
+        Shield,
+        Summon,
+        Teleport,
     }
 
     public enum GameEndConditionType
@@ -81,6 +84,23 @@ namespace ProjectD_and_R.Enums
         AllPlayerUnitsDefeated,
         DefenseTargetDestroyed,
         TimeLimitReached_GameOver,
+    }
+
+    public enum GameState
+    {
+        MainMenu,
+        StageStarting,
+        StageInProgress,
+        StagePaused,
+        StageEnded,
+        GameOver
+    }
+
+    public enum TurnState
+    {
+        None,
+        DefenseTurn,
+        DungeonTurn,
     }
 
 }

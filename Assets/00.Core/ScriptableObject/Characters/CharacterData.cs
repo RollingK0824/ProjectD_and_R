@@ -29,7 +29,7 @@ public abstract class CharacterData : ScriptableObject
     /// 최대 체력
     /// </summary>
     public float MaxHealth => _maxHealth;
-    [Header("Stats")][SerializeField] private float _maxHealth = 100f;
+    [Header("Status")][SerializeField] private float _maxHealth = 100f;
 
     /// <summary>
     /// 방어력(물리)
