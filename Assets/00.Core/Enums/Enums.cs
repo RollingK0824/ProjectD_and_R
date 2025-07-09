@@ -89,9 +89,10 @@ namespace ProjectD_and_R.Enums
     public enum GameState
     {
         MainMenu,
-        StageStarting,
-        StageInProgress,
-        StagePaused,
+        Loading,
+        SceneStarting,
+        SceneInProgress,
+        ScenePaused,
         StageEnded,
         GameOver
     }
@@ -101,6 +102,8 @@ namespace ProjectD_and_R.Enums
         None,
         DefenseTurn,
         DungeonTurn,
+        DungeonBattleTurn,
+        VillageTurn,
     }
 
     public enum CharacterRarity
