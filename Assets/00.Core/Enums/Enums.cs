@@ -103,4 +103,12 @@ namespace ProjectD_and_R.Enums
         DungeonTurn,
     }
 
+    public enum CharacterRarity
+    {
+        None,
+        Common,
+        UnCommon,
+        Unique,
+    }
+
 }
