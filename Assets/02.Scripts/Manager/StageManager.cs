@@ -43,16 +43,16 @@ public class StageManager : Singleton<StageManager>
     {
         switch (newState)
         {
-            case GameState.StageStarting:
+            case GameState.SceneStarting:
                 // TODO: UI 업데이트, 초기화 애니메이션 등
                 break;
-            case GameState.StageInProgress:
+            case GameState.SceneInProgress:
 #if UNITY_EDITOR
                 Debug.Log("StageManager: 스테이지 진행 중. 적 스폰 시작.");
 #endif
                 StartStage(_currentStageInfo);
                 break;
-            case GameState.StagePaused:
+            case GameState.ScenePaused:
 #if UNITY_EDITOR
                 Debug.Log("StageManager: 스테이지 일시 중지.");
 #endif
