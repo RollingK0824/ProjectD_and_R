@@ -23,7 +23,7 @@ MonoBehaviour:
   _attackSpeed: 2
   _attackedRange: 10
   _moveSpeed: 10
-  _characterPrefab: {fileID: 0}
+  _characterPrefab: {fileID: 7406312918971902387, guid: 3edb9393619df4846a305f31f53ad4f2, type: 3}
   _movableTerrainTypes: -1
   _faction: 1
   _objectType: 1

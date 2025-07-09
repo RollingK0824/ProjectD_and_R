@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f233ddb82bcab498e2e60d2a04d4c8, type: 3}
   m_Name: 03.Sword
   m_EditorClassIdentifier: 
-  Item_ID: 3
+  Item_ID: 1003
   Item_Name: "\uD14C\uC2A4\uD2B8\uAC80"
   Type: 1
   Grade: 5

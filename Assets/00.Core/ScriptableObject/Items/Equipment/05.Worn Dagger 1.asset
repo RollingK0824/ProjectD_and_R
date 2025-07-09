@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f233ddb82bcab498e2e60d2a04d4c8, type: 3}
+  m_Name: 05.Worn Dagger 1
+  m_EditorClassIdentifier: 
+  Item_ID: 1005
+  Item_Name: "\uB0A1\uC740 \uB2E8\uAC80"
+  Type: 1
+  Grade: 0
+  Price: 15
+  Item_Description: "\uB0A0\uC774 \uBB34\uB38C\uC838 \uC798 \uB4E4\uC9C0 \uC54A\uB294
+    \uD3C9\uBC94\uD55C \uB2E8\uAC80\uC785\uB2C8\uB2E4. \uC5C6\uB294 \uAC83\uBCF4\uB2E8
+    \uB0AB\uC2B5\uB2C8\uB2E4."
+  Attack: 1
+  Defense: 2
+  AttackSpeed: 3
+  Health: 4
+  Speed: 5

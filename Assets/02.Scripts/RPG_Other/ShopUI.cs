@@ -15,9 +15,9 @@ public class ShopUI : MonoBehaviour
     public ShopSystem shopSystem; 
     private List<GameObject> spawnedSlots = new List<GameObject>();
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.K)) OpenShop();
+        OpenShop();
     }
     /// <summary>
     /// 상점 UI를 엽니다.
@@ -37,6 +37,8 @@ public class ShopUI : MonoBehaviour
     public void CloseShop()
     {
         shopPanel.SetActive(false);
+        RpgManager.Instance.UseTrun(1);
+        GameManager.Instance.GoToScene("RandomMapGenerator");
     }
 
     /// <summary>

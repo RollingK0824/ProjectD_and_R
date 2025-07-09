@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f233ddb82bcab498e2e60d2a04d4c8, type: 3}
+  m_Name: 07.Steel Longsword
+  m_EditorClassIdentifier: 
+  Item_ID: 1007
+  Item_Name: "\uAC15\uCCA0 \uB871\uC18C\uB4DC"
+  Type: 1
+  Grade: 1
+  Price: 80
+  Item_Description: "\uB300\uC7A5\uAC04\uC5D0\uC11C \uC798 \uBCBC\uB824\uB0B8 \uAC15\uCCA0
+    \uAC80\uC785\uB2C8\uB2E4. \uBB34\uAC8C \uADE0\uD615\uC774 \uC798 \uC7A1\uD600
+    \uC788\uC2B5\uB2C8\uB2E4."
+  Attack: 1
+  Defense: 2
+  AttackSpeed: 3
+  Health: 4
+  Speed: 5

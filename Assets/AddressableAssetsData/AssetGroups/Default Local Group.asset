@@ -28,6 +28,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18b7bbc2b265ac742b63f9f1a6ca6894
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/Nyra.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c98d54ce15304d4abd7a8313ce154a9
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Goblin
       2.asset
@@ -37,6 +43,18 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1fdf86c253fcf3944a21fbeaddeea09e
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Orc 3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28bc4f022bf27fc48b3f4bbc9932cddd
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/Tharok.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c718761da5fa204093960e48066cc8d
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/Aria.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitData
@@ -66,11 +84,23 @@ MonoBehaviour:
     m_SerializedLabels:
     - RoomEnemySpawnData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e3541eb7180bd94d982953ae0f16c51
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/Vexia.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 505302abde08ea4428d2acaa017ceea8
     m_Address: Assets/00.Core/ScriptableObject/Events/TestEvent1.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - EventData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5069950b414c05c42902d83fc6386e0d
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/TestUnit.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 657d0268f929676499941e9c4b92c3a3
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Spider
@@ -86,6 +116,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a00ebd8dedcc74648a3f3456af54ddc5
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/Gromm.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a4057d207769dbd4dae22f561dacb7dd
     m_Address: Assets/00.Core/ScriptableObject/RoomEnemySpawnData/Case1.asset
     m_ReadOnly: 0
@@ -97,6 +133,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - RoomEnemySpawnData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c57fce9230f1f87419ac9427a5a0a783
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/Witch.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UnitData
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d0691658edd2a77469bf1b805526d6df
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Orc 2.asset
