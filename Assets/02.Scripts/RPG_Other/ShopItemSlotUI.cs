@@ -7,7 +7,6 @@ public class ShopItemSlotUI : MonoBehaviour
 {
     [Header("슬롯 UI 요소")]
     [SerializeField] private TextMeshProUGUI itemNameText;
-    [SerializeField] private TextMeshProUGUI itemDescriptionText;
     [SerializeField] private TextMeshProUGUI itemPriceText;
     [SerializeField] private Button buyButton;
     [SerializeField] private Image itemGradeBorder;
@@ -39,7 +38,6 @@ public class ShopItemSlotUI : MonoBehaviour
 
         // UI 텍스트 설정
         itemNameText.text = currentItem.Item_Name;
-        itemDescriptionText.text = currentItem.Item_Description;
         itemPriceText.text = $"{currentItem.Price} G";
 
         // 아이템 등급에 따라 테두리 색상 변경

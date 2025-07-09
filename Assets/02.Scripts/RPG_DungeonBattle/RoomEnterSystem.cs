@@ -75,7 +75,7 @@ public class RoomEnterSystem
     }
     void EnterShopStage()
     {
-        Debug.Log("상점 입장");
+        GameManager.Instance.GoToScene("Shop");
     }
     void EnterDoor()
     {
