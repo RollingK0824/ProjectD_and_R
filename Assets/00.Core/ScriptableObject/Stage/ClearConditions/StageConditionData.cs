@@ -12,7 +12,6 @@ public class StageConditionData : ScriptableObject
         public int intValue;              // 정수형 값 (예: 처치할 적 수, 남은 시간)
         public float floatValue;          // 실수형 값 (예: 시간 제한)
         public List<GameObject>objectReference; // 오브젝트 참조 (예: 보스 오브젝트, 수비 타겟)
-        public bool isClearCondition;     // 이 조건이 클리어 조건인지 (true) 또는 게임 오버 조건인지 (false)
     }
 
     [Header("스테이지 종료 조건 목록")]

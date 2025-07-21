@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: c0d59dc206934d1488cfa96a083df8f2
   m_SerializeEntries:
+  - m_GUID: 008054f82c4fcfd4caa7a152bf6da9bc
+    m_Address: Assets/09.GameDatas/BehaviorTree/EnemyAi/BT_SubTree_Dungeon.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 00a6aca6ed44a194fb95e25b92ceed52
     m_Address: Assets/00.Core/ScriptableObject/RoomEnemySpawnData/Case4.asset
     m_ReadOnly: 0
@@ -72,6 +77,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39b92f2a02096e549b616811eee4328d
+    m_Address: Assets/03.Prefabs/Characters/DefaultEnemyUnit.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 426297ff1ac5bf44591cb6a2bfd816fc
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Orc 1.asset
     m_ReadOnly: 0
@@ -116,6 +126,16 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9804d16fc8f377446a830615a9fd64d3
+    m_Address: Assets/03.Prefabs/Characters/DefenseObject.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99e088a649da32e45bb29aa2dca11c00
+    m_Address: Assets/09.GameDatas/BehaviorTree/EnemyAi/BlackboardManage.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a00ebd8dedcc74648a3f3456af54ddc5
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/Gromm.asset
     m_ReadOnly: 0
@@ -134,6 +154,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - RoomEnemySpawnData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c38a4094daa481048bcae8d77cff9256
+    m_Address: Assets/09.GameDatas/BehaviorTree/EnemyAi/BT_EnemyMain.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c57fce9230f1f87419ac9427a5a0a783
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/Witch.asset
     m_ReadOnly: 0
@@ -151,6 +176,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - EventData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: daa6d55c97e2ad74aaefad3d2a8c1281
+    m_Address: Assets/03.Prefabs/Characters/DefaultUnit.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2fe505b61ad15c439f71cc5f49a5716
+    m_Address: Assets/09.GameDatas/BehaviorTree/EnemyAi/BT_SubTree_Defense.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f569d7cbafc2d0249bd9bd7cc1ed54c4
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Goblin

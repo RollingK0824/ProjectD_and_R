@@ -43,7 +43,7 @@ public class GridObjectComponent : MonoBehaviour, IGridObject
 
         Vector2Int newGridPos = GridManager.Instance.WorldToGridPos(transform.position);
 
-        if (newGridPos != _lastKnownGridPos)
+        if (newGridPos != _lastKnownGridPos || GridManager.Instance.GetGridCell(_lastKnownGridPos.x, _lastKnownGridPos.y).PlacedObject == null)
         {
             GridManager.Instance.MoveObject(this, _lastKnownGridPos, newGridPos);
             _currentGridPos = newGridPos;

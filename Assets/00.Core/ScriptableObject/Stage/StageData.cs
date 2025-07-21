@@ -13,6 +13,7 @@ public class StageData : ScriptableObject
     public class EnemySpawnEntry
     {
         public string enemyType; // 추후 Addreseble 타입 혹은 Dictionary에 Enemy Key값으로 활용 예정
+        public CharacterData characterData;
         public int count;
         public float spawnDelay;
         public Vector2Int spawnPoint;

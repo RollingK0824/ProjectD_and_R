@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using ProjectD_and_R.Enums;
 using UnityEngine.SceneManagement;
+using Unity.Behavior;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -11,6 +12,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField][Header("현재 씬 이름")] string CurrentScene = "Title";
 
     [SerializeField][Header("데이터 로더들")] public LoaderContainer LoaderContainer;
+
+    public UnitFactory UnitFactory => _unitFactory;
+    private UnitFactory _unitFactory;
 
     public SceneArriveEvent sceneArriveEvent;
     public GameState CurrentGameState
@@ -58,6 +62,14 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
         LoaderContainer = new LoaderContainer();
         sceneArriveEvent = new SceneArriveEvent();
+        _unitFactory = new UnitFactory();
+
+        ManagerInitialize();
+    }
+
+    private void ManagerInitialize()
+    {
+        StageManager.Instance.Initialize(UnitFactory);
     }
 
     // 특정 스테이지 시작 요청

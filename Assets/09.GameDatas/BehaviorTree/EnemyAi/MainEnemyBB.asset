@@ -16,24 +16,24 @@ MonoBehaviour:
     m_Value0: 1489761892849080932
     m_Value1: 10219800562176255322
   m_Variables:
-  - rid: 1870413506574550012
-  m_VersionTimestamp: 638872526070455808
+  - rid: 3206018997940912190
+  m_VersionTimestamp: 638881832377037977
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: 8546200521939271305}
   references:
     version: 2
     RefIds:
-    - rid: 1870413506574550012
-      type: {class: 'TypedVariableModel`1[[EnemyTurnState, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+    - rid: 3206018997940912190
+      type: {class: 'TypedVariableModel`1[[ProjectD_and_R.Enums.TurnState, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:
-          m_Value0: 6537492391531535493
-          m_Value1: 9520388888969924544
-        Name: EnemyTurnState
+          m_Value0: 13753519180836410272
+          m_Value1: 11310187218368986481
+        Name: TurnState
         IsExposed: 1
         m_IsShared: 1
-        m_Value: 1
+        m_Value: 0
 --- !u!114 &8546200521939271305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,24 +46,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
   m_Name: MainEnemyBB
   m_EditorClassIdentifier: 
-  VersionTimestamp: 638872526070455808
+  VersionTimestamp: 638881832377037977
   AssetID:
     m_Value0: 1489761892849080932
     m_Value1: 10219800562176255322
   m_Blackboard:
     m_Variables:
-    - rid: 1870413506574550014
+    - rid: 3206018997940912191
   m_SharedBlackboardVariableGuids:
-  - m_Value0: 6537492391531535493
-    m_Value1: 9520388888969924544
+  - m_Value0: 13753519180836410272
+    m_Value1: 11310187218368986481
   references:
     version: 2
     RefIds:
-    - rid: 1870413506574550014
-      type: {class: 'BlackboardVariable`1[[EnemyTurnState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+    - rid: 3206018997940912191
+      type: {class: 'BlackboardVariable`1[[ProjectD_and_R.Enums.TurnState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
-          m_Value0: 6537492391531535493
-          m_Value1: 9520388888969924544
-        Name: EnemyTurnState
-        m_Value: 1
+          m_Value0: 13753519180836410272
+          m_Value1: 11310187218368986481
+        Name: TurnState
+        m_Value: 0

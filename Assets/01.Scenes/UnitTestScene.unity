@@ -787,6 +787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e57db80051d51459c1a1fbe6d41840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _poolParent: {fileID: 0}
 --- !u!1 &567997282
 GameObject:
   m_ObjectHideFlags: 0
@@ -2481,8 +2482,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1853658428}
-  - component: {fileID: 1853658427}
   - component: {fileID: 1853658429}
+  - component: {fileID: 1853658427}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -2516,6 +2517,7 @@ MonoBehaviour:
       m_Value1: 0
     Name: 
     m_Value: 0
+  BB_variableKeys: []
 --- !u!4 &1853658428
 Transform:
   m_ObjectHideFlags: 0
@@ -2619,13 +2621,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Graph: {fileID: -9026520495111077156, guid: 99e088a649da32e45bb29aa2dca11c00, type: 2}
   m_BlackboardVariableOverridesList:
-  - rid: 1870413601170522195
+  - rid: 3206018998558523560
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
     version: 2
     RefIds:
-    - rid: 1870413601170522195
+    - rid: 3206018998558523560
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -3074,7 +3076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &3248833883003035772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3100,7 +3102,6 @@ MonoBehaviour:
   debug_MovableTerrainTypes: 0
   debug_Faction: 0
   debug_ObjectType: 0
-  debug_TurnState: 0
 --- !u!114 &3302819662048726399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3161,7 +3162,6 @@ MonoBehaviour:
   debug_MovableTerrainTypes: 0
   debug_Faction: 0
   debug_ObjectType: 0
-  debug_TurnState: 0
 --- !u!114 &4390417989730752019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3320,6 +3320,8 @@ MonoBehaviour:
   m_Graph: {fileID: -7357677605206496851, guid: c38a4094daa481048bcae8d77cff9256, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 1870413710768472969
+  - rid: 3206018998558523508
+  - rid: 3206018998558523509
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -3333,6 +3335,22 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 3059175725851021141}
+    - rid: 3206018998558523508
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 269907696551020532
+          m_Value1: 13718351991086435367
+        Name: IsDeployed
+        m_Value: 1
+    - rid: 3206018998558523509
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 11389766998181708478
+          m_Value1: 11137732901159063742
+        Name: IsAlive
+        m_Value: 1
 --- !u!114 &8131998257402752015
 MonoBehaviour:
   m_ObjectHideFlags: 0

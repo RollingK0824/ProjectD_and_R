@@ -2,20 +2,32 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using ProjectD_and_R.Enums;
+using ProjectD_and_R.Constants;
 
 public class ObjectPoolManager : Singleton<ObjectPoolManager>
 {
     private Dictionary<string, GameObject> _prefabCache;
     private Dictionary<string, Queue<GameObject>> _availableObjects;
-    private Transform _poolParent;
+    [SerializeField] private Transform _poolParent;
 
-    public ObjectPoolManager(Transform parent)
+    protected override void Awake()
     {
-        _poolParent = parent;
+        base.Awake();
+
+        DontDestroyOnLoad(_poolParent);
+
+        Initialize();
+        PreloadPrefab(StringConstants.DefaultEnemyUnitAddress, 200);
     }
-    public void Initialize(Transform parent)
+
+    public void SetPoolParent(Transform poolParent)
     {
-        _poolParent = parent;
+        _poolParent = poolParent;
+    }
+
+    public void Initialize()
+    {
         _prefabCache = new Dictionary<string, GameObject>();
         _availableObjects = new Dictionary<string, Queue<GameObject>>();
     }
@@ -75,7 +87,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         GameObject prefab = _prefabCache[address];
         if (prefab == null) return null;
 
-        GameObject newObj = Instantiate(prefab);
+        GameObject newObj = Instantiate(prefab,_poolParent);
         if (newObj == null)
         {
 #if UNITY_EDITOR
@@ -115,5 +127,15 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         }
         _prefabCache.Clear();
         _availableObjects.Clear(); // 풀도 비워야 함
+    }
+
+    private void HandleGameStateChanged(GameState gameState)
+    {
+
+    }
+
+    private void HandleTurnStateChanged(ProjectD_and_R.Enums.TurnState turnState)
+    {
+
     }
 }

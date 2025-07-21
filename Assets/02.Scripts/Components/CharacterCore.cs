@@ -7,12 +7,23 @@ using UnityEngine.AI;
 using Unity.Behavior;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
+using ProjectD_and_R.Constants;
 
 public class CharacterCore : MonoBehaviour, ICharacterCore
 {
     [Header("Character Data")]
     [SerializeField] private CharacterData _characterData;
-    public CharacterData Data => _characterData;
+    public CharacterData Data
+    {
+        get { return _characterData; } 
+        private set
+        {
+            if(value != null)
+            {
+                _characterData = value;
+            }
+        }
+    }
 
     // ----- 인터페이스 ----- //
     private ICharacterStatus _characterStatus;
@@ -45,9 +56,6 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     private BehaviorGraphAgent _behaviorGraphAgent;
     public BehaviorGraphAgent BehaviorGraphAgent => _behaviorGraphAgent;
 
-    private ProjectD_and_R.Enums.TurnState _turnState;
-    public ProjectD_and_R.Enums.TurnState TurnState => _turnState;
-
     private ITurnComponent _turnComponent;
     public ITurnComponent TurnComponent => _turnComponent;
 
@@ -66,10 +74,10 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     [SerializeField] private MoveType debug_MovableTerrainTypes;
     [SerializeField] private Faction debug_Faction;
     [SerializeField] private ObjectType debug_ObjectType;
-    [SerializeField] private ProjectD_and_R.Enums.TurnState debug_TurnState;
 
     protected virtual void Awake()
     {
+        /*
         if (_characterData == null)
         {
 #if UNITY_EDITOR
@@ -79,6 +87,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         }
 
         Initialize();
+        */
     }
 
     void Initialize()
@@ -96,7 +105,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
 
         RegisterEvents();
 
-        if (_characterStatus != null)
+        if (_characterStatus != null && _characterData != null)
         {
             _characterStatus.Initialize(this);
         }
@@ -227,9 +236,15 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
 
         if (EnemyAiComponent != null)
         {
-            EnemyAiComponent.StatusChanged<bool>("IsDeployed", true, true);
-            EnemyAiComponent.StatusChanged<bool>("IsAlive", true, true);
+            EnemyAiComponent.StatusChanged<bool>(StringConstants.BB_IsDeployed, true, true);
+            EnemyAiComponent.StatusChanged<bool>(StringConstants.BB_IsAlive, true, true);
         }
+
+        if(_characterData.ObjectType == ObjectType.DefenseTarget)
+        {
+            StageManager.Instance.RegisterStageUnit(this);
+        }
+
     }
     private void HandleCharacterUndeployed() { CharacterStatus.SetIsDeployed(false); }
     private void HandleSpecificStatusChangedForDebug(string statusName, float oldValue, float newValue)
@@ -340,8 +355,5 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     public void MoveCharacterTo(Vector3 targetPosition) => _movementComponent?.Move(targetPosition);
     public void Attack() => _attackerComponent?.TryAttack();
     public void DeployCharacter(Vector3 position, Quaternion rotation) => _deployableComponent?.Deploy(position, rotation);
-    public void SetTurnState(ProjectD_and_R.Enums.TurnState turnState)
-    {
-        if (_turnState != turnState) _turnState = turnState;
-    }
+    public void SetData(CharacterData characterData) => Data = characterData;
 }

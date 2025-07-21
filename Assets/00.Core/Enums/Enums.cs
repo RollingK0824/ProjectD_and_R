@@ -1,6 +1,7 @@
 // Assets/00.Core/Enums/DamageType.cs
 
 using System;
+using Unity.Behavior;
 
 namespace ProjectD_and_R.Enums
 {
@@ -63,7 +64,8 @@ namespace ProjectD_and_R.Enums
     public enum SkillEffectType
     {
         None,
-        Damage,
+        PhysicalDamage,
+        MagicalDamage,
         Heal,
         Buff,
         Debuff,
@@ -71,6 +73,19 @@ namespace ProjectD_and_R.Enums
         Shield,
         Summon,
         Teleport,
+    }
+
+    public enum SkillTargetStatType
+    {
+        None,
+        MaxHealth,
+        CurrentHealth,
+        PhysicalDefense,
+        MagicalResistance,
+        AttackDamage,
+        AttackSpeed,
+        AttackRange,
+        MoveSpeed,
     }
 
     public enum GameEndConditionType
@@ -97,6 +112,7 @@ namespace ProjectD_and_R.Enums
         GameOver
     }
 
+    [BlackboardEnum]
     public enum TurnState
     {
         None,
@@ -104,6 +120,16 @@ namespace ProjectD_and_R.Enums
         DungeonTurn,
         DungeonBattleTurn,
         VillageTurn,
+    }
+
+    public enum CurrentScene
+    {
+        None,
+        Title,
+        Loading,
+        DefenseScene,
+        DungeonScene,
+        DungeonBattleScene,
     }
 
     public enum CharacterRarity

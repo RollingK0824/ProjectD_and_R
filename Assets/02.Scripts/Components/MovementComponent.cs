@@ -16,14 +16,18 @@ public class MovementComponent : MonoBehaviour, IMovable
         if (characterCore == null) return;
         _status = characterCore.CharacterStatus;
         _navMeshAgent = characterCore.NavMeshAgent;
-        if( _navMeshAgent == null)
+        if (_navMeshAgent == null || !_navMeshAgent.enabled || !_navMeshAgent.isOnNavMesh)
         {
 #if UNITY_EDITOR
             Debug.Log($"MovementComponent requires a NavMeshAgent Component");
 #endif
         }
-        SetMoveSpeed(_status.MoveSpeed);
-        _navMeshAgent.isStopped = true;
+        else
+        {
+            SetMoveSpeed(_status.MoveSpeed);
+            _navMeshAgent.isStopped = true;
+        }    
+        
 #if UNITY_EDITOR
         Debug.Log($"MovementComponent Initialized: Speed = {_status.MoveSpeed}, MoveTypes = {_status.MovableTerrainTypes} ");
 #endif
@@ -69,7 +73,7 @@ public class MovementComponent : MonoBehaviour, IMovable
     public void SetMoveSpeed(float newSpeed)
     {
         _status.SetMoveSpeed(newSpeed);
-        if(_navMeshAgent != null)
+        if (_navMeshAgent != null)
         {
             _navMeshAgent.speed = _status.MoveSpeed;
         }

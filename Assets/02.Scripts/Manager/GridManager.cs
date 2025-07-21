@@ -7,29 +7,28 @@ using UnityEngine;
 
 public class GridManager : Singleton<GridManager>
 {
-    // --- 그리드 설정 변수 ---
+    // ----- 그리드 설정 변수 ----- //
     [Header("Grid Settings")]
     [SerializeField] private int gridSizeX = 20; // 그리드의 X축 크기 (셀 개수)
     [SerializeField] private int gridSizeY = 20; // 그리드의 Y축 크기 (셀 개수)
     [SerializeField] private float cellSize = 1f; // 각 그리드 셀의 크기 (월드 유닛)
     [SerializeField] private Vector3 gridOriginOffset = Vector3.zero; // 그리드 시작점 오프셋 (월드 좌표)
 
-    // --- 그리드 데이터 ---
+    // ----- 그리드 데이터 ----- //
     private GridCell[,] grid; // 2차원 배열로 그리드 셀 데이터 저장
 
-    // --- 프로퍼티 ---
+    // ----- 프로퍼티 ----- //
     public int GridSizeX => gridSizeX;
     public int GridSizeY => gridSizeY;
     public float CellSize => cellSize;
 
-    // --- 유니티 생명주기 ---
     protected override void Awake()
     {
         base.Awake();
 
-        if(Instance == this)
+        if (Instance == this)
         {
-            Initialize();
+            /* Do Nothing */
         }
         else
         {
@@ -37,6 +36,18 @@ public class GridManager : Singleton<GridManager>
             Debug.LogWarning($"Singleton 패턴에 의해 GridManager Instance 파괴, InitializeGrid 스킵");
 #endif
         }
+    }
+
+    private void OnEnable()
+    {
+        GameManager.Instance.OnTurnStateChanged += HandleTurnStateChanged;
+        GameManager.Instance.OnGameStateChanged += HandleGameStateChanged;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnTurnStateChanged -= HandleTurnStateChanged;
+        GameManager.Instance.OnGameStateChanged -= HandleGameStateChanged;
     }
 
     // --- 그리드 초기화 ---
@@ -256,5 +267,21 @@ public class GridManager : Singleton<GridManager>
                 Gizmos.DrawWireCube(cellCenter, new Vector3(cellSize, 0.1f, cellSize)); // 얇은 큐브로 그리드 표시
             }
         }
+    }
+
+
+    // ----- Event Handler ----- //
+
+    private void HandleTurnStateChanged(ProjectD_and_R.Enums.TurnState turnState)
+    {
+        if (turnState == ProjectD_and_R.Enums.TurnState.DefenseTurn || turnState == ProjectD_and_R.Enums.TurnState.DungeonTurn)
+        {
+            Initialize();
+        }
+    }
+
+    private void HandleGameStateChanged(ProjectD_and_R.Enums.GameState gameState)
+    {
+
     }
 }
