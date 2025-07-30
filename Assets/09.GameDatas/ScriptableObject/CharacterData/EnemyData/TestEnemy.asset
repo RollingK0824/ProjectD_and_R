@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterName: TestEnemy
   _characterTypeData: {fileID: 0}
+  _id: 9
+  _locked: 1
   _characterIcon: {fileID: 0}
   _description: "Test\uB97C \uC704\uD55C Enemy"
   _maxHealth: 100
@@ -27,7 +29,8 @@ MonoBehaviour:
   _movableTerrainTypes: -1
   _faction: 2
   _objectType: 2
+  _grade: 0
+  _race: 0
   experienceOnDefeat: 10
   goldOnDefeat: 5
-  enemyType: 0
   detectionRange: 10

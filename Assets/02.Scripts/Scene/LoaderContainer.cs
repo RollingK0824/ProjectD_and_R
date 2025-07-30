@@ -10,7 +10,7 @@ public class LoaderContainer
     public GenericDataLoader<EventData> eventDataLoader;
     public GenericDataLoader<ItemData> itemDataLoader;
     public GenericDataLoader<RoomEnemySpawnData> roomEnemySpawnDataLoader;
-    public GenericDataLoader<EnemyCharacterData> unitDataLoader;
+    public GenericDataLoader<CharacterData> unitDataLoader;
 
     public bool LoadComplete = false;
     public LoaderContainer()
@@ -18,7 +18,7 @@ public class LoaderContainer
         eventDataLoader = new GenericDataLoader<EventData>("EventData");
         itemDataLoader = new GenericDataLoader<ItemData>("ItemData");
         roomEnemySpawnDataLoader = new GenericDataLoader<RoomEnemySpawnData>("RoomEnemySpawnData");
-        unitDataLoader = new GenericDataLoader<EnemyCharacterData>("UnitData");
+        unitDataLoader = new GenericDataLoader<CharacterData>("UnitData");
     }
 
     //혹여나 씬마다 로딩을 따로 할수있으니 제한두기

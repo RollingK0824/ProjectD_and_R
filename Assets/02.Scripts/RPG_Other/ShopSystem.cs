@@ -3,101 +3,74 @@ using System.Linq;
 using UnityEngine;
 using static UnityEditor.Progress;
 
-[System.Serializable]
-public class ShopSystem
+public class ShopSystem :MonoBehaviour
 {
-    [Header("등급")] public ShopGrade grade = ShopGrade.Nomal;
-    [Header("판매 아이템 개수")] public int itemCount = 10;
-    [Header("감가율")][Range(0, 100)] public float depreciation = 30;
+    [Header("상점 설정")]
+    [Tooltip("상점에 진열할 최대 아이템 개수")]
+    [SerializeField] private int maxSaleItemCount = 10;
+    [Tooltip("판매 시 구매 가격의 배율")]
+    [SerializeField] private float sellPriceMultiplier = 0.5f;
 
-    [HideInInspector] public List<ItemData> merchandise = new List<ItemData>();
-    ShopGradeTable gradeTable;
+    private List<ItemData> itemsForSale = new List<ItemData>();
+    private Inventory playerInventory;
 
-    public ShopSystem()
+    void Awake()
     {
-        gradeTable = new ShopGradeTable();
-    }
-
-    /// <summary>
-    /// 상점 판매 아이템 추가
-    /// </summary>
-    public void GenerateShopItems()
-    {
-        merchandise.Clear();
-
-        List<ItemData> allItems = RpgManager.Instance.Database.Items;
-        List<ItemData> itemCandidates = new List<ItemData>(allItems.Where(item => item.Grade != ItemGrade.Mythic));
-        Dictionary<ItemGrade, float> currentProbabilities = gradeTable.probabilityTable[grade];
-        int itemsToGenerate = Mathf.Min(itemCount, itemCandidates.Count);
-
-        for (int i = 0; i < itemsToGenerate; i++)
+        if (RpgManager.Instance != null)
         {
-            ItemGrade selectedGrade = GetRandomGrade(currentProbabilities);
-            List<ItemData> itemsOfSelectedGrade = itemCandidates.Where(item => item.Grade == selectedGrade).ToList();
-
-            int attempts = 0;
-            while (itemsOfSelectedGrade.Count == 0 && attempts < 10)
-            {
-                selectedGrade = GetRandomGrade(currentProbabilities);
-                itemsOfSelectedGrade = itemCandidates.Where(item => item.Grade == selectedGrade).ToList();
-                attempts++;
-            }
-
-            if (itemsOfSelectedGrade.Count > 0)
-            {
-                ItemData randomItem = itemsOfSelectedGrade[Random.Range(0, itemsOfSelectedGrade.Count)];
-                merchandise.Add(randomItem);
-                itemCandidates.Remove(randomItem);
-            }
+            playerInventory = RpgManager.Instance.inventory;
         }
     }
 
     /// <summary>
-    /// 상점 등급에서 나올수 있는 랜덤 아이템 반환
+    /// 아이템 목록 설정
     /// </summary>
-    private ItemGrade GetRandomGrade(Dictionary<ItemGrade, float> probabilities)
+    public void RefreshShopInventory()
     {
-        float randomPoint = Random.value;
-        float cumulative = 0.0f;
+        itemsForSale.Clear();
 
-        foreach (var pair in probabilities)
-        {
-            cumulative += pair.Value;
-            if (randomPoint < cumulative)
-            {
-                return pair.Key;
-            }
-        }
-        return probabilities.Keys.Last();
+        List<ItemData> allItemsInDB = RpgManager.Instance.Database.Items;
+
+        if (allItemsInDB == null || allItemsInDB.Count == 0)
+            return;
+
+        var randomItems = allItemsInDB.OrderBy(item => Random.value).Take(maxSaleItemCount);
+
+        itemsForSale.AddRange(randomItems);
+    }
+
+    public List<ItemData> GetItemsForSale()
+    {
+        return itemsForSale;
     }
 
     /// <summary>
     /// 아이템 구매
     /// </summary>
-    public void Buy(ItemData item)
+    public bool BuyItem(ItemData item)
     {
-        Inventory inventory = RpgManager.Instance.inventory;
-        inventory.SpendGold(item.Price); ;
-        inventory.AddItem(item);
+        if (item == null || playerInventory == null) return false;
+
+        if (playerInventory.Gold < item.Price)
+            return false;
+
+        playerInventory.SpendGold(item.Price);
+
+        playerInventory.AddItem(item);
+        return true;
     }
 
     /// <summary>
-    /// 아이템 판매
+    /// 아이템 판매 
     /// </summary>
-    public void Sell(ItemData item)
+    public void SellItem(ItemData item)
     {
-        Inventory inventory = RpgManager.Instance.inventory;
-        if (!inventory.InventoryItems.ContainsKey(item)) return;
+        if (item == null || playerInventory == null) return;
 
-        inventory.RemoveItem(item);
-        inventory.AddGold(Mathf.RoundToInt(item.Price * (1f - (depreciation / 100f))));
-    }
+        playerInventory.RemoveItem(item);
 
-    public bool CheckBuy(ItemData item)
-    {
-        Inventory inventory = RpgManager.Instance.inventory;
+        int sellPrice = Mathf.FloorToInt(item.Price * sellPriceMultiplier);
+        playerInventory.AddGold(sellPrice);
 
-        if (inventory.Gold < item.Price) return false;
-        return true;
     }
 }

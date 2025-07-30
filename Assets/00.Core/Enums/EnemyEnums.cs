@@ -11,12 +11,13 @@ using Unity.Behavior;
     }
 
     [BlackboardEnum]
-    public enum EnemyType
+    public enum UnitType
     { 
         Default,
         Goblin,
         Orc,
         Spider,
+        Humen,
     }
 
 

@@ -371,7 +371,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: RandomMapGenerator
+          m_StringArgument: 03.Village
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &146065285
@@ -631,6 +631,7 @@ MonoBehaviour:
   CurrentScene: Title
   LoaderContainer:
     LoadComplete: 0
+  _currentTurnState: 0
 --- !u!4 &1045135627
 Transform:
   m_ObjectHideFlags: 0

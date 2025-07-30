@@ -61,7 +61,7 @@ public class RoomEnterSystem
         //        Debug.Log("보스");
         //        break;
         //}
-        GameManager.Instance.GoToScene("DungeonBattle");
+        GameManager.Instance.GoToScene("05.DungeonBattle");
     }
 
     void EnterRewardStage()
@@ -75,7 +75,7 @@ public class RoomEnterSystem
     }
     void EnterShopStage()
     {
-        GameManager.Instance.GoToScene("Shop");
+        GameManager.Instance.GoToScene("03.Village");
     }
     void EnterDoor()
     {

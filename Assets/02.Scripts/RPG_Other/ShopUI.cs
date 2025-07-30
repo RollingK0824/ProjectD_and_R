@@ -1,100 +1,75 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
-using TMPro;
+using System.Linq;
 
 public class ShopUI : MonoBehaviour
 {
-    [Header("UI 요소")]
-    [SerializeField][Header("상점 패널")] private GameObject shopPanel; 
-    [SerializeField][Header("아이템 슬롯 패널")] private Transform itemSlotContainer; 
-    [SerializeField][Header("아이템 슬롯 프리팹")] private GameObject itemSlotPrefab;
-    [SerializeField][Header("플레이어 골드 표기")] private TextMeshProUGUI playerGoldText; 
+    [Header("상점 설정")]
+    [Tooltip("상점에 진열할 최대 아이템 개수")]
+    [SerializeField] private int maxSaleItemCount = 10;
+    [Tooltip("판매 시 구매 가격의 배율")]
+    [SerializeField] private float sellPriceMultiplier = 0.5f;
 
-    [Header("상점 시스템")]
-    public ShopSystem shopSystem; 
-    private List<GameObject> spawnedSlots = new List<GameObject>();
+    private List<ItemData> itemsForSale = new List<ItemData>();
+    private Inventory playerInventory; 
 
-    private void Start()
+    void Awake()
     {
-        OpenShop();
-    }
-    /// <summary>
-    /// 상점 UI를 엽니다.
-    /// </summary>
-    public void OpenShop()
-    {
-        shopPanel.SetActive(true);
-        // 상점을 열 때마다 새로운 아이템 목록을 생성합니다.
-        shopSystem.GenerateShopItems();
-        UpdateShopUI();
-        UpdatePlayerGoldUI();
-    }
-
-    /// <summary>
-    /// 상점 UI를 닫습니다.
-    /// </summary>
-    public void CloseShop()
-    {
-        shopPanel.SetActive(false);
-        RpgManager.Instance.UseTrun(1);
-        GameManager.Instance.GoToScene("RandomMapGenerator");
-    }
-
-    /// <summary>
-    /// 상점 UI를 현재 판매 목록에 맞게 업데이트합니다.
-    /// </summary>
-    private void UpdateShopUI()
-    {
-        // 기존에 생성된 슬롯들을 모두 제거합니다.
-        foreach (GameObject slot in spawnedSlots)
+        if (RpgManager.Instance != null)
         {
-            Destroy(slot);
-        }
-        spawnedSlots.Clear();
-
-        // 판매 목록에 있는 각 아이템에 대해 슬롯을 생성합니다.
-        if (shopSystem.merchandise == null || shopSystem.merchandise.Count == 0) return;
-
-        foreach (ItemData item in shopSystem.merchandise)
-        {
-            GameObject slotGO = Instantiate(itemSlotPrefab, itemSlotContainer);
-            ShopItemSlotUI slotUI = slotGO.GetComponent<ShopItemSlotUI>();
-            if (slotUI != null)
-            {
-                slotUI.Setup(item, this);
-                spawnedSlots.Add(slotGO);
-            }
+            playerInventory = RpgManager.Instance.inventory;
         }
     }
 
     /// <summary>
-    /// 플레이어의 골드 UI를 업데이트합니다.
+    /// 아이템 목록 설정
     /// </summary>
-    public void UpdatePlayerGoldUI()
+    public void RefreshShopInventory()
     {
-        if (playerGoldText != null)
-        {
-            // RpgManager에서 플레이어 인벤토리의 골드 정보를 가져옵니다.
-            playerGoldText.text = $"소지 골드: {RpgManager.Instance.inventory.Gold} G";
-        }
+        itemsForSale.Clear(); 
+
+        List<ItemData> allItemsInDB = RpgManager.Instance.Database.Items;
+
+        if (allItemsInDB == null || allItemsInDB.Count == 0)
+            return;
+
+        var randomItems = allItemsInDB.OrderBy(item => Random.value).Take(maxSaleItemCount);
+
+        itemsForSale.AddRange(randomItems);
+    }
+
+    public List<ItemData> GetItemsForSale()
+    {
+        return itemsForSale;
     }
 
     /// <summary>
-    /// 아이템 구매를 시도하고 결과를 UI에 반영합니다.
+    /// 아이템 구매
     /// </summary>
-    public void AttemptToBuyItem(ItemData item)
+    public bool BuyItem(ItemData item)
     {
-        bool success = shopSystem.CheckBuy(item);
-        if (success)
-        {
-            shopSystem.Buy(item);
-            // 구매에 성공하면 UI를 업데이트합니다.
-            UpdatePlayerGoldUI();
-            // 선택: 구매한 아이템을 상점 목록에서 제거하거나, 품절로 표시할 수 있습니다.
-            // 여기서는 간단하게 목록을 새로고침합니다.
-            shopSystem.merchandise.Remove(item);
-            UpdateShopUI();
-        }
+        if (item == null || playerInventory == null) return false;
+
+        if (playerInventory.Gold < item.Price)
+            return false;
+
+        playerInventory.SpendGold(item.Price);
+
+        playerInventory.AddItem(item);
+        return true;
+    }
+
+    /// <summary>
+    /// 아이템 판매 
+    /// </summary>
+    public void SellItem(ItemData item)
+    {
+        if (item == null || playerInventory == null) return;
+
+        playerInventory.RemoveItem(item);
+
+        int sellPrice = Mathf.FloorToInt(item.Price * sellPriceMultiplier);
+        playerInventory.AddGold(sellPrice);
+
     }
 }

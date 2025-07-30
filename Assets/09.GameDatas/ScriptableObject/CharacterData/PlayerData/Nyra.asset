@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterName: Nyra
   _characterTypeData: {fileID: 0}
+  _id: 12
+  _locked: 1
   _characterIcon: {fileID: 0}
   _description: "\uD14C\uC2A4\uD2B8\uB97C \uC704\uD55C \uC720\uB2DB"
   _maxHealth: 100
@@ -27,6 +29,9 @@ MonoBehaviour:
   _movableTerrainTypes: -1
   _faction: 1
   _objectType: 1
+  _grade: 1
+  _race: 0
   level: 0
   experience: 0
   tier: 0
+  rarity: 0

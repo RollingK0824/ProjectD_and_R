@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterName: Goblin
   _characterTypeData: {fileID: 0}
+  _id: 2
+  _locked: 1
   _characterIcon: {fileID: 0}
   _description: "\uACE0\uBE14\uB9B03"
   _maxHealth: 50
@@ -27,10 +29,8 @@ MonoBehaviour:
   _movableTerrainTypes: -1
   _faction: 2
   _objectType: 2
-  id: 0
-  Name: 
-  Lock: 0
+  _grade: 0
+  _race: 0
   experienceOnDefeat: 10
   goldOnDefeat: 5
-  Race: 1
   detectionRange: 10
