@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Inventory
 {
-    int _Gold = 0;
+    int _Gold=9999;
     public int Gold
     {
         get { return _Gold; }

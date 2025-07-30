@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterName: Orc
   _characterTypeData: {fileID: 0}
+  _id: 3
+  _locked: 1
   _characterIcon: {fileID: 0}
   _description: "\uC624\uD06C1"
   _maxHealth: 150
@@ -27,10 +29,8 @@ MonoBehaviour:
   _movableTerrainTypes: -1
   _faction: 2
   _objectType: 2
-  id: 0
-  Name: 
-  Lock: 0
+  _grade: 0
+  _race: 0
   experienceOnDefeat: 10
   goldOnDefeat: 5
-  Race: 2
   detectionRange: 10

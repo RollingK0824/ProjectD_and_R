@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class ShopItemSlotUI : MonoBehaviour
 {
@@ -11,8 +12,13 @@ public class ShopItemSlotUI : MonoBehaviour
     [SerializeField] private Button buyButton;
     [SerializeField] private Image itemGradeBorder;
 
-    private ItemData currentItem;
-    private ShopUI shopUIController;
+    public ItemData currentItem { get; private set; }
+    private TextMeshProUGUI buyButtonText;
+
+    private void Awake()
+    {
+        buyButtonText = buyButton.GetComponentInChildren<TextMeshProUGUI>();
+    }
 
     // 아이템 등급별 색상
     private readonly Dictionary<ItemGrade, Color> gradeColors = new Dictionary<ItemGrade, Color>
@@ -31,10 +37,9 @@ public class ShopItemSlotUI : MonoBehaviour
     /// </summary>
     /// <param name="item">표시할 아이템 데이터</param>
     /// <param name="shopUI">상위 ShopUI 컨트롤러</param>
-    public void Setup(ItemData item, ShopUI shopUI)
+    public void Setup(ItemData item, Action<ShopItemSlotUI> onBuyAction)
     {
         currentItem = item;
-        shopUIController = shopUI;
 
         // UI 텍스트 설정
         itemNameText.text = currentItem.Item_Name;
@@ -48,17 +53,19 @@ public class ShopItemSlotUI : MonoBehaviour
 
         // 구매 버튼 리스너 설정
         buyButton.onClick.RemoveAllListeners();
-        buyButton.onClick.AddListener(OnBuyButtonClicked);
+        buyButton.onClick.AddListener(() => onBuyAction(this));
     }
 
     /// <summary>
-    /// 구매 버튼 클릭 시 호출될 함수입니다.
+    /// 물품 구매 후 상태변화
     /// </summary>
-    private void OnBuyButtonClicked()
+    public void MarkAsSoldOut()
     {
-        if (shopUIController != null)
+        buyButton.interactable = false; 
+        if (buyButtonText != null)
         {
-            shopUIController.AttemptToBuyItem(currentItem);
+            buyButtonText.text = "품절";
         }
     }
+
 }

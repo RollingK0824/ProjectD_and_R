@@ -52,7 +52,6 @@ public class TouchManager : Singleton<TouchManager>
     /// </summary>
     void OnUiTouch()
     {
-        Debug.Log("UI");
     }
 
 

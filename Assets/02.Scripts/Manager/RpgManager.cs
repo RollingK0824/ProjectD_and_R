@@ -64,7 +64,7 @@ public class RpgManager : Singleton<RpgManager>
 
     public void EndRPG()
     {
-        GameManager.Instance.GoToScene("UnitTestScene");
+        GameManager.Instance.GoToScene("02.DefenseTurn");
     }
 
     public void StartRPG()

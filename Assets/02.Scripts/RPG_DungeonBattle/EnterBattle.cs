@@ -6,17 +6,17 @@ using UnityEngine;
 [System.Serializable] 
 public class BattleEnter
 {
-    [SerializeField][Header("현재 적 종류")] public EnemyType EnemyType;
+    [SerializeField][Header("현재 적 종류")] public UnitType EnemyType;
 
     /// <summary>
     /// 배틀 세팅
     /// </summary>
-    public void SetBattle(EnemyType race)
+    public void SetBattle(UnitType race)
     {
         List<RoomEnemySpawnData> StageData = RpgManager.Instance.Database.StageData;
 
         int rand = Random.Range(0, StageData.Count);
-        List<EnemyCharacterData> enemys = RpgManager.Instance.UnitSystem.GetRaceToUnits(race);
+        List<CharacterData> enemys = RpgManager.Instance.UnitSystem.GetRaceToUnits(race);
         for (int i = 0; i < StageData[rand].spawnPositions.Count; i++)
         {
             SpawnUnit(StageData[rand].spawnPositions[i], enemys[Random.Range(0, enemys.Count)].CharacterPrefab);
@@ -62,6 +62,6 @@ public class BattleEnter
         }
 
         RpgManager.Instance.UseTrun(1);
-        GameManager.Instance.GoToScene("RandomMapGenerator");
+        GameManager.Instance.GoToScene("04.Dungeon");
     }
 }

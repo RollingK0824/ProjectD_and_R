@@ -8,7 +8,7 @@ public class UnitSystem
     /// </summary>
     /// <param name="unitID"></param>
     /// <returns></returns>
-    public EnemyCharacterData GetUnitDataByID(int unitID)
+    public CharacterData GetUnitDataByID(int unitID)
     {
         return RpgManager.Instance.Database.Units.Find(unit => unit.id == unitID);
     }
@@ -16,12 +16,12 @@ public class UnitSystem
     /// <summary>
     /// 특정 종족 유닛들 반환
     /// </summary>
-    public List<EnemyCharacterData> GetRaceToUnits(EnemyType race)
+    public List<CharacterData> GetRaceToUnits(UnitType race)
     {
-        List<EnemyCharacterData> retunUnits = new List<EnemyCharacterData>();
-        List<EnemyCharacterData> allUnitDatas = RpgManager.Instance.Database.Units;
+        List<CharacterData> retunUnits = new List<CharacterData>();
+        List<CharacterData> allUnitDatas = RpgManager.Instance.Database.Units;
 
-        EnemyType currentType = EnemyType.Default;
+        UnitType currentType = UnitType.Default;
         for (int i = 0; i < allUnitDatas.Count; i++)
         {
             if (allUnitDatas[i].Race == race)

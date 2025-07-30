@@ -9,9 +9,9 @@ public class SceneArriveEvent
     {
         if (sceneName == "DungeonBattle")
         {
-            RpgManager.Instance.RoomEnterSystem.battleEnter.SetBattle(EnemyType.Spider);
+            RpgManager.Instance.RoomEnterSystem.battleEnter.SetBattle(UnitType.Spider);
         }
-        else if (sceneName == "RandomMapGenerator")
+        else if (sceneName == "04.Dungeon")
         {
             GameObject parent = GameObject.Find(RpgManager.Instance.MapParent).gameObject;
             ZoneLayoutSystem zoneLayoutSystem = RpgManager.Instance.zoneLayoutSystem;

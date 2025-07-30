@@ -1,20 +1,31 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System; // Action 사용
+using System;
+using System.Collections.Generic;
 
 public class UnitSlotUI : MonoBehaviour
 {
-    // 인스펙터에서 연결
     public TextMeshProUGUI nameText;
+    public TextMeshProUGUI gradeText; 
     public Button actionButton;
-    public Image backgroundImage; // 선택 시 색상을 바꿀 배경 이미지
+    public Image backgroundImage;
+    public Image gradeColorImage;
 
-    // 슬롯이 가진 정보
-    public EnemyCharacterData unitData { get; private set; }
-    public bool isPartyMemberSlot { get; set; } // 이 슬롯이 파티 멤버 슬롯인지, 해금 유닛 슬롯인지 구분
+    private TextMeshProUGUI actionButtonText;
+
+    public CharacterData unitData { get; private set; }
+    public bool isPartyMemberSlot { get; set; }
 
     private Color originalColor;
+
+    private static readonly Dictionary<UnitGrade, Color> gradeColors = new Dictionary<UnitGrade, Color>
+    {
+        { UnitGrade.Normal, Color.white },
+        { UnitGrade.Rare, new Color(0.3f, 0.7f, 1f) },   // 파란색
+        { UnitGrade.Epic, new Color(0.8f, 0.4f, 1f) },   // 보라색
+        { UnitGrade.Legendary, new Color(1f, 0.8f, 0.2f) } // 주황색/금색
+    };
 
     private void Awake()
     {
@@ -22,25 +33,50 @@ public class UnitSlotUI : MonoBehaviour
         {
             originalColor = backgroundImage.color;
         }
+        if(actionButton != null)
+        {
+            actionButtonText = actionButton.GetComponentInChildren<TextMeshProUGUI>();
+        }
     }
 
-    // 이 슬롯에 특정 유닛의 정보를 설정하는 함수
-    public void Setup(EnemyCharacterData unit, Action<UnitSlotUI> onClickAction)
+    public void Setup(CharacterData unit, Action<UnitSlotUI> onClickAction)
     {
         this.unitData = unit;
-        nameText.text = unit.Name;
+        nameText.text = unit.name;
+
+        if (gradeText != null)
+        {
+            gradeText.text = unit.Grade.ToString();
+            gradeText.color = gradeColors[unit.Grade];
+        }
+
+        if (gradeColorImage != null)
+        {
+            gradeColorImage.color = gradeColors[unit.Grade];
+        }
 
         actionButton.onClick.RemoveAllListeners();
-        // 버튼이 클릭되면, 자기 자신의 UnitSlotUI 컴포넌트를 인자로 넘겨줍니다.
         actionButton.onClick.AddListener(() => onClickAction(this));
     }
 
-    // 선택 상태를 시각적으로 표시하는 함수
     public void SetSelected(bool isSelected)
     {
         if (backgroundImage != null)
         {
             backgroundImage.color = isSelected ? Color.yellow : originalColor;
+        }
+    }
+
+
+    /// <summary>
+    /// 슬롯을 고용 완료 상태로 변경하는 함수
+    /// </summary>
+    public void MarkAsHired()
+    {
+        actionButton.interactable = false; 
+        if (actionButtonText != null)
+        {
+            actionButtonText.text = "고용 완료";
         }
     }
 }

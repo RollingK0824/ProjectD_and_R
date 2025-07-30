@@ -14,6 +14,18 @@ public abstract class CharacterData : ScriptableObject
     [SerializeField] private CharacterTypeData _characterTypeData;
 
     /// <summary>
+    /// 캐릭터 id
+    /// </summary>
+    public int id => _id;
+    [SerializeField] private int _id;
+
+    /// <summary>
+    /// 캐릭터 해금 여부
+    /// </summary>
+    public bool Lock => _locked;
+    [SerializeField] bool _locked = true;
+
+    /// <summary>
     /// 캐릭터 아이콘
     /// </summary>
     public Sprite CharacterIcon => _characterIcon;
@@ -90,5 +102,17 @@ public abstract class CharacterData : ScriptableObject
     /// </summary>
     public ObjectType ObjectType => _objectType;
     [SerializeField] private ObjectType _objectType;
+
+    /// <summary>
+    /// 유닛 등급
+    /// </summary>
+    public UnitGrade Grade => _grade;
+    [SerializeField] private UnitGrade _grade = UnitGrade.Normal;
+
+    /// <summary>
+    /// 유닛 종족
+    /// </summary>
+    public UnitType Race =>_race;
+    [SerializeField] private UnitType _race = UnitType.Default;
 
 }

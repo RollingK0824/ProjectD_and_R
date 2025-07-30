@@ -10,7 +10,7 @@ public class LodingSystem : MonoBehaviour
     public static void LoadScene(string SceneName)
     {
         nextScene = SceneName;
-        SceneManager.LoadScene("Loding");
+        SceneManager.LoadScene("01.Loding");
     }
 
     private void Start()

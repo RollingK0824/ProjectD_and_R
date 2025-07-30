@@ -365,7 +365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemNameText: {fileID: 4911338851257286410}
-  itemDescriptionText: {fileID: 0}
   itemPriceText: {fileID: 312827403585870726}
   buyButton: {fileID: 3993774164434819817}
   itemGradeBorder: {fileID: 4824968585101939653}
@@ -434,10 +433,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy
+  m_text: "\uAD6C\uB9E4"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 046cb6888499a82438efdb353f9fb6e3, type: 2}
+  m_sharedMaterial: {fileID: -1085771818178658254, guid: 046cb6888499a82438efdb353f9fb6e3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

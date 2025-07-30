@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PartyManager : Singleton<PartyManager>
 {
@@ -7,10 +8,13 @@ public class PartyManager : Singleton<PartyManager>
     public int maxPartySize = 5;
 
     [Header("현재 파티 정보")]
-    public List<EnemyCharacterData> currentParty;
+    public List<CharacterData> currentParty;
 
     [Header("해금 유닛")]
     HashSet<int> UnLockedUnitIDs = new HashSet<int>();
+
+    [Header("해금된 유닛 목록 (디버깅용)")]
+    [SerializeField] private List<CharacterData> unlockedUnitDataForDebug = new List<CharacterData>();
 
     private void Start()
     {
@@ -24,28 +28,29 @@ public class PartyManager : Singleton<PartyManager>
     /// </summary>
     void GetUnlockedUnitIDs()
     {
-        List<EnemyCharacterData> unitDatas = RpgManager.Instance.Database.Units;
+        List<CharacterData> unitDatas = RpgManager.Instance.Database.Units;
 
-        foreach (EnemyCharacterData data in unitDatas)
+        foreach (CharacterData data in unitDatas)
         {
             if (!data.Lock)
                 UnLockedUnitIDs.Add(data.id);
         }
+        UpdateDebugList();
     }
 
     /// <summary>
     /// 해금 유닛 리스트 반환 함수
     /// </summary>
-    public List<EnemyCharacterData> GetUnlockedUnits()
+    public List<CharacterData> GetUnlockedUnits()
     {
-        List<EnemyCharacterData> unlockedUnits = new List<EnemyCharacterData>();
-        List<EnemyCharacterData> unitDatas = RpgManager.Instance.Database.Units;
+        List<CharacterData> unlockedUnits = new List<CharacterData>();
+        List<CharacterData> unitDatas = RpgManager.Instance.Database.Units;
         if (unitDatas == null)
         {
             return unlockedUnits;
         }
 
-        foreach (EnemyCharacterData data in unitDatas)
+        foreach (CharacterData data in unitDatas)
         {
             if (UnLockedUnitIDs.Contains(data.id))
             {
@@ -60,8 +65,9 @@ public class PartyManager : Singleton<PartyManager>
     /// </summary>
     public void CreateInitialParty()
     {
-        currentParty.Clear();
-        List<EnemyCharacterData> unlockedList = GetUnlockedUnits();
+        if (currentParty != null)
+            currentParty.Clear();
+        List<CharacterData> unlockedList = GetUnlockedUnits();
         for (int i = 0; i < unlockedList.Count && i < maxPartySize; i++)
         {
             currentParty.Add(unlockedList[i]);
@@ -77,7 +83,20 @@ public class PartyManager : Singleton<PartyManager>
         if (!UnLockedUnitIDs.Contains(id))
         {
             UnLockedUnitIDs.Add(id);
+
+            UpdateDebugList();
         }
+    }
+
+    /// <summary>
+    /// 디버깅용 리스트를 현재 해금 상태에 맞게 갱신합니다.
+    /// </summary>
+    private void UpdateDebugList()
+    {
+        unlockedUnitDataForDebug.Clear();
+        unlockedUnitDataForDebug = RpgManager.Instance.Database.Units
+            .Where(unit => UnLockedUnitIDs.Contains(unit.id))
+            .ToList();
     }
 
     /// <summary>
@@ -97,7 +116,7 @@ public class PartyManager : Singleton<PartyManager>
         if (!IsUnitUnlocked(id)) return;
         if (currentParty.Exists(member => member.id == id)) return;
 
-        EnemyCharacterData Member = RpgManager.Instance.UnitSystem.GetUnitDataByID(id);
+        CharacterData Member = RpgManager.Instance.UnitSystem.GetUnitDataByID(id);
 
         if (Member != null)
             currentParty.Add(Member);
@@ -108,7 +127,7 @@ public class PartyManager : Singleton<PartyManager>
     /// </summary>
     public void RemovePartyMember(int id)
     {
-        EnemyCharacterData Member = currentParty.Find(member => member.id == id);
+        CharacterData Member = currentParty.Find(member => member.id == id);
 
         if (Member != null)
             currentParty.Remove(Member);
@@ -126,10 +145,10 @@ public class PartyManager : Singleton<PartyManager>
 
         if (currentParty.Exists(member => member.id == idToAdd)) return;
 
-        EnemyCharacterData newMember = RpgManager.Instance.UnitSystem.GetUnitDataByID(idToAdd);
+        CharacterData newMember = RpgManager.Instance.UnitSystem.GetUnitDataByID(idToAdd);
         if (newMember != null)
         {
-            EnemyCharacterData oldMember = currentParty[memberIndex];
+            CharacterData oldMember = currentParty[memberIndex];
             currentParty[memberIndex] = newMember;
         }
     }
@@ -143,7 +162,7 @@ public class PartyManager : Singleton<PartyManager>
             indexB < 0 || indexB >= currentParty.Count)
             return;
 
-        EnemyCharacterData temp = currentParty[indexA];
+        CharacterData temp = currentParty[indexA];
         currentParty[indexA] = currentParty[indexB];
         currentParty[indexB] = temp;
     }

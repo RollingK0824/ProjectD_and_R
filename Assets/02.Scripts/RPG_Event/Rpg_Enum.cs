@@ -24,3 +24,8 @@ public enum ShopGrade {Nomal,Rare,Special,Legendary }
 /// </summary>
 public enum TurnState { Rpg, Defance}
 
+/// <summary>
+/// 유닛 등급
+/// </summary>
+public enum UnitGrade { Normal, Rare, Epic, Legendary }
+
