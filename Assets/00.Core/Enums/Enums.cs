@@ -1,12 +1,13 @@
 // Assets/00.Core/Enums/DamageType.cs
 
 using System;
+using Unity.Behavior;
 
 namespace ProjectD_and_R.Enums
 {
     public enum DamageType
     {
-        Pyhsical = 0,   // 물리 데미지
+        Physical = 0,   // 물리 데미지
         Magical = 1,    // 마법 데미지
         TrueDamage = 2, // 방어력 무시 고정 데미지
     }
@@ -63,7 +64,9 @@ namespace ProjectD_and_R.Enums
     public enum SkillEffectType
     {
         None,
-        Damage,
+        PhysicalDamage,
+        MagicalDamage,
+        TrueDamage,
         Heal,
         Buff,
         Debuff,
@@ -71,6 +74,31 @@ namespace ProjectD_and_R.Enums
         Shield,
         Summon,
         Teleport,
+    }
+
+    public enum SkillTargetStatType
+    {
+        None,
+        MaxHealth,
+        CurrentHealth,
+        PhysicalDefense,
+        MagicalResistance,
+        AttackDamage,
+        AttackSpeed,
+        AttackRange,
+        MoveSpeed,
+    }
+
+    public enum SkillTargetingType
+    {
+        None,
+        Self,
+        SingleTarget,
+        AreaOfEffect,
+        RandomTarget,
+        Line,
+        Circle,
+        Cone,
     }
 
     public enum GameEndConditionType
@@ -97,6 +125,7 @@ namespace ProjectD_and_R.Enums
         GameOver
     }
 
+    [BlackboardEnum]
     public enum TurnState
     {
         None,
@@ -104,6 +133,16 @@ namespace ProjectD_and_R.Enums
         DungeonTurn,
         DungeonBattleTurn,
         VillageTurn,
+    }
+
+    public enum CurrentScene
+    {
+        None,
+        Title,
+        Loading,
+        DefenseScene,
+        DungeonScene,
+        DungeonBattleScene,
     }
 
     public enum CharacterRarity

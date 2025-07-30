@@ -16,24 +16,24 @@ MonoBehaviour:
     m_Value0: 15324591267217308114
     m_Value1: 10744324119262007211
   m_Variables:
-  - rid: 1870413710768472970
-  m_VersionTimestamp: 638857900570346583
+  - rid: 3206019082967842956
+  m_VersionTimestamp: 638884450405573265
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: 8546200521939271305}
   references:
     version: 2
     RefIds:
-    - rid: 1870413710768472970
-      type: {class: 'TypedVariableModel`1[[UnityEngine.Vector2Int, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+    - rid: 3206019082967842956
+      type: {class: 'TypedVariableModel`1[[System.Collections.Generic.List`1[[UnityEngine.Vector2Int, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:
-          m_Value0: 5783572234554333903
-          m_Value1: 14678771488981930607
-        Name: EndPoint
+          m_Value0: 14387959686679571938
+          m_Value1: 17740530883229777446
+        Name: EndPoints
         IsExposed: 1
-        m_IsShared: 1
-        m_Value: {x: 0, y: 0}
+        m_IsShared: 0
+        m_Value: []
 --- !u!114 &8546200521939271305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,24 +46,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
   m_Name: DefenseEnemyBB
   m_EditorClassIdentifier: 
-  VersionTimestamp: 638857900570346583
+  VersionTimestamp: 638884450405573265
   AssetID:
     m_Value0: 15324591267217308114
     m_Value1: 10744324119262007211
   m_Blackboard:
     m_Variables:
-    - rid: 1870413710768472971
-  m_SharedBlackboardVariableGuids:
-  - m_Value0: 5783572234554333903
-    m_Value1: 14678771488981930607
+    - rid: 3206019082967842957
+  m_SharedBlackboardVariableGuids: []
   references:
     version: 2
     RefIds:
-    - rid: 1870413710768472971
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector2Int, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+    - rid: 3206019082967842957
+      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.Vector2Int, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
-          m_Value0: 5783572234554333903
-          m_Value1: 14678771488981930607
-        Name: EndPoint
-        m_Value: {x: 0, y: 0}
+          m_Value0: 14387959686679571938
+          m_Value1: 17740530883229777446
+        Name: EndPoints
+        m_Value: []

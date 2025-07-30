@@ -21,6 +21,7 @@ public interface ICharacterStatus
     public void SetCurrentHealth(float value);
     public void SetMaxHealth(float value);
     public void SetPhysicalDefense(float value);
+    public void SetMagicalResistance(float value);
     public void SetAttackDamage(float value);
     public void SetAttackSpeed(float value);
     public void SetAttackRange(float value);

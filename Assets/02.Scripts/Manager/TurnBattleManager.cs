@@ -6,9 +6,28 @@ using System.Linq;
 public class TurnBattleManager : Singleton<TurnBattleManager>
 {
     private List<ICharacterCore> _allCharacters;
+    public List<CharacterCore> Debug_Characters;
     private Queue<ICharacterCore> _turnQueue;
 
     private bool _battleEnded = false;
+
+    private void Start()
+    {
+        TestStartNewRound();
+    }
+
+    public void TestStartNewRound()
+    {
+        _allCharacters = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None)
+            .OfType<ICharacterCore>()
+            .ToList();
+
+        Debug_Characters = _allCharacters
+            .OfType<CharacterCore>()
+            .ToList();
+
+        StartCoroutine(BattleLoop());
+    }
 
     public void StartNewRound()
     {
@@ -16,7 +35,11 @@ public class TurnBattleManager : Singleton<TurnBattleManager>
             .OfType<ICharacterCore>()
             .Where(u => u.CharacterStatus.IsDeployed && u.CharacterStatus.IsAlive)
             .ToList();
-        
+
+        Debug_Characters = _allCharacters
+            .OfType<CharacterCore>()
+            .ToList();
+
         StartCoroutine(BattleLoop());
     }
 
@@ -24,7 +47,7 @@ public class TurnBattleManager : Singleton<TurnBattleManager>
     {
         while(!_battleEnded)
         {
-            if(_turnQueue.Count == 0)
+            if(_turnQueue == null ||_turnQueue.Count == 0)
             {
                 PrepareNewRound();
             }
@@ -33,7 +56,7 @@ public class TurnBattleManager : Singleton<TurnBattleManager>
 
             if (!currentUnit.CharacterStatus.IsAlive)
             {
-                continue;
+                //continue;
             }
 
 #if UNITY_EDITOR
@@ -49,10 +72,15 @@ public class TurnBattleManager : Singleton<TurnBattleManager>
 
     private void PrepareNewRound()
     {
+        //var aliveUnits = _allCharacters
+        //    .Where(u => u.CharacterStatus.IsAlive)
+        //    .OrderByDescending(u => u.CharacterStatus.AttackSpeed)
+        //    .ToList();
+
         var aliveUnits = _allCharacters
-            .Where(u => u.CharacterStatus.IsAlive)
             .OrderByDescending(u => u.CharacterStatus.AttackSpeed)
             .ToList();
+
 
         _turnQueue = new Queue<ICharacterCore>(aliveUnits);
     }

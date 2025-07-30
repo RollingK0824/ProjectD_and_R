@@ -42,7 +42,7 @@ public class DamageableComponent : MonoBehaviour, IDamageable
 
         switch (damageType)
         {
-            case DamageType.Pyhsical:
+            case DamageType.Physical:
                 float physicalDefense = _status.PhysicalDefense;
                 finalDamage = rawDamage * (1 - (physicalDefense / (physicalDefense + 200f)));
                 break;

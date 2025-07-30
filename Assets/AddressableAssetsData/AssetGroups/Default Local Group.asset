@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: c0d59dc206934d1488cfa96a083df8f2
   m_SerializeEntries:
+  - m_GUID: 008054f82c4fcfd4caa7a152bf6da9bc
+    m_Address: Assets/09.GameDatas/BehaviorTree/EnemyAi/BT_SubTree_Dungeon.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 00a6aca6ed44a194fb95e25b92ceed52
     m_Address: Assets/00.Core/ScriptableObject/RoomEnemySpawnData/Case4.asset
     m_ReadOnly: 0
@@ -28,30 +33,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitData
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0fd10d424f4871f418024e10c6b69f66
-    m_Address: Assets/00.Core/ScriptableObject/Items/Consumable/03.Lesser Health
-      Potion 1.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 16eca5d7f759add4290e182435611360
-    m_Address: Assets/00.Core/ScriptableObject/Items/Equipment/07.Steel Longsword.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18b7bbc2b265ac742b63f9f1a6ca6894
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/Nyra.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 18d339832b36344498616b4586bf6471
-    m_Address: Assets/00.Core/ScriptableObject/Items/Equipment/03.Sword.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c98d54ce15304d4abd7a8313ce154a9
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Goblin
@@ -60,24 +46,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitData
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1dad9f8b34bd752499fd72e5bc1fc0f0
-    m_Address: Assets/00.Core/ScriptableObject/Items/Equipment/06.Sturdy Leather
-      Armor.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1fdf86c253fcf3944a21fbeaddeea09e
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Orc 3.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 27be1e3e238a4324ba72575b36221ccc
-    m_Address: Assets/00.Core/ScriptableObject/Items/Consumable/01.BluePotion.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 28bc4f022bf27fc48b3f4bbc9932cddd
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/Tharok.asset
@@ -104,17 +77,16 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39b92f2a02096e549b616811eee4328d
+    m_Address: Assets/03.Prefabs/Characters/DefaultEnemyUnit.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 426297ff1ac5bf44591cb6a2bfd816fc
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Orc 1.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 42fdc3eb0338a084792f8018f01ea321
-    m_Address: Assets/00.Core/ScriptableObject/Items/Equipment/01.Bow.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4322311deb4dc57428209bd22629aadb
     m_Address: Assets/00.Core/ScriptableObject/RoomEnemySpawnData/Case3.asset
@@ -128,12 +100,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitData
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4f83f617bf6ad174180d7ee28901596d
-    m_Address: Assets/00.Core/ScriptableObject/Items/Material/02.Wood.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 505302abde08ea4428d2acaa017ceea8
     m_Address: Assets/00.Core/ScriptableObject/Events/TestEvent1.asset
     m_ReadOnly: 0
@@ -146,24 +112,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitData
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 549e916e9c2a5ed4e91886fe9c40a497
-    m_Address: Assets/00.Core/ScriptableObject/Items/Equipment/04.Spear.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 657d0268f929676499941e9c4b92c3a3
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Spider
       2.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6868a9e565be7de4e88b1f47ef8a1ccb
-    m_Address: Assets/00.Core/ScriptableObject/Items/Consumable/02.RedPotion.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b81996105aae844698f0ea345c1e3ba
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Spider
@@ -172,30 +126,15 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitData
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 75a1e12d014a9d640b2bbdee4b8e8899
-    m_Address: Assets/00.Core/ScriptableObject/Items/Material/01.Stone.asset
+  - m_GUID: 9804d16fc8f377446a830615a9fd64d3
+    m_Address: Assets/03.Prefabs/Characters/DefenseObject.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7e1379c6ab6ac1b46964b15272178bd8
-    m_Address: Assets/00.Core/ScriptableObject/Items/Equipment/09.Guardian's Shield.asset
+  - m_GUID: 99e088a649da32e45bb29aa2dca11c00
+    m_Address: Assets/09.GameDatas/BehaviorTree/EnemyAi/BlackboardManage.asset
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 957ba64785f97be448daffe935806f2d
-    m_Address: Assets/00.Core/ScriptableObject/Items/Consumable/04.Greater Mana Potion.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9844a613e3eb1044999cf343e9538e10
-    m_Address: Assets/00.Core/ScriptableObject/Items/Equipment/08.Exquisite Hunter's
-      Bow.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a00ebd8dedcc74648a3f3456af54ddc5
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/Gromm.asset
@@ -215,6 +154,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - RoomEnemySpawnData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c38a4094daa481048bcae8d77cff9256
+    m_Address: Assets/09.GameDatas/BehaviorTree/EnemyAi/BT_EnemyMain.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c57fce9230f1f87419ac9427a5a0a783
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/Witch.asset
     m_ReadOnly: 0
@@ -233,17 +177,15 @@ MonoBehaviour:
     m_SerializedLabels:
     - EventData
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: db490e2805f6d4e4c8cd025d4e153ae1
-    m_Address: Assets/00.Core/ScriptableObject/Items/Equipment/05.Worn Dagger 1.asset
+  - m_GUID: daa6d55c97e2ad74aaefad3d2a8c1281
+    m_Address: Assets/03.Prefabs/Characters/DefaultUnit.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ede1355eb7a14b74ea131c3f4966cba3
-    m_Address: Assets/00.Core/ScriptableObject/Items/Equipment/02.Gun.asset
+  - m_GUID: e2fe505b61ad15c439f71cc5f49a5716
+    m_Address: Assets/09.GameDatas/BehaviorTree/EnemyAi/BT_SubTree_Defense.asset
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f569d7cbafc2d0249bd9bd7cc1ed54c4
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Goblin
@@ -251,12 +193,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitData
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fb2f9a122452d4444b2991918dfeb2f9
-    m_Address: Assets/00.Core/ScriptableObject/Items/Material/03.Water.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ItemData
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c14d6bce582e76140b027d81158fce26, type: 2}

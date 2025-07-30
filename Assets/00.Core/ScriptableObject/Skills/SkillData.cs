@@ -22,6 +22,11 @@ public class SkillData : ScriptableObject
     public AnimationClip animationClip;
     public AudioClip soundEffect;
 
+    [Header("Targeting")]
+    public SkillTargetingType targetingType;
+    public float defenseRange;
+    public float dungeonRange;
+
     [Header("Effect")]
     public List<SkillEffect> effects; // 복수 효과
 }

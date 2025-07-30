@@ -10,7 +10,7 @@ public class UIManager : Singleton<UIManager>
 
     public List<ICharacterCore> players;
 
-    protected void Awake()
+    protected override void Awake()
     {
         base.Awake();
         players = new List<ICharacterCore>();

@@ -6,6 +6,15 @@ public class SkillComponent : MonoBehaviour, ISkillComponent
     private List<SkillData> _skills = new List<SkillData>();
     public IReadOnlyList<SkillData> Skills => _skills;
 
+    private SkillExecutor _executor;
+    private ICharacterCore _characterCore;
+
+    public void Initialize(ICharacterCore characterCore)
+    {
+        _characterCore = characterCore;
+        _executor = new SkillExecutor();
+    }
+
     public void AddSkill(SkillData skillData)
     {
         _skills.Add(skillData);
@@ -21,20 +30,18 @@ public class SkillComponent : MonoBehaviour, ISkillComponent
         return _skills.Contains(skillData);
     }
 
-    public void UseSkill(int index)
+    public void UseSkill(int index, ICharacterCore target)
     {
         if (!IsValid(index))
         {
 #if UNITY_EDITOR
-            Debug.LogWarning($"유효하지 않은 Index");
+            Debug.LogWarning($"[{this}] / 유효하지 않은 Index");
 #endif
+            return;
         }
         
         SkillData skill = _skills[index];
-#if UNITY_EDITOR
-        Debug.Log($"{skill.skillName}사용");
-#endif
-
+        _executor.Execute(skill, _characterCore, target);
     }
 
     private bool IsValid(int index)

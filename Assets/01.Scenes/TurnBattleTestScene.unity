@@ -1183,6 +1183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfce30715ac4df488eb18bfc195bab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Debug_Characters: []
 --- !u!1 &1480658219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,7 +1486,7 @@ GameObject:
   - component: {fileID: 5602070855210622364}
   - component: {fileID: 1746233816382243067}
   - component: {fileID: 8131998257402752015}
-  - component: {fileID: 654973178507702850}
+  - component: {fileID: 8131998257402752016}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Untagged
@@ -1493,20 +1494,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &654973178507702850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427278718631541597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f555708b55a459a4ba25208bbd8f1f26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentGridPos: {x: 0, y: 0}
-  _objectType: 0
 --- !u!33 &1339045613277387665
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1603,6 +1590,7 @@ GameObject:
   - component: {fileID: 3302819662048726399}
   - component: {fileID: 4390417989730752019}
   - component: {fileID: 5198813566662373480}
+  - component: {fileID: 7860341067739791842}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -1635,7 +1623,6 @@ MonoBehaviour:
   debug_MovableTerrainTypes: 0
   debug_Faction: 0
   debug_ObjectType: 0
-  debug_TurnState: 0
 --- !u!114 &3302819662048726399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1696,7 +1683,6 @@ MonoBehaviour:
   debug_MovableTerrainTypes: 0
   debug_Faction: 0
   debug_ObjectType: 0
-  debug_TurnState: 0
 --- !u!114 &4390417989730752019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1750,7 +1736,7 @@ Transform:
   m_GameObject: {fileID: 3059175725851021141}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60, y: 1, z: 10}
+  m_LocalPosition: {x: 51, y: 1, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1765,7 +1751,7 @@ Transform:
   m_GameObject: {fileID: 427278718631541597}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: 1, z: 10}
+  m_LocalPosition: {x: 49, y: 1, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1886,6 +1872,18 @@ MonoBehaviour:
           m_Value1: 11137732901159063742
         Name: IsAlive
         m_Value: 1
+--- !u!114 &7860341067739791842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059175725851021141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023579f467b6a59488f5e3e6b1d44b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8131998257402752015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1896,6 +1894,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1ccfa0f9b4b5274fb8f07783f4d0a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8131998257402752016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427278718631541597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1cdd0a2d77aef40b39a668b2de3f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807

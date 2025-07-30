@@ -8,5 +8,7 @@ public interface ISkillComponent
     void AddSkill(SkillData skillData);
     void RemoveSkill(SkillData skillData);
     bool HasSkill(SkillData skillData);
-    void UseSkill(int index);
+    void UseSkill(int index, ICharacterCore target);
+
+    void Initialize(ICharacterCore characterCore);
 }

@@ -1,10 +1,12 @@
 
 using ProjectD_and_R.Enums;
+using UnityEngine;
 
-public class SkillEffect
+[CreateAssetMenu(fileName = "NewSkillData", menuName = "ScriptableObjects/Skill/SKillEffect")]
+public class SkillEffect : ScriptableObject
 {
     public SkillEffectType effectType;
-    public int amount;
+    public SkillTargetStatType targetStat;
+    public float amount;
     public float duration;
-    public string targetStat;
 }

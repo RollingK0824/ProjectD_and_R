@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: TestSkill1
   m_EditorClassIdentifier: 
   skillName: TestSkill1
-  description: "\uD14C\uC2A4\uD2B8\uC6A9 \uC2A4\uD0AC 1"
+  description: "\uD14C\uC2A4\uD2B8\uC6A9 \uACF5\uACA9 \uC2A4\uD0AC 1"
   skillIcon: {fileID: 0}
-  cooldown: 0
+  cooldown: 5
+  turnCooldown: 1
   manaCost: 0
+  healthCost: 0
   effectPrefab: {fileID: 0}
   animationClip: {fileID: 0}
   soundEffect: {fileID: 0}
+  effects:
+  - {fileID: 11400000, guid: ea121549da85b6849b23a020a3a4401a, type: 2}

@@ -7,49 +7,135 @@ using UnityEngine.AI;
 using Unity.Behavior;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
+using ProjectD_and_R.Constants;
 
 public class CharacterCore : MonoBehaviour, ICharacterCore
 {
     [Header("Character Data")]
     [SerializeField] private CharacterData _characterData;
-    public CharacterData Data => _characterData;
+    public CharacterData Data
+    {
+        get { return _characterData; }
+        private set
+        {
+            if (value != null)
+            {
+                _characterData = value;
+            }
+        }
+    }
 
     // ----- 인터페이스 ----- //
     private ICharacterStatus _characterStatus;
-    public ICharacterStatus CharacterStatus => _characterStatus;
+    public ICharacterStatus CharacterStatus
+    {
+        get { return _characterStatus; }
+        private set
+        {
+            _characterStatus = value;
+        }
+    }
 
     private IDamageable _damageableComponent;
-    public IDamageable DamageableComponent => _damageableComponent;
+    public IDamageable DamageableComponent
+    {
+        get { return _damageableComponent; }
+        private set
+        {
+            _damageableComponent = value;
+        }
+    }
 
     private IMovable _movementComponent;
-    public IMovable MovementComponent => _movementComponent;
+    public IMovable MovementComponent
+    {
+        get { return _movementComponent; }
+        private set
+        {
+            _movementComponent = value;
+        }
+    }
 
     private IAttacker _attackerComponent;
-    public IAttacker AttackerComponent => _attackerComponent;
+    public IAttacker AttackerComponent
+    {
+        get { return _attackerComponent; }
+        private set
+        { 
+            _attackerComponent = value; 
+        }
+    }
 
     private IDeployable _deployableComponent;
-    public IDeployable DeployableComponent => _deployableComponent;
+    public IDeployable DeployableComponent
+    {
+        get { return _deployableComponent; }
+        private set
+        {
+            _deployableComponent = value;
+        }
+    }
 
     private IEnemyAi _enemyAiComponent;
-    public IEnemyAi EnemyAiComponent => _enemyAiComponent;
+    public IEnemyAi EnemyAiComponent
+    {
+        get { return _enemyAiComponent; }
+        private set
+        {
+            _enemyAiComponent = value;
+        }
+    }
+
 
     private IGridObject _gridObject;
-    public IGridObject GridObject => _gridObject;
+    public IGridObject GridObject
+    {
+        get { return _gridObject; }
+        private set
+        {
+            _gridObject = value;
+        }
+    }
 
     private ISkillComponent _skillComponent;
-    public ISkillComponent SkillComponent => _skillComponent;
-
+    public ISkillComponent SkillComponent
+    {
+        get { return _skillComponent; }
+        private set
+        {
+            _skillComponent = value;
+        }
+    }
     private NavMeshAgent _navMeshAgent;
-    public NavMeshAgent NavMeshAgent => _navMeshAgent;
+    public NavMeshAgent NavMeshAgent
+    {
+        get { return _navMeshAgent; }
+        private set
+        {
+            _navMeshAgent = value;
+        }
+    }
 
     private BehaviorGraphAgent _behaviorGraphAgent;
-    public BehaviorGraphAgent BehaviorGraphAgent => _behaviorGraphAgent;
+    public BehaviorGraphAgent BehaviorGraphAgent
+    {
+        get { return _behaviorGraphAgent; }
+        private set
+        {
+            _behaviorGraphAgent = value;
+        }
+    }
 
-    private ProjectD_and_R.Enums.TurnState _turnState;
-    public ProjectD_and_R.Enums.TurnState TurnState => _turnState;
 
     private ITurnComponent _turnComponent;
-    public ITurnComponent TurnComponent => _turnComponent;
+    public ITurnComponent TurnComponent
+    {
+        get { return _turnComponent; }
+        private set
+        {
+            _turnComponent = value;
+        }
+    }
 
     public GameObject GameObject => gameObject;
 
@@ -66,10 +152,10 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     [SerializeField] private MoveType debug_MovableTerrainTypes;
     [SerializeField] private Faction debug_Faction;
     [SerializeField] private ObjectType debug_ObjectType;
-    [SerializeField] private ProjectD_and_R.Enums.TurnState debug_TurnState;
 
     protected virtual void Awake()
     {
+        /*
         if (_characterData == null)
         {
 #if UNITY_EDITOR
@@ -79,6 +165,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         }
 
         Initialize();
+        */
     }
 
     void Initialize()
@@ -93,10 +180,11 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         TryGetComponent<BehaviorGraphAgent>(out _behaviorGraphAgent);
         TryGetComponent<IGridObject>(out _gridObject);
         TryGetComponent<ITurnComponent>(out _turnComponent);
+        TryGetComponent<ISkillComponent>(out _skillComponent);
 
         RegisterEvents();
 
-        if (_characterStatus != null)
+        if (_characterStatus != null && _characterData != null)
         {
             _characterStatus.Initialize(this);
         }
@@ -124,6 +212,11 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
         if (_gridObject != null)
         {
             _gridObject.Initialize(this);
+        }
+
+        if (_skillComponent != null)
+        {
+            _skillComponent.Initialize(this);
         }
 
         if (_enemyAiComponent != null)
@@ -227,9 +320,15 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
 
         if (EnemyAiComponent != null)
         {
-            EnemyAiComponent.StatusChanged<bool>("IsDeployed", true, true);
-            EnemyAiComponent.StatusChanged<bool>("IsAlive", true, true);
+            EnemyAiComponent.StatusChanged<bool>(StringConstants.BB_IsDeployed, true, true);
+            EnemyAiComponent.StatusChanged<bool>(StringConstants.BB_IsAlive, true, true);
         }
+
+        if (_characterData.ObjectType == ObjectType.DefenseTarget)
+        {
+            StageManager.Instance.RegisterStageUnit(this);
+        }
+
     }
     private void HandleCharacterUndeployed() { CharacterStatus.SetIsDeployed(false); }
     private void HandleSpecificStatusChangedForDebug(string statusName, float oldValue, float newValue)
@@ -317,7 +416,7 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
                 break;
             case FinishedActionRequset:
                 var finishedRequest = request as FinishedActionRequset;
-                if(finishedRequest != null)
+                if (finishedRequest != null)
                 {
                     _turnComponent?.NotifyActionFinished();
                 }
@@ -340,8 +439,5 @@ public class CharacterCore : MonoBehaviour, ICharacterCore
     public void MoveCharacterTo(Vector3 targetPosition) => _movementComponent?.Move(targetPosition);
     public void Attack() => _attackerComponent?.TryAttack();
     public void DeployCharacter(Vector3 position, Quaternion rotation) => _deployableComponent?.Deploy(position, rotation);
-    public void SetTurnState(ProjectD_and_R.Enums.TurnState turnState)
-    {
-        if (_turnState != turnState) _turnState = turnState;
-    }
+    public void SetData(CharacterData characterData) => Data = characterData;
 }

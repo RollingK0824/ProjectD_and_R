@@ -247,6 +247,7 @@ public class CharacterStatus : ICharacterStatus
     public void SetCurrentHealth(float value) => CurrentHealth = value;
     public void SetMaxHealth(float value) => MaxHealth = value;
     public void SetPhysicalDefense(float value) => PhysicalDefense = value;
+    public void SetMagicalResistance(float value) => MagicalResistance = value;
     public void SetAttackDamage(float value) => AttackDamage = value;
     public void SetAttackSpeed(float value) => AttackSpeed = value;
     public void SetAttackRange(float value) => AttackRange = value;

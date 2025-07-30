@@ -16,9 +16,10 @@ MonoBehaviour:
   stageStartTimeOffset: 3
   endPoint: {x: 20, y: 20}
   spawnSequence:
-  - enemyType: Assets/03.Prefabs/Characters/TestEnemy.prefab
-    count: 5
+  - enemyType: 
+    characterData: {fileID: 11400000, guid: 0982978073c74844cb5f66e051b5456c, type: 2}
+    count: 1
     spawnDelay: 3
     spawnPoint: {x: 0, y: 0}
-    endPoint: {x: 0, y: 0}
+    endPoint: {x: 20, y: 20}
   stageConditionData: {fileID: 11400000, guid: dd977b860fc03ba45857bb45aa13fead, type: 2}

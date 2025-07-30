@@ -12,25 +12,19 @@ public class DeployableComponent : MonoBehaviour, IDeployable
     public event Action OnDeployed;
     public event Action OnUnDeployed;
 
+    public void Deploy(Vector2Int position, Quaternion rotation)
+    {
+        if (_characterStatus.IsDeployed) return;
+        Vector3 deployPos = GridManager.Instance.GridToWorldPos(position);
+
+        Deploy(deployPos, rotation);
+    }
+
     public void Deploy(Vector3 position, Quaternion rotation)
     {
         if (_characterStatus.IsDeployed) return;
 
         transform.position = position;
-        transform.rotation = rotation;
-        gameObject.SetActive(true);
-
-#if UNITY_EDITOR
-        Debug.Log($"{gameObject.name}:{gameObject.GetInstanceID()}유닛 {position}배치");
-#endif
-        OnDeployed?.Invoke();
-    }
-
-    public void Deploy(Vector2Int position, Quaternion rotation)
-    {
-        if (_characterStatus.IsDeployed) return;
-
-        transform.position = GridManager.Instance.GridToWorldPos(position);
         transform.rotation = rotation;
         gameObject.SetActive(true);
 

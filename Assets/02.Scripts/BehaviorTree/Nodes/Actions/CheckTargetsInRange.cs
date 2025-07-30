@@ -37,7 +37,7 @@ public partial class CheckTargetsInRange : Action
         {
             if (target.GameObject == Self.Value) continue;
 
-            if (target.ObjectType == ProjectD_and_R.Enums.ObjectType.Player || target.ObjectType == ProjectD_and_R.Enums.ObjectType.Obstacle)
+            if (target.ObjectType == ProjectD_and_R.Enums.ObjectType.Player || target.ObjectType == ProjectD_and_R.Enums.ObjectType.Obstacle || target.ObjectType == ProjectD_and_R.Enums.ObjectType.DefenseTarget)
             {
                 float distance = Vector2.Distance(currentGridPos, target.CurrentGridPos);
 
