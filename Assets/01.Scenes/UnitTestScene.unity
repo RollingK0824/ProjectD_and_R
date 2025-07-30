@@ -2505,19 +2505,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentStageInfo: {fileID: 11400000, guid: a64dc5ac399b98843a0d7fde180bcad2, type: 2}
   _agent: {fileID: 1853658429}
-  currentEnemyKillCount:
-    GUID:
-      m_Value0: 0
-      m_Value1: 0
-    Name: 
-    m_Value: 0
-  currentPlayerDeathCount:
-    GUID:
-      m_Value0: 0
-      m_Value1: 0
-    Name: 
-    m_Value: 0
   BB_variableKeys: []
+  defenseObjectPrefab: {fileID: 0}
 --- !u!4 &1853658428
 Transform:
   m_ObjectHideFlags: 0

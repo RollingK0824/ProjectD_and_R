@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TestAttackSkillEffect
   m_EditorClassIdentifier: 
   effectType: 1
-  targetStat: 0
+  targetStat: 5
   amount: 1.5
   duration: 0

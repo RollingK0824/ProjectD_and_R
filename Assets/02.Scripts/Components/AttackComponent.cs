@@ -96,7 +96,7 @@ public class AttackComponent : MonoBehaviour, IAttacker
                 if (_status.Faction != targetCore.Data.Faction) // 진영이 다를 때만 공격
                 {
                     //targetCore.ReceiveDamage(_status.AttackDamage, DamageType.Pyhsical);
-                    damageableTarget.TakeDamage(_status.AttackDamage, DamageType.Pyhsical);
+                    damageableTarget.TakeDamage(_status.AttackDamage, DamageType.Physical);
                     /* 스킬 수행 예정 */
 #if UNITY_EDITOR
                     Debug.Log($"{gameObject.GetComponent<CharacterCore>().Data.CharacterName}:{gameObject.GetInstanceID()}이 {targetCore.Data.CharacterName}:{targetCore.GetInstanceID()}을 공격");
@@ -116,7 +116,7 @@ public class AttackComponent : MonoBehaviour, IAttacker
         {
             if (_status.Faction != targetCore.Data.Faction) // 진영이 다를 때만 공격
             {
-                damageableTarget.TakeDamage(_status.AttackDamage, DamageType.Pyhsical);
+                damageableTarget.TakeDamage(_status.AttackDamage, DamageType.Physical);
                 /* 스킬 수행 예정 */
 #if UNITY_EDITOR
                 Debug.Log($"{gameObject.GetComponent<CharacterCore>().Data.CharacterName}이 {targetCore.Data.CharacterName}을 공격");

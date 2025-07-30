@@ -7,7 +7,7 @@ namespace ProjectD_and_R.Enums
 {
     public enum DamageType
     {
-        Pyhsical = 0,   // 물리 데미지
+        Physical = 0,   // 물리 데미지
         Magical = 1,    // 마법 데미지
         TrueDamage = 2, // 방어력 무시 고정 데미지
     }
@@ -66,6 +66,7 @@ namespace ProjectD_and_R.Enums
         None,
         PhysicalDamage,
         MagicalDamage,
+        TrueDamage,
         Heal,
         Buff,
         Debuff,
@@ -86,6 +87,18 @@ namespace ProjectD_and_R.Enums
         AttackSpeed,
         AttackRange,
         MoveSpeed,
+    }
+
+    public enum SkillTargetingType
+    {
+        None,
+        Self,
+        SingleTarget,
+        AreaOfEffect,
+        RandomTarget,
+        Line,
+        Circle,
+        Cone,
     }
 
     public enum GameEndConditionType
