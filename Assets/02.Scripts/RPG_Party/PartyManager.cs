@@ -166,4 +166,6 @@ public class PartyManager : Singleton<PartyManager>
         currentParty[indexA] = currentParty[indexB];
         currentParty[indexB] = temp;
     }
+
+
 }

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f233ddb82bcab498e2e60d2a04d4c8, type: 3}
+  m_Name: 11.Guardian's necklace
+  m_EditorClassIdentifier: 
+  Item_ID: 1011
+  Item_Name: "\uC218\uD638\uC790\uC758 \uBAA9\uAC78\uC774"
+  Type: 1
+  Grade: 2
+  Price: 300
+  Item_Description: "\uB9C8\uBC95 \uBB38\uC591\uC774 \uC0C8\uACA8\uC9C4 \uBC29\uD328\uB85C,
+    \uBB3C\uB9AC \uACF5\uACA9\uBFD0\uB9CC \uC544\uB2C8\uB77C \uC57D\uAC04\uC758 \uB9C8\uBC95
+    \uC800\uD56D\uB825\uB3C4 \uC9C0\uB2C8\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
+  Attack: 1
+  Defense: 2
+  AttackSpeed: 3
+  Health: 4
+  Speed: 5
+  SpeacialAbility: {fileID: 0}

@@ -9,4 +9,7 @@ public class EquipItem : ItemData
     public float AttackSpeed;
     public int Health;
     public float Speed;
+
+    [Header("특수능력")]
+    public IAbility SpeacialAbility;
 }
