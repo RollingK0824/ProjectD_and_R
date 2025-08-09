@@ -1,15 +1,16 @@
 using UnityEngine;
+using UnityEditor.U2D;
 
 public class SimpleCameraController : MonoBehaviour
 {
-    //Àá±ñ Å¬¸¯ Å×½ºÆ®¿ëÀ¸·Î ÁöÇÇÆ¼ÇÑÅ× °¡Á®¿È
+    //ì ê¹ í´ë¦­ í…ŒìŠ¤íŠ¸ìš©ìœ¼ë¡œ ì§€í”¼í‹°í•œí…Œ ê°€ì ¸ì˜´
 
-    public float moveSpeed = 10f;             // ÀÌµ¿ ¼Óµµ
-    public float zoomSpeed = 20f;             // ÁÜ ¼Óµµ
-    public float rotationSpeed = 3f;          // È¸Àü ¼Óµµ
+    public float moveSpeed = 10f;             // ì´ë™ ì†ë„
+    public float zoomSpeed = 20f;             // ì¤Œ ì†ë„
+    public float rotationSpeed = 3f;          // íšŒì „ ì†ë„
 
-    private float pitch = 0f;                 // »óÇÏ È¸Àü°ª (°í°³ µé±â/¼÷ÀÌ±â)
-    private float yaw = 0f;                   // ÁÂ¿ì È¸Àü°ª
+    private float pitch = 0f;                 // ìƒí•˜ íšŒì „ê°’ (ê³ ê°œ ë“¤ê¸°/ìˆ™ì´ê¸°)
+    private float yaw = 0f;                   // ì¢Œìš° íšŒì „ê°’
 
     void Start()
     {
@@ -20,25 +21,25 @@ public class SimpleCameraController : MonoBehaviour
 
     void Update()
     {
-        // ÀÌµ¿ (WASD)
+        // ì´ë™ (WASD)
         float h = Input.GetAxis("Horizontal"); // A, D
         float v = Input.GetAxis("Vertical");   // W, S
         Vector3 moveDir = (transform.forward * v + transform.right * h).normalized;
         transform.position += moveDir * moveSpeed * Time.deltaTime;
 
-        // ÁÜ (¸¶¿ì½º ÈÙ)
+        // ì¤Œ (ë§ˆìš°ìŠ¤ íœ )
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         transform.position += transform.forward * scroll * zoomSpeed;
 
-        // È¸Àü (¸¶¿ì½º ¿ìÅ¬¸¯ µå·¡±×)
-        if (Input.GetMouseButton(1)) // ¿ìÅ¬¸¯
+        // íšŒì „ (ë§ˆìš°ìŠ¤ ìš°í´ë¦­ ë“œë˜ê·¸)
+        if (Input.GetMouseButton(1)) // ìš°í´ë¦­
         {
             float mouseX = Input.GetAxis("Mouse X");
             float mouseY = Input.GetAxis("Mouse Y");
 
             yaw += mouseX * rotationSpeed;
             pitch -= mouseY * rotationSpeed;
-            pitch = Mathf.Clamp(pitch, -80f, 80f); // °í°³ ³Ê¹« ²ªÀÌÁö ¾Êµµ·Ï Á¦ÇÑ
+            pitch = Mathf.Clamp(pitch, -80f, 80f); // ê³ ê°œ ë„ˆë¬´ êº¾ì´ì§€ ì•Šë„ë¡ ì œí•œ
 
             transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
         }
