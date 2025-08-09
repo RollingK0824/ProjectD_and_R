@@ -7,6 +7,7 @@ using NUnit.Framework;
 public class SkillData : ScriptableObject
 {
     [Header("Info")]
+    public string skillId; // 스킬 ID
     public string skillName;
     public string description;
     public Sprite skillIcon;
@@ -23,11 +24,10 @@ public class SkillData : ScriptableObject
     public AudioClip soundEffect;
 
     [Header("Targeting")]
-    public SkillTargetingType targetingType;
+    public SkillTargetingType targetingType; // 스킬 타겟팅 타입
     public float defenseRange;
     public float dungeonRange;
 
     [Header("Effect")]
-    public List<SkillEffect> effects; // 복수 효과
+    public List<SkillEffect> effects; // 스킬 효과
 }
-

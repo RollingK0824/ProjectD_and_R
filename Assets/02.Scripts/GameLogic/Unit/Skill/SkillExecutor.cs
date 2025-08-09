@@ -10,9 +10,7 @@ public class SkillExecutor
     {
         _strategies = new Dictionary<ProjectD_and_R.Enums.SkillEffectType, ISkillEffectStrategy>
         {
-            { ProjectD_and_R.Enums.SkillEffectType.PhysicalDamage, new PhysicalDamageEffectStrategy() },
-            { ProjectD_and_R.Enums.SkillEffectType.MagicalDamage, new MagicalDamageEffectStrategy() },
-            { ProjectD_and_R.Enums.SkillEffectType.TrueDamage, new TrueDamageEffectStrategy() },
+            { ProjectD_and_R.Enums.SkillEffectType.Damage, new PhysicalDamageEffectStrategy() },
             { ProjectD_and_R.Enums.SkillEffectType.Heal, new HealEffectStrategy() },
         };
     }
@@ -58,13 +56,11 @@ public class SkillExecutor
                 break;
             case SkillTargetingType.AreaOfEffect:
                 break;
-            case SkillTargetingType.RandomTarget:
+            case SkillTargetingType.AllEnemies:
                 break;
-            case SkillTargetingType.Line:
+            case SkillTargetingType.AllAllies:
                 break;
-            case SkillTargetingType.Circle:
-                break;
-            case SkillTargetingType.Cone:
+            case SkillTargetingType.Random:
                 break;
             default:
                 break;

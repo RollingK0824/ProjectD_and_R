@@ -1,4 +1,19 @@
+using ProjectD_and_R.Enums;
 using UnityEngine;
+
+public class DamageEffectStrategy : ISkillEffectStrategy
+{
+    public void Apply(ICharacterCore caster, ICharacterCore target, SkillEffect effect)
+    {
+        if (caster == null || target == null || effect == null)
+        {
+            float damageAmount = effect.amount;
+            DamageType damageType = effect.damageType;
+
+            target.DamageableComponent.TakeDamage(damageAmount, damageType);
+        }
+    }
+}
 
 public class PhysicalDamageEffectStrategy : ISkillEffectStrategy
 {

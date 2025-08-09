@@ -52,6 +52,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22f0720b71dd9a345aa2caf45e363eda
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/TestUnit/TestDealer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 28bc4f022bf27fc48b3f4bbc9932cddd
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/Tharok.asset
     m_ReadOnly: 0
@@ -82,6 +87,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 418c9b71fc5fdc144b3629dde6b5b276
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Goblin/Goblin
+      Raider.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 426297ff1ac5bf44591cb6a2bfd816fc
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Orc 1.asset
     m_ReadOnly: 0
@@ -93,6 +104,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - RoomEnemySpawnData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dca5df7448c23941a84e8e325920667
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Goblin/Goblin
+      Archer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e3541eb7180bd94d982953ae0f16c51
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/Vexia.asset
@@ -112,6 +129,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 549d7eb1efa621141a5bba61730d690e
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Goblin/Goblin
+      Chieftain.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 657d0268f929676499941e9c4b92c3a3
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Spider
       2.asset
@@ -119,12 +142,23 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a0a8f67ca00a4e4e898f568205e8745
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/TestUnit/TestSupporter.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b81996105aae844698f0ea345c1e3ba
     m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Spider
       3.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e4baa2c9b377ff4eb202cbc74cc1224
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Goblin/Goblin
+      Shaman.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9804d16fc8f377446a830615a9fd64d3
     m_Address: Assets/03.Prefabs/Characters/DefenseObject.prefab
@@ -141,6 +175,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2d06e69ead1859469f8994ec10c07c3
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/PlayerData/TestUnit/TestTank.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a4057d207769dbd4dae22f561dacb7dd
     m_Address: Assets/00.Core/ScriptableObject/RoomEnemySpawnData/Case1.asset
@@ -177,8 +216,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - EventData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6b5280114162874f9611a00cc33285c
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Goblin/Goblin
+      Lord.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: daa6d55c97e2ad74aaefad3d2a8c1281
     m_Address: Assets/03.Prefabs/Characters/DefaultUnit.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2464880f3b65e842860d82d72565a9b
+    m_Address: Assets/09.GameDatas/ScriptableObject/CharacterData/EnemyData/Goblin/Goblin
+      Bomber.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

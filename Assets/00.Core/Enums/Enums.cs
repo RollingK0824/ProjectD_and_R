@@ -2,14 +2,16 @@
 
 using System;
 using Unity.Behavior;
+using UnityEngine;
 
 namespace ProjectD_and_R.Enums
 {
     public enum DamageType
     {
-        Physical = 0,   // 물리 데미지
-        Magical = 1,    // 마법 데미지
-        TrueDamage = 2, // 방어력 무시 고정 데미지
+        None = 0,
+        Physical = 1,   // 물리 데미지
+        Magical = 2,    // 마법 데미지
+        TrueDamage = 3, // 방어력 무시 고정 데미지
     }
 
     [Flags]
@@ -51,6 +53,7 @@ namespace ProjectD_and_R.Enums
 
     public enum ActionType
     {
+        None,
         Deploy,
         Move,
         Attack,
@@ -59,46 +62,6 @@ namespace ProjectD_and_R.Enums
         Idle,
         Die,
         Finished,
-    }
-
-    public enum SkillEffectType
-    {
-        None,
-        PhysicalDamage,
-        MagicalDamage,
-        TrueDamage,
-        Heal,
-        Buff,
-        Debuff,
-        Stun,
-        Shield,
-        Summon,
-        Teleport,
-    }
-
-    public enum SkillTargetStatType
-    {
-        None,
-        MaxHealth,
-        CurrentHealth,
-        PhysicalDefense,
-        MagicalResistance,
-        AttackDamage,
-        AttackSpeed,
-        AttackRange,
-        MoveSpeed,
-    }
-
-    public enum SkillTargetingType
-    {
-        None,
-        Self,
-        SingleTarget,
-        AreaOfEffect,
-        RandomTarget,
-        Line,
-        Circle,
-        Cone,
     }
 
     public enum GameEndConditionType
@@ -153,4 +116,82 @@ namespace ProjectD_and_R.Enums
         Unique,
     }
 
+
+    // ----- Skill Enum ----- //
+    public enum SkillEffectType // 스킬 효과 타입
+    {
+        None,
+        Damage,             // 데미지
+        Heal,               // 힐
+        StatModify,         // 버프 / 디버프
+        CrowdControl,       // 군중 제어기
+        Shield,             // 보호막
+        Summon,             // 소환
+        Teleport,           // 순간이동
+    }
+
+    public enum SkillOptionType // 스킬 옵션 타입
+    {
+        None,
+
+        // ----- 범위 / 전파 방식  ----- //
+        Area,               // 범위 효과 여부
+        ChainEffect,        // 연쇄 효과
+        Piercing,           // 관통 효과
+        Projectile,         // 투사체 효과
+        MaxTargetCount,     // 최대 타겟 수
+
+        // ----- 지속 시간 / 조건  ----- //
+        DamageOverTime,     // 지속 피해
+        DelayBeforeApply,   // 적용 전 지연 시간
+        ChanceToApply,      // 적용 확률
+
+        // ----- 기타 ----- //
+        Knockback,          // 넉백 효과 
+        Homing,             // 추적 효과
+    }
+
+    public enum CrowdControlType    // 군중 제어 타입
+    {
+        None,
+        Stun,               // 기절 행동 불가
+        Silence,            // 침묵 스킬 사용 불가
+        Root,               // 속박 이동 불가
+        Slow,               // 이동 속도 감소
+    }
+
+    public enum SkillTargetStatType // 스킬 타겟 스탯 타입
+    {
+        None,
+        MaxHealth,
+        CurrentHealth,
+        PhysicalDefense,
+        MagicalResistance,
+        AttackDamage,
+        AttackSpeed,
+        AttackRange,
+        MoveSpeed,
+    }
+
+    public enum SkillTargetingType  // 스킬 타겟팅 타입
+    {
+        None,
+        Self,
+        SingleTarget,
+        AreaOfEffect,
+        AllEnemies,
+        AllAllies,
+        Random,
+    }
+
+    public enum SkillAreaShape
+    {
+        None,
+        Circle,
+        Cone,
+        Rectangle,
+        Line,
+        Sector,
+        Ring,
+    }
 }
