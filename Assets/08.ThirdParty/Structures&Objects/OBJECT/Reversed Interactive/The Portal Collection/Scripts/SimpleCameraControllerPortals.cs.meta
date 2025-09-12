@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/04.Art/Structures&Objects/Reversed Interactive/The Portal Collection/Scripts/SimpleCameraControllerPortals.cs.meta
+guid: e8a636f62116c0a40bbfefdf876d4608
+========
+guid: f9ea0e1abd659804bbace36c773c879a
+>>>>>>>> origin/dev:Assets/00.Core/Interfaces/ICharacterCore.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

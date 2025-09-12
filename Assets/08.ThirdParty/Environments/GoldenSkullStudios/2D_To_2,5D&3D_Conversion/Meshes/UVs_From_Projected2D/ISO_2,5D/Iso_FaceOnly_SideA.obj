@@ -1,0 +1,16 @@
+# OBJ written from C:\Users\Max\Desktop\TMP\GSS\2,5D\ISO\Iso_FaceOnly_SideA.obj
+mtllib Iso_FaceOnly_SideA.mtl
+# Units	meters
+
+g Mesh
+v -0.5 -1 -0.5
+v 0.5 -1 -0.5
+v -0.5 0 -0.5
+v 0.5 0 -0.5
+vn 0 0 -1
+vt 0.124999 0.778888
+vt 0.502024 0.59958
+vt 0.502024 0.0623106
+vt 0.124999 0.255115
+usemtl Default
+f 3/1/1 4/2/1 2/3/1 1/4/1

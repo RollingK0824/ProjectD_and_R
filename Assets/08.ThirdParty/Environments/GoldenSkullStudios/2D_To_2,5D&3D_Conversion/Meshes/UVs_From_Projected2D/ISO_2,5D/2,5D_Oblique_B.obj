@@ -1,0 +1,23 @@
+# OBJ written from C:\Users\Max\Desktop\TMP\GSS\2,5D\ISO\2,5D_Oblique_B.obj
+mtllib 2,5D_Oblique_B.mtl
+# Units	meters
+
+g Mesh
+v -0.5 -1 -0.5
+v 0.5 -1 -0.5
+v -0.5 0 -0.5
+v 0.5 0 -0.5
+v 0.5 0 0.5
+v -0.5 0 0.5
+vn 0 0 -1
+vn 0 1 0
+vt 0.124999 0.778888
+vt 0.502024 0.59958
+vt 0.502024 0.0623106
+vt 0.124999 0.255115
+vt 0.502024 0.599146
+vt 0.875001 0.776958
+vt 0.502024 0.956701
+usemtl Default
+f 3/1/1 4/2/1 2/3/1 1/4/1
+f 3/1/2 6/5/2 5/6/2 4/7/2

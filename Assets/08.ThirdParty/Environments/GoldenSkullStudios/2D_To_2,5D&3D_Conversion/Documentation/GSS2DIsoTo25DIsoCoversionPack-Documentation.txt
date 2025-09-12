@@ -1,0 +1,64 @@
+Golden Skull Studios
+2D Iso To 2,5D Iso Conversion Pack
+
+
+Introduction
+
+
+Thank you!
+If you are reading this, it means you have either bought the package or received a version from a kind friend. 
+We want to say thank you! Thank you for your interest in our works, thank you for getting the package and taking action to use it. We want to see the package in action and see many creations being made from it. If you have created something with it, share it with us on Twitter, Facebook, send us E-Mails and we will feature you! 
+Looking forward to seeing your creations.
+Hope you’ll have loads of fun.
+
+Within the next months, we plan to release a Tool which you can use to build and paint your worlds with ease. It will work within the Unity editor where you plan out and paint your maps, save and load maps or map chunks and much more useful scripts to build your own maps without much effort and time. Our goal is to increase your productivity, creativity and support you to focus on what is really important: designing the game.
+
+Get in touch via
+Website: www.goldenskullstudios.com
+E-Mail goldenskullstudios@gmail.com
+Facebook: https://www.facebook.com/goldenskullstudios
+Twitter @GoldenSkullDev
+Unity Asset Store https://www.assetstore.unity3d.com/en/#!/publisher/10686
+
+
+Package Contents
+Summary
+13 Tiles
+27 OBJ Mesh Files
+28 Prefabs
+2 Example Scenes
+1 Documentation
+
+
+Sprite Overview
+7 Isometric Sprites:
+Dirt
+Sand
+Water
+Grass
+PatchyGrass
+StoneWall
+Template
+
+6 Hexagonal Sprites:
+Dirt
+Sand
+Water
+Grass
+Stone
+Template
+
+Optimization Tips
+Since many tiles can be very heavy on the resources, especially with a lot of different materials on them, you should consider optimizing your scenery for best performance. 
+
+1) Create a Texture Atlas for your Worlds. Choose your favourite tool to create texture atlases for the level you built. If you can have static worlds you can use Simple LOD to merge the meshes, create LODs and create the Texture Atlas ONLY for the merged mesh: https://www.assetstore.unity3d.com/en/#!/content/25366
+
+Alternatively if you do not want to use a texture atlas for dynamic obects, you can manually sort tiles in Photoshop or use Texture Packer, then use UVee https://www.assetstore.unity3d.com/en/#!/content/6933 to move and scale each tile’s UVs to its texture.
+
+2) Merge your Static Chunks! For this you can either use SimpleLOD or SimpleMeshCombine: https://www.assetstore.unity3d.com/en/#!/content/8748
+
+If you have more questions, please reach out to: goldenskullstudios@gmail.com
+
+We usually answer all mails within a few hours. If not, we are probably fighting demons and saving the world once again!
+
+We will try to setup an IRC and Forums really soon for more immediate replies.
